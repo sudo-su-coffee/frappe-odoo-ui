@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Odoo | Open Source ERP and CRM</title>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter for clean UI, Caveat & Kalam for authentic handwritten annotations -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Inter:wght@400;500;600;700;800&amp;family=Kalam:wght@700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            odoo: {
+              purple: '#714B67',
+              purpleHover: '#5e3e56',
+              purpleLight: '#F3EEF2',
+              purpleMuted: '#EAE6EB',
+              teal: '#00A09D',
+              tealHover: '#008784',
+              highlight: '#F6B426',
+              dark: '#1F2937',
+              grayBg: '#F8F9FD',
+              cardBorder: '#EAECF0'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            handwriting: ['Caveat', 'cursive'],
+            brush: ['Kalam', 'cursive']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Hand-drawn Badges, SVGs, and Curved Backgrounds -->
+<style data-purpose="custom-typography">
+    .highlight-pill {
+      position: relative;
+      display: inline-block;
+      white-space: nowrap;
+      padding: 0 12px;
+      z-index: 1;
+    }
+    .highlight-pill::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      right: -8px;
+      top: 6%;
+      bottom: 6%;
+      background: #F6B426;
+      border-radius: 40px 32px 36px 28px;
+      transform: rotate(-1.4deg) skewX(-2deg);
+      z-index: -1;
+      opacity: 0.95;
+    }
+
+    .handwritten-arrow {
+      transform: rotate(-4deg);
+    }
+  </style>
+<style data-purpose="app-card-styling">
+    .app-card {
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .app-card:hover {
+      transform: translateY(-5px);
+    }
+    .app-card:hover .app-icon-wrapper {
+      box-shadow: 0 16px 28px -6px rgba(113, 75, 103, 0.18), 0 6px 12px -4px rgba(0, 0, 0, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased overflow-x-hidden selection:bg-[#714B67]/20 selection:text-[#714B67]">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Left side: Brand Logo & Navigation Links -->
+<div class="flex items-center space-x-10">
+<!-- Odoo Brand Logo -->
+<a aria-label="Odoo Homepage" class="flex items-center group" href="#">
+<svg class="h-9 w-auto" fill="none" viewbox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+<!-- o -->
+<path d="M19.5 28C13.7 28 9 23.3 9 17.5C9 11.7 13.7 7 19.5 7C25.3 7 30 11.7 30 17.5C30 23.3 25.3 28 19.5 28ZM19.5 12.2C16.6 12.2 14.3 14.5 14.3 17.5C14.3 20.4 16.6 22.7 19.5 22.7C22.4 22.7 24.7 20.4 24.7 17.5C24.7 14.5 22.4 12.2 19.5 12.2Z" fill="#714B67"></path>
+<!-- d -->
+<path d="M49 7V27.5H44V24.8C42.4 26.8 39.8 28 36.8 28C31.5 28 27.2 23.5 27.2 17.5C27.2 11.5 31.5 7 36.8 7C39.8 7 42.4 8.2 44 10.2V7H49ZM38.1 12.2C35.2 12.2 32.7 14.5 32.7 17.5C32.7 20.5 35.2 22.8 38.1 22.8C41 22.8 43.5 20.5 43.5 17.5C43.5 14.5 41 12.2 38.1 12.2Z" fill="#714B67"></path>
+<!-- o -->
+<path d="M60.5 28C54.7 28 50 23.3 50 17.5C50 11.7 54.7 7 60.5 7C66.3 7 71 11.7 71 17.5C71 23.3 66.3 28 60.5 28ZM60.5 12.2C57.6 12.2 55.3 14.5 55.3 17.5C55.3 20.4 57.6 22.7 60.5 22.7C63.4 22.7 65.7 20.4 65.7 17.5C65.7 14.5 63.4 12.2 60.5 12.2Z" fill="#00A09D"></path>
+<!-- o -->
+<path d="M82.5 28C76.7 28 72 23.3 72 17.5C72 11.7 76.7 7 82.5 7C88.3 7 93 11.7 93 17.5C93 23.3 88.3 28 82.5 28ZM82.5 12.2C79.6 12.2 77.3 14.5 77.3 17.5C77.3 20.4 79.6 22.7 82.5 22.7C85.4 22.7 87.7 20.4 87.7 17.5C87.7 14.5 85.4 12.2 82.5 12.2Z" fill="#714B67"></path>
+</svg>
+</a>
+<!-- Desktop Navigation Items -->
+<nav class="hidden md:flex items-center space-x-7 text-[15px] font-medium text-gray-700">
+<div class="relative group">
+<button class="flex items-center space-x-1 hover:text-[#714B67] py-2 transition">
+<span>Apps</span>
+<svg class="w-4 h-4 text-gray-500 group-hover:text-[#714B67] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<a class="hover:text-[#714B67] transition" href="#industries">Industries</a>
+<a class="hover:text-[#714B67] transition" href="#community">Community</a>
+<a class="hover:text-[#714B67] transition" href="#pricing">Pricing</a>
+<a class="hover:text-[#714B67] transition" href="#help">Help</a>
+</nav>
+</div>
+<!-- Right side: Sign in & Try it free CTA -->
+<div class="flex items-center space-x-6">
+<a class="text-[15px] font-medium text-gray-700 hover:text-[#714B67] transition" href="#signin">
+          Sign in
+        </a>
+<a class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-[#714B67] hover:bg-[#5e3e56] shadow-sm hover:shadow transition-all duration-150 active:scale-95" href="#try-free">
+          Try it free
+        </a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-12 pb-24 md:pt-16 md:pb-28 bg-white overflow-hidden text-center">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Main Headline with handwritten markers -->
+<h1 class="text-4xl sm:text-5xl md:text-[62px] leading-[1.18] font-bold tracking-tight text-[#1F2937] max-w-4xl mx-auto font-sans">
+        All your business on 
+        <span class="highlight-pill text-gray-900 inline-block">one platform.</span>
+<br class="hidden sm:inline"/>
+        Simple, efficient, yet 
+        <span class="relative inline-block">
+          affordable!
+          <!-- Handwritten Cyan Curve Underline -->
+<svg class="absolute -bottom-3.5 left-0 w-full overflow-visible" fill="none" height="18" viewbox="0 0 160 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 13C35 4.5 115 2 155 11C138 18 108 19 82 17" stroke="#00A09D" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5"></path>
+</svg>
+</span>
+</h1>
+<!-- Primary Action Buttons & Price Callout with hand-drawn arrow -->
+<div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 relative">
+<!-- Start Now CTA -->
+<a class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-[#714B67] hover:bg-[#5e3e56] text-white font-semibold text-[16px] shadow-sm hover:shadow-md transition-all duration-150 transform hover:-translate-y-0.5" href="#register">
+          Start now - It's free
+        </a>
+<!-- Meet an Advisor CTA -->
+<a class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-[#EAE6EB] hover:bg-[#ded7df] text-[#714B67] font-semibold text-[16px] transition-all duration-150 transform hover:-translate-y-0.5" href="#advisor">
+          Meet an advisor
+        </a>
+<!-- Handwritten Pricing Annotation & Arrow -->
+<div class="hidden lg:flex items-start absolute -right-4 top-2 translate-x-full -translate-y-2 pointer-events-none select-none text-left">
+<!-- Curving Hand-drawn Arrow SVG -->
+<svg class="w-16 h-14 text-[#714B67] mr-1 mt-1 shrink-0" fill="none" viewbox="0 0 70 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4C28 14 52 24 55 42M55 42L43 41M55 42L59 30" stroke="#714B67" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+</svg>
+<div class="leading-none pt-4">
+<span class="font-handwriting font-bold text-3xl text-[#714B67] block tracking-tight">
+              US$ 24.90 / month
+            </span>
+<span class="font-handwriting font-bold text-2xl text-[#714B67] block mt-0.5 ml-3">
+              for ALL apps
+            </span>
+</div>
+</div>
+</div>
+<!-- Trust Badges Strip -->
+<div class="mt-9 flex items-center justify-center space-x-6 text-xs sm:text-sm text-gray-500 font-medium">
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-[#00A09D]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          No credit card required
+        </span>
+<span class="text-gray-300">•</span>
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-[#00A09D]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          Instant setup
+        </span>
+<span class="text-gray-300">•</span>
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-[#00A09D]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          40+ core apps included
+        </span>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: FloatingBannerAndAppsSection -->
+<section class="relative bg-gradient-to-b from-white via-[#F4F5F9] to-[#F1F3F8] pt-4 pb-28">
+<!-- Subtle Wave Top Divider for smooth organic curvature seen in screenshot -->
+<div class="w-full overflow-hidden leading-none absolute -top-14 left-0 right-0 pointer-events-none">
+<svg class="relative block w-full h-14" preserveaspectratio="none" viewbox="0 0 1200 120">
+<path d="M0,0 C450,110 750,110 1200,0 L1200,120 L0,120 Z" fill="#F4F5F9"></path>
+</svg>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<!-- Announcement Pill Banner -->
+<div class="flex justify-center mb-14">
+<a class="inline-flex items-center space-x-3 bg-white/90 backdrop-blur border border-gray-200/80 rounded-full py-2 px-5 shadow-sm hover:shadow transition duration-150 group" href="#event">
+<!-- US Flag Emoji Badge -->
+<span class="text-lg">🇺🇸</span>
+<span class="text-sm font-semibold text-gray-800">
+            Accounting Academy - New York City, NY
+          </span>
+<span class="text-xs text-gray-400 font-medium">|</span>
+<span class="text-xs text-gray-500 font-medium">Oct 9, 2026</span>
+<span class="text-sm font-semibold text-[#714B67] group-hover:translate-x-0.5 transition-transform flex items-center gap-1 ml-2">
+            Register <span>→</span>
+</span>
+</a>
+</div>
+<!-- Grid of Odoo Apps with Official Squircle Icons -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-y-10 gap-x-6 sm:gap-x-8 max-w-5xl mx-auto">
+<!-- App 1: Accounting -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#accounting">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Colorful percentage ribbons -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#F472B6" height="8" rx="4" width="8" x="7" y="10"></rect>
+<rect fill="#00A09D" height="8" rx="4" width="8" x="33" y="30"></rect>
+<path d="M37 11L11 37" stroke="#714B67" stroke-linecap="round" stroke-width="5.5"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Accounting</span>
+</a>
+<!-- App 2: Knowledge -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#knowledge">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Bookmark notebook -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#00A09D" height="32" rx="4" width="22" x="15" y="8"></rect>
+<path d="M11 12H23V36L17 31L11 36V12Z" fill="#714B67"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Knowledge</span>
+</a>
+<!-- App 3: Sign -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#sign">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Teal cursive sign signature -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 19C16 19 14 34 22 34C28 34 32 23 27 23C22 23 21 33 28 33C33 33 38 27 40 27" stroke="#00A09D" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Sign</span>
+</a>
+<!-- App 4: CRM -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#crm">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Handshake duotone plum & teal -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 20L19 31C20.5 32.5 23 32.5 24.5 31L35 20.5L30 15L22 23L13 15L8 20Z" fill="#00A09D"></path>
+<path d="M40 20L31 29L28 26L35 19L40 20Z" fill="#714B67"></path>
+<path d="M27 12L37 22L41 18L32 9L27 12Z" fill="#714B67"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">CRM</span>
+</a>
+<!-- App 5: Studio -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#studio">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Crossed tools wrench in cyan and plum -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 36L22 26M32 16L36 12C37.5 10.5 37 8 35 8C33 8 32 9 30 11L26 15" stroke="#714B67" stroke-linecap="round" stroke-width="4.5"></path>
+<path d="M36 36L26 26M16 16L12 12C10.5 10.5 8 11 8 13C8 15 9 16 11 18L15 22" stroke="#00A09D" stroke-linecap="round" stroke-width="4.5"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Studio</span>
+</a>
+<!-- App 6: Subscriptions -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#subscriptions">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Circular recycle/sync arrows teal and orange -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 24C12 17.37 17.37 12 24 12C28.2 12 31.9 14.2 34 17.5M34 11V18H27" stroke="#EA580C" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5"></path>
+<path d="M36 24C36 30.63 30.63 36 24 36C19.8 36 16.1 33.8 14 30.5M14 37V30H21" stroke="#00A09D" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Subscriptions</span>
+</a>
+<!-- App 7: AI & Chat -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#chat">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 14H34C36.2 14 38 15.8 38 18V28C38 30.2 36.2 32 34 32H24L16 38V32H14C11.8 32 10 30.2 10 28V18C10 15.8 11.8 14 14 14Z" fill="#F59E0B"></path>
+<circle cx="20" cy="23" fill="white" r="2.5"></circle>
+<circle cx="28" cy="23" fill="white" r="2.5"></circle>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Discuss</span>
+</a>
+<!-- App 8: Point of Sale -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#pos">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Shop awning -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 20V36H38V20" stroke="#714B67" stroke-linecap="round" stroke-width="4"></path>
+<path d="M8 14H40L37 21H11L8 14Z" fill="#F43F5E"></path>
+<path d="M18 21V36" stroke="#714B67" stroke-width="3"></path>
+<rect fill="#00A09D" height="10" rx="2" width="10" x="23" y="26"></rect>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Point of Sale</span>
+</a>
+<!-- App 9: Inventory -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#inventory">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Orange 3D isometric warehouse box -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 8L39 16.5V31.5L24 40L9 31.5V16.5L24 8Z" fill="#F97316"></path>
+<path d="M24 8V24M24 24L39 16.5M24 24L9 16.5" stroke="#FFFFFF" stroke-width="2.5"></path>
+<path d="M24 24V40" stroke="#EA580C" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Inventory</span>
+</a>
+<!-- App 10: Documents -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#documents">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Colorful overlapping document sheets -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#3B82F6" height="30" rx="3" width="22" x="10" y="8"></rect>
+<rect fill="#00A09D" height="30" rx="3" width="22" x="16" y="12"></rect>
+<path d="M20 20H32M20 26H28" stroke="white" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Documents</span>
+</a>
+<!-- App 11: Project -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#project">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Modern Checkmark icon with purple & teal -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 26L20 34L36 16" stroke="#00A09D" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"></path>
+<circle cx="36" cy="16" fill="#714B67" r="4"></circle>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Project</span>
+</a>
+<!-- App 12: Timesheets -->
+<a class="app-card flex flex-col items-center group cursor-pointer" href="#timesheets">
+<div class="app-icon-wrapper w-[82px] h-[82px] rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center p-3 transition duration-200">
+<!-- Clock stopwatch gauge -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<circle cx="24" cy="25" r="14" stroke="#714B67" stroke-width="4.5"></circle>
+<path d="M24 18V25L29 28" stroke="#00A09D" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M22 6H26" stroke="#714B67" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-3 text-sm font-semibold text-gray-800 group-hover:text-[#714B67] transition">Timesheets</span>
+</a>
+</div>
+<!-- Explore More Apps CTA link -->
+<div class="text-center mt-12">
+<a class="inline-flex items-center text-sm font-semibold text-[#714B67] hover:underline gap-1 group" href="#all-apps">
+          Explore all 80+ apps
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: FloatingBannerAndAppsSection -->
+<!-- BEGIN: EnterpriseTrustBar -->
+<section class="py-14 bg-white border-y border-gray-100">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-8">
+        Empowering 12+ million users worldwide — from local startups to global enterprises
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition duration-300">
+<!-- Danone -->
+<span class="text-xl md:text-2xl font-black tracking-tight text-gray-700">DANONE</span>
+<!-- KPMG -->
+<span class="text-2xl md:text-3xl font-extrabold tracking-tighter text-blue-900">KPMG</span>
+<!-- Decathlon -->
+<span class="text-xl md:text-2xl font-black italic tracking-wide text-blue-600">DECATHLON</span>
+<!-- Hyundai -->
+<span class="text-lg md:text-xl font-bold tracking-widest text-gray-800">HYUNDAI</span>
+<!-- WWF -->
+<span class="text-xl md:text-2xl font-black tracking-normal text-gray-900">WWF</span>
+</div>
+</div>
+</section>
+<!-- END: EnterpriseTrustBar -->
+<!-- BEGIN: ComparisonValueSection -->
+<section class="py-20 bg-gray-50/50">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<h2 class="text-3xl font-bold text-gray-900">
+          Ditch the costly patchwork of software
+        </h2>
+<p class="mt-3 text-base text-gray-600">
+          Stop paying separate subscriptions, integration headaches, and steep learning curves for every single business app.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+<!-- Competitor SaaS Stack -->
+<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-gray-100">
+<span class="font-bold text-lg text-gray-800">Fragmented Software Stack</span>
+<span class="px-2.5 py-1 text-xs font-semibold rounded bg-red-50 text-red-700">10+ separate tools</span>
+</div>
+<ul class="divide-y divide-gray-100 mt-4 text-sm text-gray-600">
+<li class="py-2.5 flex justify-between">
+<span>CRM &amp; Sales pipeline</span>
+<span class="font-semibold text-gray-900">$150 / mo</span>
+</li>
+<li class="py-2.5 flex justify-between">
+<span>Invoicing &amp; Accounting suite</span>
+<span class="font-semibold text-gray-900">$280 / mo</span>
+</li>
+<li class="py-2.5 flex justify-between">
+<span>Inventory &amp; Supply chain</span>
+<span class="font-semibold text-gray-900">$340 / mo</span>
+</li>
+<li class="py-2.5 flex justify-between">
+<span>Project Management &amp; Time tracking</span>
+<span class="font-semibold text-gray-900">$190 / mo</span>
+</li>
+<li class="py-2.5 flex justify-between">
+<span>E-Commerce &amp; Website builder</span>
+<span class="font-semibold text-gray-900">$180 / mo</span>
+</li>
+<li class="py-2.5 flex justify-between">
+<span>Zapier &amp; Custom API integrations</span>
+<span class="font-semibold text-gray-900">$100 / mo</span>
+</li>
+</ul>
+</div>
+<div class="pt-6 border-t border-gray-100 mt-6 flex justify-between items-center bg-gray-50/70 -mx-8 -mb-8 px-8 py-4 rounded-b-2xl">
+<span class="text-sm font-medium text-gray-500">Typical total monthly bill:</span>
+<span class="text-xl font-bold text-gray-800 line-through">$1,240 / mo</span>
+</div>
+</div>
+<!-- The Odoo Way -->
+<div class="bg-gradient-to-b from-white to-[#F8F5F8] rounded-2xl p-8 border-2 border-[#714B67] shadow-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-[#714B67] text-white text-xs font-bold px-4 py-1 rounded-bl-lg">
+            ODOO ALL-IN-ONE
+          </div>
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-purple-100">
+<span class="font-bold text-lg text-[#714B67]">Odoo Enterprise Cloud</span>
+<span class="px-2.5 py-1 text-xs font-semibold rounded bg-[#00A09D]/15 text-[#00A09D]">Single Unified Database</span>
+</div>
+<p class="text-sm text-gray-600 mt-4 leading-relaxed">
+              Every app is seamlessly connected natively out of the box. No integrations needed, no multi-vendor billing, one simple login.
+            </p>
+<div class="mt-6 bg-white p-5 rounded-xl border border-purple-100 space-y-3">
+<div class="flex items-center gap-2 text-sm text-gray-800 font-medium">
+<svg class="w-5 h-5 text-[#00A09D]" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+                Unlimited apps included
+              </div>
+<div class="flex items-center gap-2 text-sm text-gray-800 font-medium">
+<svg class="w-5 h-5 text-[#00A09D]" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+                Single user license model
+              </div>
+<div class="flex items-center gap-2 text-sm text-gray-800 font-medium">
+<svg class="w-5 h-5 text-[#00A09D]" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+                Free hosting, backups &amp; updates
+              </div>
+</div>
+</div>
+<div class="pt-6 border-t border-purple-100 mt-6 flex justify-between items-center bg-[#714B67]/5 -mx-8 -mb-8 px-8 py-4 rounded-b-2xl">
+<span class="text-sm font-semibold text-[#714B67]">Everything in one place:</span>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-[#714B67]">$24.90</span>
+<span class="text-xs text-gray-600 block">/ user / month</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ComparisonValueSection -->
+<!-- BEGIN: CallToActionBottom -->
+<section class="py-16 bg-[#714B67] text-white text-center">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+        Unleash your growth potential today
+      </h2>
+<p class="mt-4 text-purple-100 text-base max-w-xl mx-auto">
+        Join millions of satisfied employees and managers running their entire operations effortlessly with Odoo.
+      </p>
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white text-[#714B67] font-bold text-base hover:bg-gray-100 shadow transition-all duration-150" href="#register">
+          Start now - It's free
+        </a>
+<a class="w-full sm:w-auto px-8 py-3.5 rounded-lg border border-purple-300/40 text-white font-semibold text-base hover:bg-white/10 transition-all duration-150" href="#pricing">
+          See pricing plans
+        </a>
+</div>
+</div>
+</section>
+<!-- END: CallToActionBottom -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-gray-900 text-gray-400 text-sm py-12 border-t border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Footer Brand & Copyright -->
+<div class="flex items-center space-x-3">
+<span class="text-white font-bold text-lg tracking-tight">odoo</span>
+<span class="text-xs text-gray-500">© 2026 Odoo S.A. All rights reserved.</span>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap gap-6 text-xs text-gray-400">
+<a class="hover:text-white transition" href="#privacy">Privacy Policy</a>
+<a class="hover:text-white transition" href="#legal">Legal Notice</a>
+<a class="hover:text-white transition" href="#security">Security</a>
+<a class="hover:text-white transition" href="#contact">Contact Us</a>
+</div>
+<!-- Language Selector -->
+<div class="flex items-center space-x-2 text-xs">
+<span>🌐 English (US)</span>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

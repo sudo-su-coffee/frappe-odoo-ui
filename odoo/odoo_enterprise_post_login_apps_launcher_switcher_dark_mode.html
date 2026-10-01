@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Odoo Apps Menu</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            odoo: {
+              bg: '#0f1319',
+              dark: '#0a0d12',
+              purple: '#963c7e',
+              teal: '#008784',
+              orange: '#E06D53'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', '"Helvetica Neue"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="background-gradient">
+    /* Deep dark slate / obsidian ambient background with subtle violet undertone */
+    body {
+      background: radial-gradient(circle at 50% 20%, #171b26 0%, #11141c 45%, #0a0d13 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      user-select: none;
+    }
+  </style>
+<style data-purpose="card-effects">
+    .app-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .app-card:hover {
+      transform: translateY(-5px) scale(1.04);
+    }
+    .app-card:hover .app-icon-box {
+      box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.55), 0 0 20px 2px rgba(120, 84, 179, 0.25);
+      border-color: rgba(255, 255, 255, 0.22);
+      background-color: #262c3a;
+    }
+    .app-card:active {
+      transform: translateY(-1px) scale(0.99);
+    }
+    .app-icon-box {
+      background-color: #1e2430;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="text-slate-200 antialiased font-sans flex flex-col justify-between min-h-screen">
+<!-- BEGIN: TopNavigationBar -->
+<header class="w-full flex items-center justify-between px-5 py-3 text-slate-200 z-50">
+<!-- Left: Search toggle or spacer -->
+<div class="flex items-center space-x-3">
+<div class="relative transition-all duration-200 opacity-90 focus-within:opacity-100" id="search-container">
+<input autocomplete="off" class="bg-[#191f2b]/80 backdrop-blur-md text-xs sm:text-sm text-slate-100 placeholder-slate-400 rounded-lg pl-9 pr-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:bg-[#202737] border border-white/10 shadow-inner w-48 sm:w-72 transition-all duration-200" id="app-search" placeholder="Search apps... (Type to filter)" type="text"/>
+<svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Right: Status / User Navigation Controls -->
+<nav aria-label="Quick Actions" class="flex items-center space-x-4 text-slate-300 font-medium text-xs sm:text-sm">
+<!-- Chat / Discuss with Unread Badge -->
+<button class="relative p-1.5 text-slate-400 hover:text-white transition-colors focus:outline-none rounded-md hover:bg-white/5" title="Messages">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+</svg>
+<span class="absolute -top-0.5 -right-0.5 bg-rose-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full ring-2 ring-[#11141c]">
+          1
+        </span>
+</button>
+<!-- Activities / Clock icon -->
+<button class="p-1.5 text-slate-400 hover:text-white transition-colors focus:outline-none rounded-md hover:bg-white/5" title="Activities">
+<svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<polyline points="12 7 12 12 15 15"></polyline>
+</svg>
+</button>
+<!-- Settings / Tools icon -->
+<button class="p-1.5 text-slate-400 hover:text-white transition-colors focus:outline-none rounded-md hover:bg-white/5" title="Settings">
+<svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewbox="0 0 24 24">
+<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Company Selector Dropdown -->
+<div class="hidden sm:flex items-center space-x-1 cursor-pointer text-slate-300 hover:text-white px-2.5 py-1 rounded-md hover:bg-white/5 transition-colors border border-white/5" title="Current Company">
+<span class="text-xs uppercase tracking-wider font-semibold text-slate-200 truncate max-w-[200px] md:max-w-none">
+          ALQANNAS HUNTING EQUIPMENT L...
+        </span>
+</div>
+<!-- User Avatar / Profile Badge -->
+<div class="flex items-center">
+<button class="w-7 h-7 rounded bg-[#2e8253] text-white flex items-center justify-center font-bold text-sm shadow ring-1 ring-white/10 hover:opacity-90 focus:ring-2 focus:ring-emerald-400 focus:outline-none" title="User Profile">
+          C
+        </button>
+</div>
+</nav>
+</header>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: MainContentGrid -->
+<main class="flex-grow flex items-center justify-center p-4 sm:p-8">
+<div class="max-w-6xl w-full mx-auto">
+<!-- Grid Container for Apps -->
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-y-8 gap-x-4 sm:gap-x-8 justify-items-center" id="apps-container">
+<!-- 1. Discuss -->
+<a class="app-card group flex flex-col items-center focus:outline-none text-decoration-none" data-name="discuss" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Speech bubble in vibrant orange/red Odoo discuss theme -->
+<path d="M12 20C12 14.4772 16.4772 10 22 10H42C47.5228 10 52 14.4772 52 20V34C52 39.5228 47.5228 44 42 44H26L14 54V43.6C12.77 42.1 12 40.15 12 38V20Z" fill="#F06037"></path>
+<path d="M22 10H42C47.5228 10 52 14.4772 52 20V34C52 35.8 51.4 37.5 50.4 38.9C47.8 28.5 38.3 20.8 27 20.8C21.7 20.8 16.8 22.4 12.8 25.1C13.5 16.6 20.6 10 22 10Z" fill="#F78248"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Discuss</span>
+</a>
+<!-- 2. Calendar -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="calendar" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" viewbox="0 0 64 64">
+<!-- 31 Calendar Icon -->
+<text fill="#b070b4" font-family="system-ui, sans-serif" font-size="39" font-weight="800" x="5" y="47">3</text>
+<text fill="#ff6361" font-family="system-ui, sans-serif" font-size="39" font-weight="800" x="29" y="47">1</text>
+<rect fill="#F9A825" height="6" rx="2" width="4" x="52" y="16"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Calendar</span>
+</a>
+<!-- 3. To-do -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="to-do todo" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<path d="M48 16L40 12L16 42V48H22L48 16Z" fill="#0097A7"></path>
+<path d="M16 48L22 48L46 19L42 15L16 45V48Z" fill="#26C6DA"></path>
+<path d="M40 12L46 18L50 14L44 8L40 12Z" fill="#00838F"></path>
+<line stroke="#26C6DA" stroke-linecap="round" stroke-width="4" x1="20" x2="48" y1="52" y2="52"></line>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">To-do</span>
+</a>
+<!-- 4. Contacts -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="contacts" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Teal Card with person -->
+<rect fill="#00897B" height="44" rx="8" width="40" x="12" y="10"></rect>
+<rect fill="#F8FAFC" height="32" rx="4" width="28" x="18" y="16"></rect>
+<circle cx="32" cy="28" fill="#00897B" r="6"></circle>
+<path d="M24 42C24 37 27.5 35 32 35C36.5 35 40 37 40 42H24Z" fill="#00897B"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Contacts</span>
+</a>
+<!-- 5. WooCommerce -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="woocommerce" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-[#6c429c] rounded-2xl flex items-center justify-center relative p-2 shadow-sm border border-purple-400/20">
+<div class="text-white font-extrabold text-xl tracking-tighter flex items-center justify-center">
+<span class="italic font-serif font-black text-2xl lowercase">Woo</span>
+</div>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">WooCommerce</span>
+</a>
+<!-- 6. Sales -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="sales crm" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<rect fill="#F57C00" height="20" rx="3" width="8" x="12" y="34"></rect>
+<rect fill="#BA68C8" height="30" rx="3" width="8" x="24" y="24"></rect>
+<rect fill="#FFA726" height="38" rx="3" width="8" x="36" y="16"></rect>
+<rect fill="#FFCA28" height="44" rx="3" width="8" x="48" y="10"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Sales</span>
+</a>
+<!-- 7. Dashboards -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="dashboards" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<rect fill="#BA68C8" height="16" rx="4" width="16" x="13" y="13"></rect>
+<rect fill="#F06292" height="10" rx="4" width="16" x="35" y="13"></rect>
+<rect fill="#26C6DA" height="16" rx="4" width="16" x="13" y="35"></rect>
+<rect fill="#66BB6A" height="22" rx="4" width="16" x="35" y="29"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Dashboards</span>
+</a>
+<!-- 8. Point of Sale -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="point of sale pos" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Shop awning -->
+<path d="M12 28L16 16H48L52 28H12Z" fill="#FDD835"></path>
+<path d="M18 16L14 28H22L24 16H18Z" fill="#8E24AA"></path>
+<path d="M30 16L29 28H35L36 16H30Z" fill="#8E24AA"></path>
+<path d="M42 16L41 28H49L46 16H42Z" fill="#8E24AA"></path>
+<circle cx="17" cy="30" fill="#8E24AA" r="3"></circle>
+<circle cx="27" cy="30" fill="#FDD835" r="3"></circle>
+<circle cx="37" cy="30" fill="#8E24AA" r="3"></circle>
+<circle cx="47" cy="30" fill="#FDD835" r="3"></circle>
+<rect fill="#ECEFF1" height="14" rx="2" width="32" x="16" y="34"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors text-center">Point of Sale</span>
+</a>
+<!-- 9. Kitchen Display -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="kitchen display kds restaurant" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Skillet pan with food items -->
+<path d="M42 22C47.5 27.5 47.5 36.5 42 42C36.5 47.5 27.5 47.5 22 42C16.5 36.5 16.5 27.5 22 22" stroke="#9C4D8B" stroke-linecap="round" stroke-width="5"></path>
+<line stroke="#9C4D8B" stroke-linecap="round" stroke-width="6" x1="38" x2="52" y1="38" y2="52"></line>
+<circle cx="26" cy="26" fill="#FFC107" r="4"></circle>
+<path d="M34 22C34 25.3 31.3 28 28 28" stroke="#EF5350" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors text-center">Kitchen Display</span>
+</a>
+<!-- 10. Accounting -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="accounting invoicing finance" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Accounting Percent % symbol -->
+<line stroke="#26A69A" stroke-linecap="round" stroke-width="7" x1="16" x2="48" y1="48" y2="16"></line>
+<circle cx="22" cy="22" fill="#FF7043" r="6"></circle>
+<circle cx="42" cy="42" fill="#9575CD" r="6"></circle>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Accounting</span>
+</a>
+<!-- 11. Documents -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="documents files dms" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Overlapping colored doc sheets -->
+<rect fill="#00BCD4" height="30" rx="4" transform="rotate(-10 14 20)" width="24" x="14" y="20"></rect>
+<rect fill="#FFA726" height="30" rx="4" width="24" x="22" y="16"></rect>
+<rect fill="#EC407A" height="30" rx="4" transform="rotate(8 28 18)" width="24" x="28" y="18"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Documents</span>
+</a>
+<!-- 12. Project -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="project tasks" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Odoo project checkmark ribbon -->
+<path d="M18 34L28 44L48 20" stroke="#00BFA5" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></path>
+<path d="M38 18L48 20L44 26" fill="#AB47BC"></path>
+<circle cx="48" cy="20" fill="#AB47BC" r="4"></circle>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Project</span>
+</a>
+<!-- 13. Purchase -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="purchase vendor" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Credit card / receipt split horizontal -->
+<rect fill="#8E24AA" height="24" rx="4" width="40" x="12" y="20"></rect>
+<rect fill="#26A69A" height="6" width="40" x="12" y="28"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Purchase</span>
+</a>
+<!-- 14. Inventory -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="inventory stock warehouse" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Isometric Box / Package -->
+<path d="M32 10L50 20V42L32 52L14 42V20L32 10Z" fill="#FFA000"></path>
+<path d="M32 10L50 20L32 30L14 20L32 10Z" fill="#FFD54F"></path>
+<path d="M32 30V52L50 42V20L32 30Z" fill="#FB8C00"></path>
+<path d="M32 30V52L14 42V20L32 30Z" fill="#AB47BC"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Inventory</span>
+</a>
+<!-- 15. Barcode -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="barcode scanner" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Purple Barcode Lines -->
+<rect fill="#BA68C8" height="32" rx="2" width="5" x="14" y="16"></rect>
+<rect fill="#BA68C8" height="32" rx="1.5" width="3" x="23" y="16"></rect>
+<rect fill="#BA68C8" height="32" rx="2" width="7" x="30" y="16"></rect>
+<rect fill="#BA68C8" height="32" rx="1.5" width="3" x="41" y="16"></rect>
+<rect fill="#BA68C8" height="32" rx="2" width="4" x="47" y="16"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Barcode</span>
+</a>
+<!-- 16. Repairs -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="repairs maintenance" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Crossed loops / infinity knot in teal & red -->
+<path d="M18 42C26 34 38 22 46 18C49 22 46 30 38 38C30 46 22 49 18 42Z" fill="#00897B"></path>
+<path d="M18 18C22 14 30 18 38 26C46 34 49 42 42 46C34 50 26 46 18 38" stroke="#F06292" stroke-linecap="round" stroke-width="6"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Repairs</span>
+</a>
+<!-- 17. Employees -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="employees hr team users" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Group of avatars -->
+<circle cx="32" cy="22" fill="#BA68C8" r="6"></circle>
+<path d="M22 36C22 32 26 31 32 31C38 31 42 32 42 36V38H22V36Z" fill="#BA68C8"></path>
+<circle cx="19" cy="26" fill="#00ACC1" r="4.5"></circle>
+<path d="M12 40C12 36.5 15 35 19 35C20.5 35 22 35.3 23 36V40H12Z" fill="#00ACC1"></path>
+<circle cx="45" cy="26" fill="#FFCA28" r="4.5"></circle>
+<path d="M52 40C52 36.5 49 35 45 35C43.5 35 42 35.3 41 36V40H52Z" fill="#FFCA28"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Employees</span>
+</a>
+<!-- 18. Payroll -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="payroll payslip salary" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Card / Payslip with user chip -->
+<rect fill="#E91E63" height="26" rx="4" width="40" x="12" y="20"></rect>
+<rect fill="#880E4F" height="5" width="40" x="12" y="24"></rect>
+<circle cx="44" cy="36" fill="#FFFFFF" r="2.5"></circle>
+<path d="M41 42C41 40 42.5 39 44 39C45.5 39 47 40 47 42H41Z" fill="#FFFFFF"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Payroll</span>
+</a>
+<!-- 19. Attendances -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="attendances check-in clock" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Attendance swipe / biometric icon -->
+<rect fill="#F57C00" height="12" rx="4" width="32" x="16" y="38"></rect>
+<circle cx="25" cy="22" fill="#F57C00" r="5"></circle>
+<circle cx="40" cy="30" fill="#FFA726" r="3"></circle>
+<path d="M19 33C19 28 22 27 25 27C27 27 28.5 27.5 29.5 29" stroke="#F57C00" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Attendances</span>
+</a>
+<!-- 20. Time Off -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="time off vacation holiday leaves" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Umbrella icon for leaves/vacation -->
+<path d="M32 14C20 14 14 26 14 26H50C50 26 44 14 32 14Z" fill="#FFA000"></path>
+<path d="M26 15C22 17 18 26 18 26H32V14C30 14 28 14.3 26 15Z" fill="#29B6F6"></path>
+<line stroke="#A1887F" stroke-linecap="round" stroke-width="3" x1="32" x2="32" y1="26" y2="48"></line>
+<path d="M32 48C32 50.2 30.2 52 28 52C25.8 52 24 50.2 24 48" fill="none" stroke="#A1887F" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Time Off</span>
+</a>
+<!-- 21. Link Tracker -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="link tracker marketing utm" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Chain links icon in purple and gold -->
+<path d="M24 38L18 44C14 48 20 54 24 50L30 44" stroke="#BA68C8" stroke-linecap="round" stroke-width="6"></path>
+<path d="M40 26L46 20C50 16 44 10 40 14L34 20" stroke="#FFCA28" stroke-linecap="round" stroke-width="6"></path>
+<line stroke="#9C4D8B" stroke-linecap="round" stroke-width="5" x1="26" x2="38" y1="38" y2="26"></line>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Link Tracker</span>
+</a>
+<!-- 22. Apps -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="apps modules store plugins" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Segmented circle apps icon -->
+<path d="M30 14A16 16 0 0 0 14 30H30V14Z" fill="#00BCD4"></path>
+<path d="M34 14V30H50A16 16 0 0 0 34 14Z" fill="#AB47BC"></path>
+<path d="M14 34A16 16 0 0 0 30 50V34H14Z" fill="#EF5350"></path>
+<path d="M50 34H34V50A16 16 0 0 0 50 34Z" fill="#03A9F4"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Apps</span>
+</a>
+<!-- 23. Settings -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="settings configuration preferences" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Hexagonal Gear / Nut icon -->
+<polygon fill="#AB47BC" points="32,12 48,21 48,43 32,52 16,43 16,21"></polygon>
+<polygon fill="#FFA726" points="32,16 44,23 44,41 32,48 20,41 20,23"></polygon>
+<circle cx="32" cy="32" fill="#1e2430" r="7"></circle>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-300 tracking-tight group-hover:text-white transition-colors">Settings</span>
+</a>
+</div>
+<!-- END: Grid Container -->
+<!-- Empty Search State -->
+<div class="hidden text-center py-12 text-slate-400" id="no-results">
+<p class="text-lg font-semibold text-slate-200">No apps found</p>
+<p class="text-sm text-slate-400 mt-1">Press ESC or clear search to reset</p>
+</div>
+</div>
+</main>
+<!-- END: MainContentGrid -->
+<!-- BEGIN: BottomStatusBar -->
+<footer class="w-full flex items-center justify-between text-xs text-slate-400 font-mono select-none pointer-events-none p-2.5">
+<div class="bg-[#181e28]/90 text-slate-300 border border-white/10 px-2.5 py-1 rounded-md text-[11px] font-sans shadow-md backdrop-blur-md">
+      alqannas.odoo.com/odoo/barcode
+    </div>
+<div class="pr-2 text-[11px] hidden sm:block text-slate-400 font-sans tracking-wide">
+      Odoo Community / Enterprise
+    </div>
+</footer>
+<!-- END: BottomStatusBar -->
+<!-- BEGIN: InteractiveSearchScript -->
+<script data-purpose="app-search-filter">
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('app-search');
+      const appCards = document.querySelectorAll('.app-card');
+      const noResults = document.getElementById('no-results');
+
+      // Instant search filter matching standard Odoo launcher behavior
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        appCards.forEach((card) => {
+          const name = card.getAttribute('data-name').toLowerCase();
+          const label = card.querySelector('span').innerText.toLowerCase();
+          
+          if (name.includes(query) || label.includes(query)) {
+            card.classList.remove('hidden');
+            card.classList.add('flex');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+            card.classList.remove('flex');
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      });
+
+      // Quick keyboard listener: typing anywhere focuses search; ESC clears
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          searchInput.value = '';
+          searchInput.dispatchEvent(new Event('input'));
+          searchInput.blur();
+        } else if (document.activeElement !== searchInput && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+          searchInput.focus();
+        }
+      });
+    });
+  </script>
+<!-- END: InteractiveSearchScript -->
+</body></html>

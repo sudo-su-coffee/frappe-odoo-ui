@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#f8f9ff","on-surface":"#0b1c30","on-primary-container":"#fdfaff","surface-variant":"#d3e4fe","on-secondary-fixed-variant":"#3f465c","tertiary":"#00618c","tertiary-fixed-dim":"#89ceff","outline-variant":"#c2c6d8","error-container":"#ffdad6","on-secondary-fixed":"#131b2e","primary-container":"#1b68ff","on-primary-fixed-variant":"#003ea7","on-error":"#ffffff","on-tertiary":"#ffffff","surface-container-highest":"#d3e4fe","on-background":"#0b1c30","on-error-container":"#93000a","secondary-container":"#dae2fd","surface-container-lowest":"#ffffff","secondary-fixed":"#dae2fd","on-tertiary-container":"#f9fbff","tertiary-container":"#007bb0","on-secondary":"#ffffff","tertiary-fixed":"#c9e6ff","primary-fixed":"#dbe1ff","surface-bright":"#f8f9ff","surface-dim":"#cbdbf5","on-tertiary-fixed":"#001e2f","error":"#ba1a1a","on-surface-variant":"#424655","inverse-on-surface":"#eaf1ff","inverse-primary":"#b4c5ff","on-tertiary-fixed-variant":"#004c6e","secondary":"#565e74","on-primary-fixed":"#00174a","primary":"#0050d3","surface-tint":"#0053d9","secondary-fixed-dim":"#bec6e0","surface-container-high":"#dce9ff","on-secondary-container":"#5c647a","on-primary":"#ffffff","background":"#f8f9ff","surface-container":"#e5eeff","surface-container-low":"#eff4ff","inverse-surface":"#213145","primary-fixed-dim":"#b4c5ff","outline":"#737687"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin-mobile":"1rem","space-lg":"1.25rem","space-md":"0.75rem","gutter-mobile":"0.75rem","space-xl":"1.75rem","margin":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","gutter":"1rem"},fontFamily:{"headline-xl-mobile":["Inter"],"headline-md":["Inter"],"code-sm":["JetBrains Mono"],"body-md":["Inter"],"headline-lg":["Inter"],"label-md":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"],"headline-xl":["Inter"],"body-sm":["Inter"],"label-lg":["Inter"]},fontSize:{"headline-xl-mobile":["24px",{"lineHeight":"32px","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"code-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-lg":["22px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-sm":["15px",{"lineHeight":"20px","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","fontWeight":"600"}],"headline-xl":["30px",{"lineHeight":"38px","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased flex items-center justify-center min-h-screen"><main class="w-full flex items-center justify-center p-space-lg"><div class="flex flex-col w-full">
+<!-- Top Navigation & Brand Header -->
+<header class="w-full bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+<div class="max-w-7xl mx-auto px-margin flex items-center justify-between h-16">
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-xs cursor-pointer">
+<div class="w-7 h-7 bg-primary-container rounded-lg flex items-center justify-center text-on-primary font-headline-md shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="font-headline-md text-headline-md tracking-tight text-on-surface">ERPNext</span>
+<span class="text-label-sm font-label-sm px-space-xs py-0.5 rounded-full bg-surface-container-high text-primary font-code-sm ml-space-xs">v15.2</span>
+</div>
+<nav class="hidden lg:flex items-center gap-space-md ml-space-md">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded">
+            Modules
+            <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded">
+            Framework
+            <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<a class="text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded" href="#open-source">Why Open Source</a>
+<a class="text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded" href="#ecosystem">Community</a>
+<a class="text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded" href="#docs">Docs</a>
+</nav>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="hidden sm:flex items-center gap-space-xs px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface font-label-md text-label-md" href="https://github.com/frappe/erpnext" rel="noopener" target="_blank">
+<svg class="w-4 h-4 fill-current text-on-surface" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+</svg>
+<span class="font-code-sm">18.4k</span>
+</a>
+<button class="px-space-md py-1.5 rounded-lg text-body-md font-body-md text-on-surface hover:bg-surface-container transition-colors">Sign In</button>
+<button class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors shadow-sm font-label-lg text-label-lg">Deploy Instance</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-12 pb-20 px-margin overflow-hidden bg-gradient-to-b from-surface-container-low via-surface to-surface">
+<div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+<!-- Badge Announcement -->
+<div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-surface-container-highest shadow-sm mb-space-lg">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-sm font-label-sm uppercase tracking-wide text-primary">Frappe Framework 15 Released</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">• React UI, Webhooks v2 &amp; Native AI DocType</span>
+<span class="material-symbols-outlined text-xs text-primary">arrow_forward</span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-headline-xl font-headline-xl text-on-surface tracking-tight max-w-4xl leading-tight">
+        The World's Most Agile <br class="hidden sm:inline"/>
+<span class="text-primary underline decoration-secondary-container decoration-wavy underline-offset-8">100% Open Source</span> ERP
+      </h1>
+<p class="mt-space-md text-body-lg font-body-lg text-on-surface-variant max-w-2xl text-center">
+        Full-featured, customizable ERP platform built for modern business. From Financials and HR to Supply Chain and Manufacturing — completely open, fully in your control.
+      </p>
+<!-- Primary Action Buttons -->
+<div class="mt-space-xl flex flex-wrap items-center justify-center gap-space-md">
+<button class="px-space-xl py-3 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-all duration-150 shadow-md font-label-lg text-label-lg flex items-center gap-space-xs group">
+<span>Start Free Cloud Trial</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">bolt</span>
+</button>
+<button class="px-space-lg py-3 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all shadow-sm font-label-lg text-label-lg flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-secondary">calendar_today</span>
+<span>Schedule Demo</span>
+</button>
+<a class="px-space-md py-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-all shadow-sm font-code-sm text-code-sm text-on-surface flex items-center gap-space-xs" href="https://github.com/frappe/erpnext" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-sm text-primary">terminal</span>
+<span>bench get-app erpnext</span>
+</a>
+</div>
+<!-- Quick Trust Indicators -->
+<div class="mt-space-lg flex items-center gap-space-lg text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">check_circle</span>
+          GPL v3 Licensed
+        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">check_circle</span>
+          Zero User License Fees
+        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">check_circle</span>
+          Self-Host or Frappe Cloud
+        </span>
+</div>
+<!-- Interactive ERP Workspace Preview (Cockpit Canvas) -->
+<div class="mt-14 w-full max-w-5xl rounded-xl bg-surface-container-lowest shadow-xl overflow-hidden text-left">
+<!-- Mock Window Top Bar -->
+<div class="bg-surface-container px-space-md py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-container inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-primary inline-block"></span>
+<span class="ml-space-sm font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">lock</span>
+              workspace.frappe.cloud / desk / accounting
+            </span>
+</div>
+<div class="flex items-center gap-space-sm text-label-sm font-label-sm text-on-surface-variant">
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-primary font-code-sm">Ctrl + K</span>
+<span>Production V15</span>
+</div>
+</div>
+<!-- Desk App Interior Grid -->
+<div class="grid grid-cols-12 min-h-[460px]">
+<!-- Desk Mini Sidebar -->
+<div class="col-span-12 md:col-span-3 bg-surface-container-low p-space-md flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="px-space-sm py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Modules</div>
+<div class="bg-surface-container-highest text-primary font-headline-sm text-headline-sm px-space-sm py-2 rounded-lg flex items-center justify-between cursor-pointer">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">account_balance_wallet</span>
+                  Accounting
+                </span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<div class="hover:bg-surface-container px-space-sm py-2 rounded-lg text-on-surface text-body-md font-body-md flex items-center gap-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-base text-secondary">inventory_2</span>
+                Stock &amp; Assets
+              </div>
+<div class="hover:bg-surface-container px-space-sm py-2 rounded-lg text-on-surface text-body-md font-body-md flex items-center gap-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-base text-secondary">factory</span>
+                Manufacturing
+              </div>
+<div class="hover:bg-surface-container px-space-sm py-2 rounded-lg text-on-surface text-body-md font-body-md flex items-center gap-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-base text-secondary">group</span>
+                HR &amp; Payroll
+              </div>
+<div class="hover:bg-surface-container px-space-sm py-2 rounded-lg text-on-surface text-body-md font-body-md flex items-center gap-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-base text-secondary">point_of_sale</span>
+                CRM &amp; Selling
+              </div>
+<div class="hover:bg-surface-container px-space-sm py-2 rounded-lg text-on-surface text-body-md font-body-md flex items-center gap-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-base text-secondary">code_blocks</span>
+                Custom DocTypes
+              </div>
+</div>
+<!-- Telemetry Indicator in Sidebar -->
+<div class="bg-surface-container-highest p-space-sm rounded-lg mt-4">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface">
+<span>System Health</span>
+<span class="text-primary font-code-sm">99.99%</span>
+</div>
+<div class="w-full bg-surface h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 92%"></div>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant block mt-1">MariaDB: 18ms latency</span>
+</div>
+</div>
+<!-- Main Desk Content Workspace -->
+<div class="col-span-12 md:col-span-9 p-space-lg flex flex-col gap-space-lg bg-surface-container-lowest">
+<!-- Breadcrumb + Doc Actions -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm bg-surface-container-low px-space-md py-space-sm rounded-lg">
+<div class="flex items-center gap-2 text-headline-sm font-headline-sm text-on-surface">
+<span>General Ledger — Fiscal Year 2024</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-variant text-on-secondary-fixed-variant text-label-sm font-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Live Audited
+                </span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-surface-container-lowest hover:bg-surface text-on-surface text-label-md font-label-md rounded shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">tune</span> Filter
+                </button>
+<button class="px-3 py-1 bg-primary text-on-primary text-label-md font-label-md rounded shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">add</span> New Entry
+                </button>
+</div>
+</div>
+<!-- Operational Metric Cards (High Data Density) -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase">Total Receivables</span>
+<span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-on-surface mt-1 font-code-sm">$1,429,820</div>
+<div class="text-label-sm font-label-sm text-tertiary flex items-center gap-1 mt-1">
+<span>↑ 14.8% vs last month</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase">Open Payables</span>
+<span class="material-symbols-outlined text-secondary text-sm">schedule</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-on-surface mt-1 font-code-sm">$388,410</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1 mt-1">
+<span>92% within 30 days terms</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase">EBITDA Margin</span>
+<span class="material-symbols-outlined text-primary text-sm">pie_chart</span>
+</div>
+<div class="text-headline-lg font-headline-lg text-on-surface mt-1 font-code-sm">28.4%</div>
+<div class="text-label-sm font-label-sm text-tertiary flex items-center gap-1 mt-1">
+<span>+3.1% budget variance</span>
+</div>
+</div>
+</div>
+<!-- Mini Sparkline and Cashflow Telemetry Bar -->
+<div class="bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Cash Velocity Telemetry (Q1-Q4)</span>
+<span class="font-code-sm text-code-sm text-primary">Auto-reconciled: 99.4%</span>
+</div>
+<div class="h-16 w-full flex items-end gap-1 pt-2">
+<!-- Data bars with programmatic height -->
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[40%]" title="Jan"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[55%]" title="Feb"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[65%]" title="Mar"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[50%]" title="Apr"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[75%]" title="May"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[60%]" title="Jun"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[80%]" title="Jul"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[70%]" title="Aug"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-primary-container transition-colors rounded-t h-[88%]" title="Sep"></div>
+<div class="flex-1 bg-primary hover:bg-primary-container transition-colors rounded-t h-[94%]" title="Oct (Current)"></div>
+<div class="flex-1 bg-surface-container-high opacity-50 rounded-t h-[85%]" title="Nov Projected"></div>
+<div class="flex-1 bg-surface-container-high opacity-50 rounded-t h-[92%]" title="Dec Projected"></div>
+</div>
+</div>
+<!-- DocType Live Table Snapshot -->
+<div class="overflow-x-auto rounded-lg bg-surface-container-lowest">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase">
+<tr>
+<th class="py-2 px-3">Voucher No</th>
+<th class="py-2 px-3">Customer / Vendor</th>
+<th class="py-2 px-3">Status</th>
+<th class="py-2 px-3 text-right">Debit ($)</th>
+<th class="py-2 px-3 text-right">Credit ($)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high text-on-surface font-code-sm">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-2 px-3 font-medium text-primary">ACC-SINV-2024-0982</td>
+<td class="py-2 px-3 font-body-sm">Nordic Distribution ApS</td>
+<td class="py-2 px-3"><span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm">Paid</span></td>
+<td class="py-2 px-3 text-right">24,500.00</td>
+<td class="py-2 px-3 text-right">0.00</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-2 px-3 font-medium text-primary">ACC-PINV-2024-0411</td>
+<td class="py-2 px-3 font-body-sm">Siemens Industrial Fab</td>
+<td class="py-2 px-3"><span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary text-label-sm font-label-sm">Submitted</span></td>
+<td class="py-2 px-3 text-right">0.00</td>
+<td class="py-2 px-3 text-right">18,340.50</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-2 px-3 font-medium text-primary">ACC-JV-2024-0029</td>
+<td class="py-2 px-3 font-body-sm">Payroll Clearing Run Q3</td>
+<td class="py-2 px-3"><span class="px-2 py-0.5 rounded-full bg-surface-variant text-tertiary text-label-sm font-label-sm">Reconciled</span></td>
+<td class="py-2 px-3 text-right">92,100.00</td>
+<td class="py-2 px-3 text-right">92,100.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand & Stats Bar -->
+<section class="w-full py-12 bg-surface-container-low">
+<div class="max-w-6xl mx-auto px-margin flex flex-col items-center">
+<p class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant text-center mb-space-lg">
+        Trusted by 10,000+ businesses across 150+ countries
+      </p>
+<!-- Client Logo Marks & Typography Badges -->
+<div class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-space-lg items-center justify-items-center opacity-80">
+<div class="flex items-center gap-2 font-headline-md text-headline-md tracking-tighter text-on-surface">
+<span class="font-bold text-error">KFC</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Franchise OPS</span>
+</div>
+<div class="flex items-center gap-2 font-headline-md text-headline-md tracking-tight text-on-surface">
+<span class="material-symbols-outlined text-primary">spa</span>
+<span class="font-bold">Bloom</span>
+</div>
+<div class="flex items-center gap-1 font-headline-md text-headline-md tracking-normal text-on-surface font-headline-xl">
+<span class="text-primary font-bold">Z</span>ERODHA
+        </div>
+<div class="flex items-center gap-2 font-headline-md text-headline-md uppercase tracking-widest text-on-surface">
+<span class="font-bold bg-primary text-on-primary px-1.5 py-0.5 rounded">DECATHLON</span>
+</div>
+<div class="flex items-center gap-1 font-headline-md text-headline-md tracking-wide text-on-surface">
+<span class="font-bold text-on-surface">TATA</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">1MG</span>
+</div>
+</div>
+<!-- Quick Metrics Counters -->
+<div class="mt-12 w-full grid grid-cols-2 md:grid-cols-4 gap-space-md text-center">
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="text-headline-xl font-headline-xl text-primary font-code-sm">100%</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mt-1">Open Source (GPLv3)</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="text-headline-xl font-headline-xl text-primary font-code-sm">18,400+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mt-1">GitHub Stars</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="text-headline-xl font-headline-xl text-primary font-code-sm">150+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mt-1">Countries Active</div>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="text-headline-xl font-headline-xl text-primary font-code-sm">1,000+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mt-1">Community Contributors</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Modules Grid Section -->
+<section class="py-24 px-margin bg-surface">
+<div class="max-w-6xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary font-code-sm">Modular • Integrated • Limitless</span>
+<h2 class="text-headline-xl font-headline-xl text-on-surface tracking-tight mt-2">
+          Everything You Need to Run Enterprise Operations
+        </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-space-sm">
+          Unlike disjointed SaaS suites glued together with brittle webhooks, ERPNext modules share one single source of truth natively built on Frappe Framework.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Module Card 1: Financial Accounting -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors mb-space-md">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Financial Accounting</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+              Multi-currency general ledger, real-time balance sheets, automated bank feeds, auto-reconciliation, tax templates, and e-invoicing out of the box.
+            </p>
+</div>
+<div class="mt-6 pt-4 bg-surface-container-low -mx-space-xl -mb-space-xl px-space-xl py-3 rounded-b-xl flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span>Chart of Accounts • Tax Audits</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module Card 2: Inventory & Supply Chain -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors mb-space-md">
+<span class="material-symbols-outlined text-2xl">inventory</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Inventory &amp; Supply Chain</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+              Batch and serialized tracking, multi-warehouse valuation (FIFO / Moving Average), automatic material requests, barcode scanning, and supplier portals.
+            </p>
+</div>
+<div class="mt-6 pt-4 bg-surface-container-low -mx-space-xl -mb-space-xl px-space-xl py-3 rounded-b-xl flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span>Stock Ledger • Bin Tracking</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module Card 3: HR & Payroll -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors mb-space-md">
+<span class="material-symbols-outlined text-2xl">badge</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">HR &amp; Payroll Engine</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+              Complete employee lifecycle, biometric attendance integration, custom salary structures, leave allocations, performance appraisals, and expense claims.
+            </p>
+</div>
+<div class="mt-6 pt-4 bg-surface-container-low -mx-space-xl -mb-space-xl px-space-xl py-3 rounded-b-xl flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span>Employee Self-Service • Payroll Slips</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module Card 4: CRM & Sales Pipeline -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors mb-space-md">
+<span class="material-symbols-outlined text-2xl">hub</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">CRM &amp; Sales Pipeline</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+              Omnichannel lead capturing, visual sales funnels, instant quotations, auto-conversion to sales orders, recurring subscriptions, and commission management.
+            </p>
+</div>
+<div class="mt-6 pt-4 bg-surface-container-low -mx-space-xl -mb-space-xl px-space-xl py-3 rounded-b-xl flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span>Opportunity Flow • Quotations</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module Card 5: Manufacturing & Work Orders -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors mb-space-md">
+<span class="material-symbols-outlined text-2xl">precision_manufacturing</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Manufacturing &amp; Work Orders</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+              Multi-level Bill of Materials (BOM), workstation scheduling, scrap tracking, sub-contracting logistics, and capacity planning with accurate standard costing.
+            </p>
+</div>
+<div class="mt-6 pt-4 bg-surface-container-low -mx-space-xl -mb-space-xl px-space-xl py-3 rounded-b-xl flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span>BOM Trees • Job Cards</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module Card 6: Custom DocType Engine -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors mb-space-md">
+<span class="material-symbols-outlined text-2xl">dataset</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Custom DocType Engine</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+              Zero-code drag-and-drop form builder backed by native Python &amp; JS client scripts. Spin up customized tables, roles, and workflows in minutes.
+            </p>
+</div>
+<div class="mt-6 pt-4 bg-surface-container-low -mx-space-xl -mb-space-xl px-space-xl py-3 rounded-b-xl flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span>Server Scripts • REST APIs</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Open Source Advantage Section -->
+<section class="py-20 px-margin bg-surface-container-low" id="open-source">
+<div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Text Column -->
+<div class="lg:col-span-6 space-y-space-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">code</span>
+            The True Open-Source Difference
+          </div>
+<h2 class="text-headline-xl font-headline-xl text-on-surface tracking-tight">
+            Stop Paying Hostage Ransoms to Proprietary ERPs
+          </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+            Traditional monolithic vendors lock your data into proprietary silos, charge per-seat taxes that punish your company's growth, and force mandatory multi-million dollar upgrades.
+          </p>
+<div class="space-y-space-md pt-space-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-lg">key_off</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">No Vendor Lock-In Ever</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                  Own your entire data stack. ERPNext runs directly on MariaDB or PostgreSQL. Export, backup, or fork whenever you wish without asking permission.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-lg">extension</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Frappe Framework Superpowers</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                  The batteries-included Python/JS fullstack meta-framework. Extend models with custom code, generate RESTful endpoints, and build bespoke micro-apps.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-lg">cloud_done</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Freedom of Deployment</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                  Host on your own air-gapped bare metal servers, your private AWS/Hetzner cluster, or launch instantly via managed Frappe Cloud in 6 global regions.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Architecture / Code Comparison Tile -->
+<div class="lg:col-span-6 bg-surface-container-lowest p-space-xl rounded-xl shadow-lg">
+<div class="flex items-center justify-between pb-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">DocType Schema — Python Controller</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">item_price.py</span>
+</div>
+<!-- Code Box -->
+<div class="bg-surface-container p-space-md rounded-lg font-code-sm text-code-sm text-on-surface overflow-x-auto">
+<pre class="leading-relaxed"><code><span class="text-tertiary">import</span> frappe
+<span class="text-tertiary">from</span> frappe.model.document <span class="text-tertiary">import</span> Document
+
+<span class="text-primary font-bold">class</span> <span class="text-on-surface font-semibold">ItemPrice</span>(Document):
+    <span class="text-tertiary">def</span> <span class="text-primary font-bold">validate</span>(self):
+        <span class="text-secondary"># Native validation lifecycle</span>
+        <span class="text-tertiary">if</span> self.price_list_rate &lt;= <span class="text-tertiary-container">0</span>:
+            frappe.throw(<span class="text-error font-medium">"Rate must be strictly positive"</span>)
+            
+        <span class="text-secondary"># Auto-calculate margin via doc events</span>
+        self.apply_currency_exchange()
+
+    <span class="text-tertiary">def</span> <span class="text-primary font-bold">apply_currency_exchange</span>(self):
+        rate = frappe.db.get_single_value(
+            <span class="text-error font-medium">"Accounts Settings"</span>, <span class="text-error font-medium">"default_currency"</span>
+        )
+        self.currency = rate</code></pre>
+</div>
+<!-- Architecture Comparison Table -->
+<div class="mt-space-lg space-y-space-xs">
+<div class="flex items-center justify-between text-body-sm font-body-sm py-2 px-3 bg-surface-container-low rounded">
+<span class="text-on-surface font-medium">License Model</span>
+<span class="text-primary font-bold font-code-sm">100% Free &amp; Open Source</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm py-2 px-3 bg-surface-container-low rounded">
+<span class="text-on-surface font-medium">Per-User License Cost</span>
+<span class="text-primary font-bold font-code-sm">$0 / unlimited seats</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm py-2 px-3 bg-surface-container-low rounded">
+<span class="text-on-surface font-medium">Database Direct Access</span>
+<span class="text-primary font-bold font-code-sm">Full SQL Root Access</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community & Ecosystem Showcase (Visual Richness with Photos) -->
+<section class="py-20 px-margin bg-surface" id="ecosystem">
+<div class="max-w-6xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary font-code-sm">Global Community</span>
+<h2 class="text-headline-xl font-headline-xl text-on-surface tracking-tight mt-1">
+            Built by Pragmatists, Engineered for Scale
+          </h2>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-md mt-4 md:mt-0">
+          Over a decade of continuous daily development on GitHub. Backed by thousands of certified partners, system integrators, and independent maintainers.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Community Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<img class="w-full h-48 object-cover" data-alt="A clean modern open-plan engineering team collaborating in front of desktop computer monitors displaying software code and logistics dashboards, with soft natural window daylight, in a minimalist Scandinavian office setting with navy blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbmuWEKTDkdsvtiS5w7zc9ZHVBfEs1XrjTNrvwBaMzU6Zn2xXxFNachVYwaarFw0FQH3vr5a9dwTmAFfCHM8rVzERT24riPu7nuo2u0DuqV8duKyY-n8Nlf5nKXE_3KJfiMyRC0ABQ7wJTLYNl2GZ0IfH1RwWDr_djUoF7UU-q5UI6w3AM6U5hmcaIbecQ1AdQH_L54AMXNWAk1osyKAcsY-hR6ko9yGcen3BqXHQlmMT-1cQPSsxv"/>
+<div class="p-space-lg">
+<span class="text-label-sm font-label-sm uppercase text-primary font-code-sm">Frappe Cloud</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mt-1">Managed Production Hosting</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">
+              One-click multi-tenant deployment, automated nightly backups, automated SSL certificates, and point-in-time recovery.
+            </p>
+<a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md mt-4 hover:underline" href="#">
+              Explore Frappe Cloud <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Community Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<img class="w-full h-48 object-cover" data-alt="A dynamic developer conference auditorium stage with a presenter demonstrating modern cloud architecture on a high resolution screen, warm stage lighting, professional attendees engaged in discussion with laptops open." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6qX_5HU4BShABG-sEPE_dLmNpvxmZ0BfnTXHgrJeCh1ZiJ30uaHmzyNBRQWfvc_kZGfvvcD887H_48nUYFTl-tj9gd6PcmUVdtsHXes4sPkLaFOgYES9DrozDAYqJFk-cLhfijeeZAGf0EpUJltbzql9Z3BMWjnkpTSZsdpzbFQ6EjE_5Da8ofFg2W6R8XlOMblYkVKgfx_fiPpVNV5P3zJUv6Xl061E2v_OcBdkJXtTg7-xgH0Si"/>
+<div class="p-space-lg">
+<span class="text-label-sm font-label-sm uppercase text-primary font-code-sm">Annual Conference</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mt-1">Frappeverse 2024</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">
+              Join 1,200+ CTOs, core framework maintainers, and business leaders to explore the future of open-source ERP systems.
+            </p>
+<a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md mt-4 hover:underline" href="#">
+              Watch Keynotes <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Community Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<img class="w-full h-48 object-cover" data-alt="A close-up shot of an industrial robotics technician and warehouse manager holding an iPad tablet reviewing inventory logs in a clean automated distribution center with blue LED indicator lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIYpVaSrANcMJoyiSK9WzJc8xmHsvRkqAoRdLLcfvUBdjmSwdmibZbKpFCZUtMxWgPYtEEqIkc_NelGFw9YBTi9VTSH0cC5Go6FuctfxWTYbpYLA9U0BSiocBNnfsQsxzKXBIyNuQlnCf_a4htiIGiQa__S0K6pHmmliNHXitSQMygXhYeo4VsoldvEOVjygMIKrmEb_sIMNWzIniOfQJbXDMr2qGO96wIVr9TJXnqdNfHQiaIW26V"/>
+<div class="p-space-lg">
+<span class="text-label-sm font-label-sm uppercase text-primary font-code-sm">Partner Ecosystem</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mt-1">Certified Implementation</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">
+              Access 250+ vetted partner agencies worldwide for seamless legacy SAP/Oracle data migrations and custom integrations.
+            </p>
+<a class="inline-flex items-center gap-1 text-primary font-label-md text-label-md mt-4 hover:underline" href="#">
+              Find a Partner <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Terminal Bench Install Snippet -->
+<section class="py-16 px-margin bg-surface-container-high">
+<div class="max-w-4xl mx-auto bg-inverse-surface text-inverse-on-surface rounded-xl p-space-xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="space-y-1">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-inverse-primary font-code-sm">Get Up &amp; Running in 60 Seconds</span>
+<h3 class="text-headline-lg font-headline-lg text-on-primary">Install via Frappe Bench CLI</h3>
+<p class="text-body-md font-body-md text-surface-variant">Simple, idempotent commands for development or bare-metal setups.</p>
+</div>
+<div class="w-full md:w-auto bg-surface-container-lowest/10 backdrop-blur rounded-lg p-space-md flex items-center justify-between gap-space-md">
+<code class="font-code-sm text-code-sm text-surface-bright select-all">pip install frappe-bench &amp;&amp; bench init-site</code>
+<button class="px-3 py-1.5 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shrink-0" id="copyBtn" onclick="navigator.clipboard.writeText('pip install frappe-bench &amp;&amp; bench init-site'); this.innerText='Copied!';">
+          Copy
+        </button>
+</div>
+</div>
+</section>
+<!-- Clean Enterprise Footer -->
+<footer class="bg-surface-container-lowest pt-16 pb-12 px-margin shadow-inner" id="docs">
+<div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-space-xl pb-12">
+<!-- Brand Summary Column -->
+<div class="col-span-2 space-y-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 bg-primary rounded-lg flex items-center justify-center text-on-primary font-headline-md shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="font-headline-md text-headline-md tracking-tight text-on-surface">ERPNext</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-sm">
+            The world's leading open-source enterprise resource planning system. Designed with purpose by Frappe Technologies Pvt. Ltd. and thousands of global contributors.
+          </p>
+<!-- Newsletter Signup -->
+<div class="space-y-2 pt-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Subscribe to Engineering Changelog</span>
+<div class="flex items-center gap-2 max-w-sm">
+<input class="w-full px-3 py-1.5 text-body-sm font-body-sm rounded-lg bg-surface-container text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" placeholder="work@company.com" type="email"/>
+<button class="px-4 py-1.5 bg-primary text-on-primary text-label-md font-label-md rounded-lg hover:bg-on-primary-fixed-variant transition-colors shrink-0">
+                Join
+              </button>
+</div>
+</div>
+</div>
+<!-- Product Modules -->
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md text-on-surface uppercase font-semibold">Core Modules</span>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Financials &amp; GL</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Supply Chain &amp; Stock</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">HR &amp; Payroll</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Manufacturing &amp; BOM</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">CRM &amp; Sales Orders</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Healthcare &amp; Education</a></li>
+</ul>
+</div>
+<!-- Ecosystem & Cloud -->
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md text-on-surface uppercase font-semibold">Ecosystem</span>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Frappe Framework</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe Cloud</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe HR App</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe CRM (New)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe Books (Desktop)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Gameplan (Internal Comms)</a></li>
+</ul>
+</div>
+<!-- Resources & Open Source -->
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md text-on-surface uppercase font-semibold">Resources</span>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Documentation</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Community Forum (Discuss)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">GitHub Repository</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe School (Certifications)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Find Implementation Partner</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Security &amp; Vulnerabilities</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Trademark & Copyright -->
+<div class="pt-8 bg-surface-container -mx-margin px-margin flex flex-col sm:flex-row items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<div>
+          © 2024 Frappe Technologies Pvt. Ltd. ERPNext and Frappe are registered trademarks. 100% Free Software under GNU GPL v3.
+        </div>
+<div class="flex items-center gap-space-md mt-4 sm:mt-0 font-label-sm text-label-sm">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">GPL License</a>
+<a class="hover:text-primary" href="#">Status Page</a>
+</div>
+</div>
+</div>
+</footer>
+</div></main></body></html>

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_blank" name="shell-type"/>
+<title>ERPNext | The World's Best Free and Open Source ERP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f8f9ff",
+            "on-surface": "#0b1c30",
+            "on-primary-container": "#fdfaff",
+            "surface-variant": "#d3e4fe",
+            "on-secondary-fixed-variant": "#3f465c",
+            "tertiary": "#00618c",
+            "tertiary-fixed-dim": "#89ceff",
+            "outline-variant": "#c2c6d8",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#131b2e",
+            "primary-container": "#1b68ff",
+            "on-primary-fixed-variant": "#003ea7",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#d3e4fe",
+            "on-background": "#0b1c30",
+            "on-error-container": "#93000a",
+            "secondary-container": "#dae2fd",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#dae2fd",
+            "on-tertiary-container": "#f9fbff",
+            "tertiary-container": "#007bb0",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#c9e6ff",
+            "primary-fixed": "#dbe1ff",
+            "surface-bright": "#f8f9ff",
+            "surface-dim": "#cbdbf5",
+            "on-tertiary-fixed": "#001e2f",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#424655",
+            "inverse-on-surface": "#eaf1ff",
+            "inverse-primary": "#b4c5ff",
+            "on-tertiary-fixed-variant": "#004c6e",
+            "secondary": "#565e74",
+            "on-primary-fixed": "#00174a",
+            "primary": "#0050d3",
+            "surface-tint": "#0053d9",
+            "secondary-fixed-dim": "#bec6e0",
+            "surface-container-high": "#dce9ff",
+            "on-secondary-container": "#5c647a",
+            "on-primary": "#ffffff",
+            "background": "#f8f9ff",
+            "surface-container": "#e5eeff",
+            "surface-container-low": "#eff4ff",
+            "inverse-surface": "#213145",
+            "primary-fixed-dim": "#b4c5ff",
+            "outline": "#737687"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-mobile": "1rem",
+            "space-lg": "1.25rem",
+            "space-md": "0.75rem",
+            "gutter-mobile": "0.75rem",
+            "space-xl": "1.75rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem"
+          },
+          fontFamily: {
+            "headline-xl-mobile": ["Inter", "sans-serif"],
+            "headline-md": ["Inter", "sans-serif"],
+            "code-sm": ["JetBrains Mono", "monospace"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "headline-sm": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "headline-xl": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "label-lg": ["Inter", "sans-serif"]
+          },
+          fontSize: {
+            "headline-xl-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "code-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "headline-sm": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "600" }],
+            "headline-xl": ["30px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "label-lg": ["13px", { "lineHeight": "18px", "fontWeight": "500" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- Frappeverse Top Banner -->
+<aside class="w-full bg-[#0b1c30] text-surface-bright py-2.5 px-margin text-center text-label-md font-label-md transition-colors hover:bg-primary">
+<a class="inline-flex items-center justify-center gap-2 group flex-wrap" href="#conference">
+<span class="w-2 h-2 rounded-full bg-[#1b68ff] animate-ping inline-block"></span>
+<span class="font-bold tracking-wide text-white">Frappeverse 2025:</span>
+<span class="text-surface-variant font-normal">Join the annual conference in Mumbai on 11-12 September</span>
+<span class="material-symbols-outlined text-sm text-primary-fixed group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</aside>
+<!-- Top Navigation & Brand Header -->
+<header class="w-full bg-surface-container-lowest/90 backdrop-blur-md sticky top-0 z-50 border-b border-surface-container-high/60">
+<div class="max-w-7xl mx-auto px-margin flex items-center justify-between h-16">
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-2 cursor-pointer">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-on-primary font-bold shadow-sm">
+<span class="text-base font-black">E</span>
+</div>
+<div class="flex flex-col leading-none">
+<span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">ERPNext</span>
+<span class="text-[10px] text-on-surface-variant font-code-sm">by Frappe</span>
+</div>
+<a class="hidden sm:inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-code-sm ml-space-xs hover:bg-secondary-container transition-colors" href="#releases">
+            v16 Preview
+            <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+</a>
+</div>
+<nav class="hidden lg:flex items-center gap-space-md ml-space-md">
+<a class="text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded" href="#modules">Modules &amp; Capabilities</a>
+<a class="text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded" href="#architecture">Architecture</a>
+<a class="text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded" href="#implementation">Implementation</a>
+<a class="text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded" href="#comparisons">Comparisons</a>
+<a class="text-on-surface-variant hover:text-primary text-body-md font-body-md transition-colors px-2 py-1 rounded" href="#docs">Docs &amp; School</a>
+</nav>
+</div>
+<div class="flex items-center gap-space-sm">
+<a class="hidden sm:flex items-center gap-space-xs px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface font-label-md text-label-md" href="https://github.com/frappe/erpnext" rel="noopener" target="_blank">
+<svg class="w-4 h-4 fill-current text-on-surface" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+</svg>
+<span class="font-code-sm">18.4k</span>
+</a>
+<a class="px-space-md py-1.5 rounded-lg border border-outline-variant text-body-md font-label-md text-on-surface hover:bg-surface-container transition-colors" href="#trial">Contact Sales</a>
+<a class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors shadow-sm font-label-lg text-label-lg" href="#trial">Start Free Trial</a>
+</div>
+</div>
+</header>
+<main class="w-full">
+<!-- Hero Section with Split Layout -->
+<section class="relative pt-12 pb-16 px-margin bg-gradient-to-b from-surface-container-low/70 via-surface to-surface">
+<div class="max-w-7xl mx-auto">
+<!-- Official Breadcrumb / Version Capsule -->
+<div class="flex items-center justify-center md:justify-start mb-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/60 shadow-sm text-label-sm font-code-sm">
+<span class="material-symbols-outlined text-sm text-primary">rocket_launch</span>
+<span class="font-semibold text-on-surface">ERPNext v16</span>
+<span class="text-on-surface-variant font-normal">/ Explore what's new and improved</span>
+<span class="material-symbols-outlined text-xs text-primary">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Column: Official Messaging & Customer Trust Badges -->
+<div class="lg:col-span-6 flex flex-col items-center md:items-start text-center md:text-left">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white mb-4 shadow-md">
+<span class="font-black text-2xl">E</span>
+</div>
+<span class="text-label-md font-label-md tracking-wider uppercase text-primary font-semibold">ERPNext</span>
+<h1 class="text-4xl sm:text-5xl font-extrabold text-on-surface tracking-tight mt-2 leading-[1.15]">
+              The only ERP you'll ever need
+            </h1>
+<p class="mt-4 text-headline-sm font-headline-sm text-on-surface-variant max-w-xl">
+              ERPNext is the world's best free and open source ERP. Engineered to unify enterprise finance, manufacturing, supply chain, and talent without licensing lock-ins.
+            </p>
+<!-- Actions -->
+<div class="mt-8 flex flex-wrap items-center gap-3 justify-center md:justify-start">
+<a class="px-6 py-3 rounded-lg bg-[#0b1c30] text-white hover:bg-primary transition-all font-label-lg text-label-lg flex items-center gap-2 shadow-sm group" href="#trial">
+<span class="material-symbols-outlined text-sm text-primary-fixed group-hover:text-white">bolt</span>
+<span>Start free trial</span>
+</a>
+<a class="px-6 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-all font-label-lg text-label-lg" href="#implementation">
+                Contact us
+              </a>
+<a class="px-4 py-3 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors font-code-sm text-code-sm text-on-surface flex items-center gap-1.5" href="https://github.com/frappe/erpnext" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-sm text-primary">terminal</span>
+<span>bench get-app erpnext</span>
+</a>
+</div>
+<!-- Customer Trust Badges -->
+<div class="mt-12 w-full pt-8 border-t border-surface-container-high">
+<p class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant mb-4">
+                Trusted by high-growth global enterprises &amp; public leaders
+              </p>
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-4 items-center justify-items-center opacity-85">
+<div class="flex items-center gap-1 text-on-surface">
+<span class="font-extrabold text-error text-lg tracking-tighter">KFC</span>
+<span class="text-[10px] font-label-sm uppercase tracking-tight text-on-surface-variant">Franchise</span>
+</div>
+<div class="flex items-center gap-1.5 font-bold text-on-surface text-base">
+<span class="material-symbols-outlined text-primary text-base">spa</span>
+<span>Bloom</span>
+</div>
+<div class="flex items-center font-bold text-on-surface tracking-tight text-base">
+<span class="text-primary font-black">Z</span>ERODHA
+                </div>
+<div class="bg-primary text-on-primary px-2 py-0.5 rounded font-black tracking-widest text-xs">
+                  DECATHLON
+                </div>
+<div class="flex items-center gap-1 font-bold text-on-surface text-base">
+<span>TATA</span>
+<span class="text-[11px] text-primary font-code-sm">1mg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Architectural Blueprint (Frappe Full-Stack Meta-Framework) -->
+<div class="lg:col-span-6 w-full" id="architecture">
+<div class="rounded-xl border border-outline-variant/60 bg-surface-container-lowest shadow-xl overflow-hidden">
+<!-- Top bar of diagram -->
+<div class="bg-surface-container px-4 py-2.5 border-b border-surface-container-high flex items-center justify-between text-xs font-code-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error/80 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-container/80 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-primary/80 inline-block"></span>
+<span class="text-on-surface-variant font-medium ml-1">Frappe Meta-Framework Architecture</span>
+</div>
+<span class="bg-surface-container-highest text-primary px-2 py-0.5 rounded text-[11px] font-semibold">100% Extensible</span>
+</div>
+<!-- Blueprint Stack Layers -->
+<div class="p-6 space-y-3.5 bg-gradient-to-b from-surface-container-lowest to-surface-container-low/40">
+<!-- Layer 1: Presentation & React/Vue/Desk UI -->
+<div class="p-3.5 rounded-lg border border-primary/20 bg-primary-fixed/30 hover:bg-primary-fixed/50 transition-colors">
+<div class="flex items-center justify-between text-xs font-code-sm text-primary mb-1">
+<span class="font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">devices</span> Layer 1: Client &amp; Workspace UI
+                    </span>
+<span class="bg-primary/10 px-1.5 py-0.5 rounded text-[11px]">Vue 3 • React Native • Frappe Desk</span>
+</div>
+<p class="text-body-sm text-on-surface">Universal responsive UI, native Mobile Apps, custom Desk Workspaces, and Portal pages.</p>
+</div>
+<!-- Layer 2: API & Integration Surface -->
+<div class="p-3.5 rounded-lg border border-tertiary/20 bg-tertiary-fixed/30 hover:bg-tertiary-fixed/50 transition-colors">
+<div class="flex items-center justify-between text-xs font-code-sm text-tertiary mb-1">
+<span class="font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">hub</span> Layer 2: API Gateway &amp; DocType Engine
+                    </span>
+<span class="bg-tertiary/10 px-1.5 py-0.5 rounded text-[11px]">REST APIs • GraphQL • Webhooks v2</span>
+</div>
+<p class="text-body-sm text-on-surface">Auto-generated granular endpoints, role-based field permissions, and declarative workflow hooks.</p>
+</div>
+<!-- Layer 3: Server Application Core (Python) -->
+<div class="p-3.5 rounded-lg border border-surface-container-highest bg-surface-container-high/60">
+<div class="flex items-center justify-between text-xs font-code-sm text-on-surface mb-1">
+<span class="font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">terminal</span> Layer 3: Python 3.11+ Core Runtime
+                    </span>
+<span class="bg-surface-container-highest px-1.5 py-0.5 rounded text-[11px] font-semibold text-primary">frappe-bench</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-2 font-code-sm text-[11px]">
+<div class="bg-surface-container-lowest p-2 rounded text-center border border-outline-variant/40">
+<span class="font-bold text-on-surface block">Gunicorn / WSGI</span>
+<span class="text-on-surface-variant text-[10px]">Worker Pools</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded text-center border border-outline-variant/40">
+<span class="font-bold text-on-surface block">Celery / RQ</span>
+<span class="text-on-surface-variant text-[10px]">Async Tasks</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded text-center border border-outline-variant/40">
+<span class="font-bold text-on-surface block">Server Scripts</span>
+<span class="text-on-surface-variant text-[10px]">Sandboxed Python</span>
+</div>
+</div>
+</div>
+<!-- Layer 4: Storage & Caching Layer -->
+<div class="p-3.5 rounded-lg border border-secondary-container bg-secondary-container/40">
+<div class="flex items-center justify-between text-xs font-code-sm text-on-secondary-fixed mb-1">
+<span class="font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">database</span> Layer 4: Enterprise Persistence
+                    </span>
+<span class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-[11px]">MariaDB 10.6+ / PostgreSQL 15+</span>
+</div>
+<div class="flex items-center justify-between gap-2 mt-2 pt-1 border-t border-secondary-fixed-dim/40 text-[11px] font-code-sm text-on-secondary-container">
+<span>• Redis Cache &amp; Queue</span>
+<span>• Socket.io Live Events</span>
+<span>• S3 / MinIO Object Storage</span>
+</div>
+</div>
+</div>
+<!-- Blueprint Specs Bar -->
+<div class="bg-surface-container-low px-4 py-2.5 border-t border-surface-container-high grid grid-cols-3 gap-2 text-center text-xs">
+<div>
+<span class="text-on-surface-variant block font-label-sm">License</span>
+<span class="font-bold text-primary font-code-sm">GNU GPL v3</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Per-Seat Fee</span>
+<span class="font-bold text-primary font-code-sm">$0 Unlimited</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Deployment</span>
+<span class="font-bold text-on-surface font-code-sm">Bare Metal / Cloud</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Open Source Callout (Ditch expensive proprietary software) -->
+<section class="py-14 px-margin bg-surface-container-lowest border-y border-surface-container-high">
+<div class="max-w-6xl mx-auto">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="max-w-2xl">
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary font-code-sm">Ditch Expensive Proprietary Software</span>
+<h2 class="text-2xl sm:text-3xl font-bold text-on-surface tracking-tight mt-1">
+              The future of enterprise software is open-source
+            </h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+              Proprietary ERPs are expensive, limiting, and rigid. Businesses are left with two choices: either spend through the roof on SAP, Oracle NetSuite, etc., or use multiple disconnected apps leading to manual work and broken traceability.
+            </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+<a class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-label-md text-on-surface text-center" href="#comparisons">
+              Compare Alternatives
+            </a>
+<a class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors font-label-md text-label-md text-center shadow-sm" href="#trial">
+              Deploy in 5 Mins
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive 'Modules & Capabilities' Mega-Grid with Comprehensive Checklists for 10 Modules -->
+<section class="py-20 px-margin bg-surface" id="modules">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-14">
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary font-code-sm">High-Density Enterprise Breadth</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-on-surface tracking-tight mt-1">
+            Modules &amp; Capabilities Mega-Grid
+          </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">
+            Every core operational vertical fully connected under Frappe's unified DocType architecture. No brittle connectors or synchronizer lag.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+<!-- Module 1: Accounting -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">1. Accounting</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Real-time ledger, statutory tax compliance, and automated bank reconciliation.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Multi-Currency GL</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Auto Bank Feeds (Plaid)</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> E-Invoicing &amp; Tax Templates</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Cost Centers &amp; Budgets</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Automated Depreciation</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Frappe Books sync</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 2: Procurement -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed/40 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">shopping_cart</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">2. Procurement</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">End-to-end buying, supplier quotations, purchase receipts, and audits.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Material Requisitions</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> RFQ &amp; Supplier Portal</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> 3-Way Invoice Matching</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Purchase Order Approval Trees</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Supplier Scorecarding</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Auto-reorder rules</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 3: Sales -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-container/60 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">3. Sales</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Instant price quotes, sales orders, delivery notes, and recurring subscriptions.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Quotations &amp; PDF Signatures</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Sales Order Workflows</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Recurring Billing Engines</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Commission Schedules</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Drop-shipping Support</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Credit limit guards</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 4: CRM -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">contact_mail</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">4. CRM</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Lead capturing, interactive Kanban pipelines, omnichannel inbox, and SLA deals.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Visual Opportunity Funnels</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Email Sync (IMAP/OAuth)</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> WhatsApp &amp; Call Logging</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Lead Scoring &amp; Routing</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Auto Sales Follow-ups</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Frappe CRM compatible</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 5: Stock & Inventory -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed/40 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">5. Stock</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Multi-warehouse bin balances, serial/batch tracking, and valuation methods.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Serialized &amp; Batch Trace</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> FIFO &amp; Moving Avg Valuation</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Barcode &amp; QR Scanning</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Inter-warehouse Transfers</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Landed Cost Allocation</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Stock reconciliation</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 6: Manufacturing -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-container/60 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">precision_manufacturing</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">6. Manufacturing</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Multi-level BOMs, capacity planning, job cards, and subcontractor orders.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Nested BOM Tree Editor</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Workstation Operations &amp; Timers</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Scrap &amp; Waste Accounting</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Subcontracting Receipts</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Production Planning (MPS)</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Standard costing engine</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 7: Projects -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">view_kanban</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">7. Projects</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Gantt schedules, billable employee timesheets, and milestone invoicing.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Interactive Gantt Charts</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Billable Timesheet Slips</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Profitability by Milestone</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Customer Portal Visibility</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Dependency Linking</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Frappe Insights charts</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 8: Retail POS -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed/40 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">point_of_sale</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">8. Point of Sale</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Modern web POS with offline support, cashier drawer reconciliations, and receipts.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Offline Cashier Mode</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Thermal Receipt Printers</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Multi-Store Syncing</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Loyalty Points &amp; Coupons</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Shift Opening/Closing Audits</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Card terminal APIs</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 9: Quality Inspection -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-container/60 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">verified</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">9. Quality</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Pre-shipment sampling, inspection parameters, tolerances, and rejection logs.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Receiving Inspection Trees</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Numeric &amp; Formula Tolerances</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Certificate of Analysis (CoA)</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Quarantine Warehousing</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Non-Conformance Actions</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>ISO 9001 compliance</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<!-- Module 10: Helpdesk & Support -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">support_agent</span>
+</div>
+<h3 class="font-bold text-headline-sm text-on-surface">10. Helpdesk</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Ticket routing, SLA guarantees, knowledge bases, and customer satisfaction.</p>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Unified Ticket Inboxes</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> SLA Escalation Timers</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Self-Service Help Portals</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> CSAT Response Rating</li>
+<li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-sm text-primary shrink-0">check_circle</span> Auto Warranty Validations</li>
+</ul>
+</div>
+<div class="mt-4 pt-2 border-t border-surface-container font-code-sm text-[11px] text-primary flex items-center justify-between">
+<span>Frappe Helpdesk ready</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 'Choose Your Implementation Journey' Segment -->
+<section class="py-20 px-margin bg-surface-container-low" id="implementation">
+<div class="max-w-6xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary font-code-sm">Clear Pathways to Success</span>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mt-1">
+            Choose Your Implementation Journey
+          </h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+            No forced enterprise lock-ins. Pick the path that best matches your internal engineering capacity, timeline, and company scale.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Journey 1: Certified Partners -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed/40 text-primary font-code-sm text-xs font-semibold mb-4">
+<span class="material-symbols-outlined text-xs">handshake</span> Enterprise Grade
+              </div>
+<h3 class="text-xl font-bold text-on-surface">Certified Partners</h3>
+<p class="text-body-sm text-on-surface-variant mt-2">
+                Work directly with 200+ certified partner agencies worldwide for large-scale enterprise deployments, SAP migrations, and bespoke integrations.
+              </p>
+<div class="mt-5 space-y-2 text-body-sm text-on-surface">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> Vetted implementation experts</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> Custom DocType &amp; Python plugins</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> Dedicated on-site training &amp; SLAs</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container">
+<a class="inline-flex items-center justify-between w-full text-label-md font-label-md text-primary font-semibold hover:underline" href="#">
+<span>Browse 200+ Global Partners</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Journey 2: SMB Success Packs -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border-2 border-primary shadow-md relative flex flex-col justify-between">
+<div class="absolute -top-3 right-6 bg-primary text-on-primary px-2.5 py-0.5 rounded-full text-xs font-code-sm font-bold uppercase tracking-wider">
+              Most Popular
+            </div>
+<div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-fixed font-code-sm text-xs font-semibold mb-4">
+<span class="material-symbols-outlined text-xs">rocket</span> Turnkey Quickstart
+              </div>
+<h3 class="text-xl font-bold text-on-surface">SMB Success Packs</h3>
+<p class="text-body-sm text-on-surface-variant mt-2">
+                Turnkey standard setup designed specifically for growing companies under 50 users. Go live with accounting, inventory, and sales in under 4 weeks.
+              </p>
+<div class="mt-5 space-y-2 text-body-sm text-on-surface">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> Fixed-price scoping &amp; templates</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> Pre-packaged Frappe Cloud instance</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> 1-on-1 functional onboarding coach</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container">
+<a class="inline-flex items-center justify-center w-full py-2 rounded bg-primary text-on-primary text-label-md font-label-md font-semibold hover:bg-on-primary-fixed-variant transition-colors" href="#trial">
+                Get SMB Success Pack
+              </a>
+</div>
+</div>
+<!-- Journey 3: Self-Implementation -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container-high shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-code-sm text-xs font-semibold mb-4">
+<span class="material-symbols-outlined text-xs">terminal</span> 100% Free &amp; Open
+              </div>
+<h3 class="text-xl font-bold text-on-surface">Self-Implementation</h3>
+<p class="text-body-sm text-on-surface-variant mt-2">
+                Harness our rich open documentation, Frappe School video certification courses, and active Discourse forum with over 50,000 members.
+              </p>
+<div class="mt-5 space-y-2 text-body-sm text-on-surface">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> Free Frappe School video courses</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> Active Frappe Community Forum</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">verified</span> Step-by-step developer guides</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container">
+<a class="inline-flex items-center justify-between w-full text-label-md font-label-md text-primary font-semibold hover:underline" href="#docs">
+<span>Start Learning on Frappe School</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Competitive Comparisons Section -->
+<section class="py-16 px-margin bg-surface" id="comparisons">
+<div class="max-w-6xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary font-code-sm">Head-to-Head Evaluation</span>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mt-1">
+              ERPNext vs. Legacy Proprietary Suites
+            </h2>
+</div>
+<p class="text-body-sm text-on-surface-variant mt-2 md:mt-0 max-w-md">
+            Evaluate why modern tech-forward CFOs and CTOs are transitioning away from high-tax legacy vendors.
+          </p>
+</div>
+<div class="overflow-x-auto rounded-xl border border-surface-container-high bg-surface-container-lowest shadow-sm">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead class="bg-surface-container text-on-surface-variant font-label-sm uppercase text-xs">
+<tr>
+<th class="py-3 px-4">Feature / Vector</th>
+<th class="py-3 px-4 text-primary font-bold">ERPNext (Frappe)</th>
+<th class="py-3 px-4">Odoo</th>
+<th class="py-3 px-4">SAP Business One</th>
+<th class="py-3 px-4">Salesforce + QB</th>
+<th class="py-3 px-4">Oracle NetSuite</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high font-body-sm text-on-surface">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-semibold">License Model</td>
+<td class="py-3 px-4 font-bold text-primary font-code-sm">100% GPLv3 Open Source</td>
+<td class="py-3 px-4 text-on-surface-variant">Open Core / Enterprise Tax</td>
+<td class="py-3 px-4 text-on-surface-variant">Proprietary Closed</td>
+<td class="py-3 px-4 text-on-surface-variant">Proprietary SaaS</td>
+<td class="py-3 px-4 text-on-surface-variant">Proprietary Monolith</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-semibold">Per-Seat Licensing Cost</td>
+<td class="py-3 px-4 font-bold text-primary font-code-sm">$0 / seat</td>
+<td class="py-3 px-4 text-on-surface-variant">$25 - $38 / user / mo</td>
+<td class="py-3 px-4 text-on-surface-variant">$1,500+ / seat upfront</td>
+<td class="py-3 px-4 text-on-surface-variant">$165+ / user / mo</td>
+<td class="py-3 px-4 text-on-surface-variant">$999 base + $100/user</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-semibold">Self-Host Anywhere</td>
+<td class="py-3 px-4 font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary">check</span> Full Root Access</td>
+<td class="py-3 px-4 text-on-surface-variant">Community edition only</td>
+<td class="py-3 px-4 text-on-surface-variant">Complex Windows Server</td>
+<td class="py-3 px-4 text-on-surface-variant">No (Cloud-only)</td>
+<td class="py-3 px-4 text-on-surface-variant">No (Cloud-only)</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-semibold">DocType Low-Code Studio</td>
+<td class="py-3 px-4 font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary">check</span> Native Built-in</td>
+<td class="py-3 px-4 text-on-surface-variant">Odoo Studio (Paid tier)</td>
+<td class="py-3 px-4 text-on-surface-variant">Expensive SDK consultants</td>
+<td class="py-3 px-4 text-on-surface-variant">Complex Lightning Setup</td>
+<td class="py-3 px-4 text-on-surface-variant">SuiteScript custom code</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-semibold">Integrated Code Stack</td>
+<td class="py-3 px-4 font-bold text-primary font-code-sm">Python 3 + JS/Vue</td>
+<td class="py-3 px-4 text-on-surface-variant">Python + OWL Framework</td>
+<td class="py-3 px-4 text-on-surface-variant">C++ / .NET legacy</td>
+<td class="py-3 px-4 text-on-surface-variant">Apex / Proprietary</td>
+<td class="py-3 px-4 text-on-surface-variant">Java / SuiteScript</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Frappeverse Conference Spotlight Section -->
+<section class="py-16 px-margin bg-[#0b1c30] text-surface-bright" id="conference">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-xl space-y-2">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/20 text-primary-fixed font-code-sm text-xs">
+<span class="material-symbols-outlined text-xs">calendar_today</span> 11-12 September 2025 • Mumbai, India
+          </div>
+<h3 class="text-3xl font-extrabold text-white tracking-tight">Frappeverse 2025 Annual Conference</h3>
+<p class="text-surface-variant text-body-md">
+            Meet 1,500+ developers, CTOs, Frappe Framework core maintainers, and business innovators. Two days of in-depth workshops, architectural keynotes, and product announcements.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+<a class="w-full sm:w-auto px-6 py-3 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all font-label-lg text-label-lg text-center font-bold" href="#">
+            Reserve Conference Pass
+          </a>
+<a class="w-full sm:w-auto px-5 py-3 rounded-lg border border-outline/40 hover:bg-surface-container-lowest/10 text-white transition-colors font-label-md text-label-md text-center" href="#">
+            View Speaker Lineup
+          </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Full Authentic Footer with Releases v16 to v13 & Comparisons -->
+<footer class="bg-surface-container-lowest pt-16 pb-10 px-margin border-t border-surface-container-high" id="docs">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-6 gap-8 pb-12">
+<!-- Brand & Summary Column -->
+<div class="col-span-2 space-y-4">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 bg-primary rounded-lg flex items-center justify-center text-white font-bold">
+              E
+            </div>
+<span class="font-bold text-headline-md tracking-tight text-on-surface">ERPNext</span>
+<span class="text-xs bg-surface-container-highest px-2 py-0.5 rounded text-primary font-code-sm">v16.0</span>
+</div>
+<p class="text-body-sm text-on-surface-variant max-w-sm">
+            The world's leading 100% free and open source enterprise resource planning system. Built on Frappe Framework by Frappe Technologies and global open source contributors.
+          </p>
+<div class="flex items-center gap-2 pt-2">
+<a class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" href="https://github.com/frappe/erpnext" rel="noopener" target="_blank" title="GitHub">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+</a>
+<a class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" href="#" title="Discourse Forum">
+<span class="material-symbols-outlined text-base">forum</span>
+</a>
+<a class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" href="#" title="Documentation">
+<span class="material-symbols-outlined text-base">menu_book</span>
+</a>
+</div>
+</div>
+<!-- Release Versions (v16 down to v13) -->
+<div class="space-y-2">
+<span class="font-label-md text-label-md text-on-surface uppercase font-bold text-xs tracking-wider" id="releases">Releases</span>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface-variant font-code-sm">
+<li><a class="hover:text-primary transition-colors flex items-center gap-1 text-primary font-semibold" href="#">v16.0 (Active Preview)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">v15.2 (Current LTS)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">v14.4 (Stable Support)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">v13.5 (Maintenance)</a></li>
+<li><a class="hover:text-primary transition-colors text-xs text-outline" href="#">Release Notes &amp; Roadmap →</a></li>
+</ul>
+</div>
+<!-- Core Modules -->
+<div class="space-y-2">
+<span class="font-label-md text-label-md text-on-surface uppercase font-bold text-xs tracking-wider">Capabilities</span>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Accounting &amp; Tax</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Procurement &amp; Buying</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sales &amp; Quotations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Stock &amp; Inventory</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Manufacturing &amp; BOM</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Point of Sale (POS)</a></li>
+</ul>
+</div>
+<!-- Ecosystem & Products -->
+<div class="space-y-2">
+<span class="font-label-md text-label-md text-on-surface uppercase font-bold text-xs tracking-wider">Frappeverse</span>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Frappe Framework</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe Cloud</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe HR</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe CRM</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe Helpdesk</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Frappe Insights</a></li>
+</ul>
+</div>
+<!-- Software Comparisons -->
+<div class="space-y-2">
+<span class="font-label-md text-label-md text-on-surface uppercase font-bold text-xs tracking-wider">Comparisons</span>
+<ul class="space-y-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">ERPNext vs. Odoo</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">ERPNext vs. SAP</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">ERPNext vs. QuickBooks</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">ERPNext vs. Salesforce</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">ERPNext vs. NetSuite</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">TCO Calculator</a></li>
+</ul>
+</div>
+</div>
+<!-- Legal & Copyright Bar -->
+<div class="pt-8 border-t border-surface-container flex flex-col sm:flex-row items-center justify-between text-xs text-on-surface-variant">
+<div>
+          © 2025 Frappe Technologies Pvt. Ltd. Licensed under GNU General Public License v3. Free Software Forever.
+        </div>
+<div class="flex items-center gap-4 mt-3 sm:mt-0 font-label-sm">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Use</a>
+<a class="hover:text-primary" href="#">Security Policy</a>
+<a class="hover:text-primary" href="#">System Status</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

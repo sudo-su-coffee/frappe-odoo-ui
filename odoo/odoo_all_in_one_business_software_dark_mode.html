@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-fixed-dim":"#e9b8d9","surface":"#10141a","on-error-container":"#ffdad6","surface-container-high":"#262a31","on-primary-fixed":"#3b002f","secondary-fixed-dim":"#60d9d5","outline-variant":"#52424b","surface-container-highest":"#31353c","on-primary-fixed-variant":"#792365","on-secondary-fixed":"#00201f","on-tertiary-fixed-variant":"#5f3b56","tertiary":"#e9b8d9","inverse-on-surface":"#2d3137","tertiary-fixed":"#ffd7f1","on-secondary-fixed-variant":"#00504e","secondary-fixed":"#7ff5f1","error":"#ffb4ab","background":"#10141a","surface-tint":"#ffade2","on-secondary-container":"#00302e","on-tertiary-container":"#ffe0f3","on-primary-container":"#ffe0f0","secondary-container":"#06a19e","on-primary":"#5d054d","inverse-primary":"#963c7e","secondary":"#60d9d5","tertiary-container":"#845c79","surface-container":"#1c2026","on-tertiary":"#46253f","primary-fixed-dim":"#ffade2","surface-dim":"#10141a","error-container":"#93000a","primary":"#ffade2","surface-variant":"#31353c","primary-fixed":"#ffd8ee","surface-container-low":"#181c22","on-background":"#dfe2eb","outline":"#9f8b96","on-secondary":"#003736","primary-container":"#a24689","on-tertiary-fixed":"#2f1029","inverse-surface":"#dfe2eb","surface-bright":"#353940","surface-container-lowest":"#0a0e14","on-surface":"#dfe2eb","on-surface-variant":"#d6c1cb","on-error":"#690005"},borderRadius:{DEFAULT:"1rem",lg:"2rem",xl:"3rem",full:"9999px"},spacing:{"space-xs":"0.25rem",gutter:"1rem","gutter-compact":"0.5rem","space-sm":"0.5rem","space-lg":"1.5rem",margin:"1.5rem","space-xl":"2.25rem","margin-mobile":"1rem","space-md":"1rem"},fontFamily:{"label-md":["JetBrains Mono"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],title:["Inter"],"body-md":["Inter"],"label-sm":["JetBrains Mono"],"headline-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],display:["Plus Jakarta Sans"],"display-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"]},fontSize:{"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["15px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],title:["16px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"600"}],"body-md":["13px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-lg":["30px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],display:["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"display-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg flex-shrink-0"><a class="flex items-center gap-space-sm" data-path="apps" href="#"><img alt="Odoo Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UT2kDuKDzP-tNECnj4uh8zJltIfYtgvg8qAiGAkGcFTvkUZ15bd6vZ8zI1aDnM_fBGKDMy8zXb4ZQumYpztByNPDBCtNK1OE4AL4yUKZKSyNCpiHSA-FX2107Bhq1euKv9jhT0PvROaZIGJRHcSGJX7LJyHNjaLMIbrA1gpm5A5wmbzNhyXnajK7-Ej6C0jogWk_hfOUpLrFyVHeBwp2nsVqZQYV-UJHfj7gxwJxzX2qrhZTArM-C56Vw"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">Odoo</span></a><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-title"><a aria-current="page" class="transition-colors text-primary font-title" data-path="apps" href="#">Apps</a><a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-colors" data-path="community" href="#">Community</a><a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-colors" data-path="pricing" href="#">Pricing</a><a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md transition-colors" data-path="docs" href="#">Docs</a></nav></div><div class="flex-1 max-w-md mx-space-sm hidden md:block"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant pointer-events-none text-[18px]">search</span><input class="w-full h-10 pl-10 pr-16 bg-surface-container-low rounded-full text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container/40 transition-all" placeholder="Search apps, modules & docs..." type="text"/><div class="absolute right-space-sm flex items-center pointer-events-none"><kbd class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm border-0">Ctrl+K</kbd></div></div></div><div class="flex items-center gap-space-md flex-shrink-0"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm" type="button"><span class="material-symbols-outlined text-[16px]">language</span><span>EN</span><span class="material-symbols-outlined text-[14px]">expand_more</span></button><a class="hidden sm:inline-flex items-center px-space-md py-2 rounded-full font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center px-space-lg py-2 rounded-full bg-primary-container text-on-primary-container font-title text-body-md shadow-[0_0_16px_rgba(162,70,137,0.35)] hover:brightness-110 active:brightness-95 transition-all" data-path="start-free" href="#">Start Now - It's Free</a><div class="flex items-center pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmEiVjYvpf4et17hUqBChYxzZOR_nmmYA7oi0ler0yRhs02pA8dJSl8P72kL3cd9QBge53JLcLSBlxZwZ4ya0ylr27l50S3AUAyAvEXi4Fw1tFC-US6-HTSE_jBy6kk9z0RjBV852dLCXSFcZybmgJmZUA4GRw9oE4N6wU0eEITt35TDEZ9b1CsvqqRQdX_Um5imzOJDaaREqItjZ6hfWIkaTJhbmvBFRrbOlTFXX-P2G74Gb7mlQB"/></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]"><div class="flex flex-col w-full">
+<!-- Top Ambient Glows -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-primary-container/25 via-secondary/10 to-transparent blur-3xl pointer-events-none -z-10 rounded-full"></div>
+<div class="absolute top-80 -left-40 w-96 h-96 bg-primary/10 blur-3xl pointer-events-none -z-10 rounded-full"></div>
+<div class="absolute top-96 -right-40 w-96 h-96 bg-secondary-container/20 blur-3xl pointer-events-none -z-10 rounded-full"></div>
+<!-- 1. Hero Section -->
+<section class="w-full px-margin pt-12 pb-20 max-w-7xl mx-auto flex flex-col items-center text-center">
+<!-- Live Release Pill -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface mb-space-lg shadow-sm hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Odoo 18 Released</span>
+<span class="text-outline text-body-sm mx-1">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-0.5">Explore AI Agents & Real-time Sync <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-display text-display max-w-4xl tracking-tight text-on-surface mb-space-md">
+        All your business on one platform. <span class="bg-gradient-to-r from-primary via-tertiary-fixed to-secondary bg-clip-text text-transparent">Simple, efficient, yet fully integrated.</span>
+</h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-space-xl">
+        With millions of happy users, Odoo is the only platform you will ever need to run your business — from CRM and accounting to inventory, POS, and automated manufacturing.
+      </p>
+<!-- Dual CTA Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-space-md mb-space-md">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-xl py-3 rounded-full bg-primary-container text-on-primary-container font-title text-body-lg shadow-[0_0_24px_rgba(162,70,137,0.45)] hover:scale-105 active:scale-95 transition-all" href="#apps-matrix">
+<span>Start Now - It's Free</span>
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</a>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-xl py-3 rounded-full bg-surface-container-high text-on-surface font-title text-body-lg shadow-md hover:bg-surface-container-highest active:scale-95 transition-all" onclick="document.getElementById('demo-modal').classList.remove('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px] text-secondary">play_circle</span>
+<span>Schedule a Demo</span>
+</button>
+</div>
+<!-- Micro Copy -->
+<div class="flex items-center gap-space-sm font-label-md text-label-md text-outline mb-space-xl">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> No credit card required</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> Instant setup</span>
+<span>•</span>
+<span>40+ core apps included</span>
+</div>
+<!-- Hero Visual Mock: Integrated Operational Cockpit -->
+<div class="w-full relative mt-space-sm">
+<div class="w-full rounded-2xl bg-surface-container-low shadow-2xl p-space-md md:p-space-lg text-left overflow-hidden">
+<!-- Top Window Bar -->
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-error-container inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-surface-bright inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-container inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-outline ml-space-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">domain</span> Enterprise Operations Hub • Live Multi-App Sync
+              </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span> PostgreSQL 16 • Sync Active
+              </span>
+<span class="text-outline font-label-sm text-label-sm hidden md:inline">Latency: 12ms</span>
+</div>
+</div>
+<!-- Main Interactive Split Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Left: Live Pipeline (CRM) -->
+<div class="lg:col-span-4 bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-space-xs">
+<span class="w-7 h-7 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+</span>
+<span class="font-title text-title text-on-surface">CRM Pipeline</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">8 New Deals</span>
+</div>
+<!-- Deal Card 1 -->
+<div class="bg-surface-container-high p-space-sm rounded-lg hover:bg-surface-bright transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-title text-body-md text-on-surface">Nexus Technologies Ltd</h4>
+<span class="font-label-sm text-label-sm text-outline">Enterprise ERP Tier • 350 Users</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">$48,200</span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary-fixed">Proposal Sent</span>
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">schedule</span> 14m ago</span>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="bg-surface-container-high p-space-sm rounded-lg hover:bg-surface-bright transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-title text-body-md text-on-surface">Starlight Mobility</h4>
+<span class="font-label-sm text-label-sm text-outline">Supply Chain & POS Module</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">$23,900</span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-container/30 text-primary-fixed">Won & Invoicing</span>
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">schedule</span> Just now</span>
+</div>
+</div>
+<!-- Telemetry Stat Widget -->
+<div class="mt-auto pt-space-xs bg-surface-container-lowest/50 p-space-sm rounded-lg flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline block">Quarter Revenue Pace</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$842,650</span>
+</div>
+<div class="px-2 py-1 rounded bg-secondary-container/30 text-secondary font-label-md text-label-md font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +42.4%
+                </div>
+</div>
+</div>
+<!-- Center: Automated Invoicing & Cross-App Event Bus -->
+<div class="lg:col-span-5 bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-space-xs">
+<span class="w-7 h-7 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+</span>
+<span class="font-title text-title text-on-surface">Automated Accounting</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">Auto-Reconciled</span>
+</div>
+<!-- Live Invoice Generation Block -->
+<div class="bg-surface-container-high p-space-sm rounded-lg">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-outline">INV/2024/00891</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">Paid Instantly</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<span class="font-body-md text-body-md text-on-surface font-medium block">Apex Robotics Corp</span>
+<span class="font-body-sm text-body-sm text-outline">24x Industrial Sensor Nodes</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">$14,480.00</span>
+</div>
+<!-- Micro Flow Trail -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span class="text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">done</span> CRM Deal Closed</span>
+<span class="material-symbols-outlined text-[12px]">east</span>
+<span class="text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">done</span> Stock Decremented</span>
+<span class="material-symbols-outlined text-[12px]">east</span>
+<span class="text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">done</span> Ledger Updated</span>
+</div>
+</div>
+<!-- Automated Sparkline Chart Representation -->
+<div class="bg-surface-container-high p-space-sm rounded-lg flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-center mb-space-xs">
+<span class="font-label-sm text-label-sm text-outline">Cash Flow Realtime Telemetry</span>
+<span class="font-label-sm text-label-sm text-primary">Zero Reconciliation Lag</span>
+</div>
+<svg class="w-full h-16 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 320 60">
+<path d="M0 45 Q 40 40 80 48 T 160 25 T 240 30 T 320 8" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 45 Q 40 40 80 48 T 160 25 T 240 30 T 320 8 L 320 60 L 0 60 Z" fill="currentColor" fill-opacity="0.12"></path>
+</svg>
+<div class="flex justify-between font-label-sm text-label-sm text-outline mt-1">
+<span>Week 01</span>
+<span>Week 02</span>
+<span>Week 03</span>
+<span class="text-primary font-semibold">Today (Surge)</span>
+</div>
+</div>
+</div>
+<!-- Right: Inventory Sync & Warehouse Node -->
+<div class="lg:col-span-3 bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-space-xs">
+<span class="w-7 h-7 rounded-lg bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+</span>
+<span class="font-title text-title text-on-surface">Inventory & MRP</span>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="bg-surface-container-high p-space-sm rounded-lg flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface">WH/Stock/Central</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">98.4% Cap</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-secondary h-2 rounded-full w-[88%]"></div>
+</div>
+</div>
+<!-- Barcode Scan Event Stream -->
+<div class="bg-surface-container-high p-space-sm rounded-lg flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">barcode_scanner</span> Live Barcode Stream
+                </span>
+<div class="flex justify-between items-center py-1">
+<span class="font-label-sm text-label-sm text-on-surface truncate">SKU-9924 (Motherboards)</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono">+120 Units</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-label-sm text-label-sm text-on-surface truncate">SKU-4108 (Alloy Chassis)</span>
+<span class="font-label-sm text-label-sm text-error font-mono">-45 Units</span>
+</div>
+</div>
+<!-- Sync Badge -->
+<div class="mt-auto bg-surface-container-lowest/50 p-space-sm rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">sync_alt</span>
+<div class="min-w-0">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold block truncate">POS + eCommerce Sync</span>
+<span class="font-label-sm text-label-sm text-outline">Omnichannel auto-balanced</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- 2. Interactive Odoo Apps Matrix / App Ecosystem -->
+<section class="w-full px-margin py-space-xl max-w-7xl mx-auto" id="apps-matrix">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold mb-space-xs block">Unified Modular Ecosystem</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Every app you need. Effortlessly connected.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Activate only what your business demands today. Scale into 40+ native enterprise tools anytime.</p>
+</div>
+<!-- Category Filter Pills -->
+<div class="flex flex-wrap items-center gap-space-xs bg-surface-container-low p-1.5 rounded-full">
+<button class="app-filter-btn px-space-md py-1 rounded-full font-label-md text-label-md transition-colors bg-primary-container text-on-primary-container" data-filter="all" onclick="filterApps('all')" type="button">All Apps</button>
+<button class="app-filter-btn px-space-md py-1 rounded-full font-label-md text-label-md transition-colors text-on-surface-variant hover:text-on-surface" data-filter="finance" onclick="filterApps('finance')" type="button">Finance</button>
+<button class="app-filter-btn px-space-md py-1 rounded-full font-label-md text-label-md transition-colors text-on-surface-variant hover:text-on-surface" data-filter="sales" onclick="filterApps('sales')" type="button">Sales</button>
+<button class="app-filter-btn px-space-md py-1 rounded-full font-label-md text-label-md transition-colors text-on-surface-variant hover:text-on-surface" data-filter="supply" onclick="filterApps('supply')" type="button">Supply Chain</button>
+<button class="app-filter-btn px-space-md py-1 rounded-full font-label-md text-label-md transition-colors text-on-surface-variant hover:text-on-surface" data-filter="hr" onclick="filterApps('hr')" type="button">HR</button>
+<button class="app-filter-btn px-space-md py-1 rounded-full font-label-md text-label-md transition-colors text-on-surface-variant hover:text-on-surface" data-filter="marketing" onclick="filterApps('marketing')" type="button">Marketing</button>
+</div>
+</div>
+<!-- App Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md" id="apps-grid">
+<!-- App 1: Accounting -->
+<div class="app-card group bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between hover:bg-surface-container-high transition-all hover:scale-[1.02] shadow-sm cursor-pointer" data-category="finance">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-[#714B67] text-white flex items-center justify-center mb-space-md shadow-md group-hover:shadow-[0_0_20px_rgba(113,75,103,0.5)] transition-all">
+<span class="material-symbols-outlined text-[28px]">account_balance</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Accounting</h3>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm">Finance</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Instant invoicing, automated bank feeds, AI OCR receipt scanning, and 100+ local fiscal reports.</p>
+</div>
+<div class="flex items-center justify-between pt-space-sm font-label-md text-label-md text-primary">
+<span class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Explore features <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+<span class="text-outline">v18 Fast Sync</span>
+</div>
+</div>
+<!-- App 2: CRM -->
+<div class="app-card group bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between hover:bg-surface-container-high transition-all hover:scale-[1.02] shadow-sm cursor-pointer" data-category="sales">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-[#00A09D] text-white flex items-center justify-center mb-space-md shadow-md group-hover:shadow-[0_0_20px_rgba(0,160,157,0.5)] transition-all">
+<span class="material-symbols-outlined text-[28px]">query_stats</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">CRM</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">Sales</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Lead qualification, interactive visual pipelines, automated email tracking, and AI revenue forecasts.</p>
+</div>
+<div class="flex items-center justify-between pt-space-sm font-label-md text-label-md text-secondary">
+<span class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Explore features <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+<span class="text-outline">Top Pick</span>
+</div>
+</div>
+<!-- App 3: Point of Sale -->
+<div class="app-card group bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between hover:bg-surface-container-high transition-all hover:scale-[1.02] shadow-sm cursor-pointer" data-category="sales">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-[#E27D60] text-white flex items-center justify-center mb-space-md shadow-md group-hover:shadow-[0_0_20px_rgba(226,125,96,0.5)] transition-all">
+<span class="material-symbols-outlined text-[28px]">point_of_sale</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Point of Sale</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Retail</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Runs on any iPad or touch register. Seamless offline mode, gift cards, kitchen display, and instant stock sync.</p>
+</div>
+<div class="flex items-center justify-between pt-space-sm font-label-md text-label-md text-primary">
+<span class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Explore features <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+<span class="text-outline">Offline-ready</span>
+</div>
+</div>
+<!-- App 4: Inventory & MRP -->
+<div class="app-card group bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between hover:bg-surface-container-high transition-all hover:scale-[1.02] shadow-sm cursor-pointer" data-category="supply">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-[#28B463] text-white flex items-center justify-center mb-space-md shadow-md group-hover:shadow-[0_0_20px_rgba(40,180,99,0.5)] transition-all">
+<span class="material-symbols-outlined text-[28px]">precision_manufacturing</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Inventory & MRP</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">Supply</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Double-entry stock management, automated reordering, multi-level BOMs, and barcode scanning.</p>
+</div>
+<div class="flex items-center justify-between pt-space-sm font-label-md text-label-md text-secondary">
+<span class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Explore features <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+<span class="text-outline">Industry 4.0</span>
+</div>
+</div>
+<!-- App 5: eCommerce -->
+<div class="app-card group bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between hover:bg-surface-container-high transition-all hover:scale-[1.02] shadow-sm cursor-pointer" data-category="sales">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-[#4A69BD] text-white flex items-center justify-center mb-space-md shadow-md group-hover:shadow-[0_0_20px_rgba(74,105,189,0.5)] transition-all">
+<span class="material-symbols-outlined text-[28px]">shopping_bag</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">eCommerce</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Web</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Drag-and-drop web store builder with Stripe/PayPal integration, abandoned cart recovery, and B2B customer portals.</p>
+</div>
+<div class="flex items-center justify-between pt-space-sm font-label-md text-label-md text-primary">
+<span class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Explore features <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+<span class="text-outline">Zero Code</span>
+</div>
+</div>
+<!-- App 6: Project Management -->
+<div class="app-card group bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between hover:bg-surface-container-high transition-all hover:scale-[1.02] shadow-sm cursor-pointer" data-category="hr">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-[#EB3B5A] text-white flex items-center justify-center mb-space-md shadow-md group-hover:shadow-[0_0_20px_rgba(235,59,90,0.5)] transition-all">
+<span class="material-symbols-outlined text-[28px]">explore</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Project & Timesheets</h3>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm">Services</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Kanban sprint boards, Gantt scheduling, automatic time tracking, and instant client billing per milestone.</p>
+</div>
+<div class="flex items-center justify-between pt-space-sm font-label-md text-label-md text-primary">
+<span class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Explore features <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+<span class="text-outline">Agile / Scrum</span>
+</div>
+</div>
+<!-- App 7: HR & Recruitment -->
+<div class="app-card group bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between hover:bg-surface-container-high transition-all hover:scale-[1.02] shadow-sm cursor-pointer" data-category="hr">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-[#8854D0] text-white flex items-center justify-center mb-space-md shadow-md group-hover:shadow-[0_0_20px_rgba(136,84,208,0.5)] transition-all">
+<span class="material-symbols-outlined text-[28px]">badge</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">HR & Recruitment</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Human Res</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Applicant tracking pipeline, geo-fenced attendance kiosks, payroll dispatch, and 360-degree appraisal cycles.</p>
+</div>
+<div class="flex items-center justify-between pt-space-sm font-label-md text-label-md text-primary">
+<span class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Explore features <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+<span class="text-outline">All-in-One HR</span>
+</div>
+</div>
+<!-- App 8: Marketing Automation -->
+<div class="app-card group bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between hover:bg-surface-container-high transition-all hover:scale-[1.02] shadow-sm cursor-pointer" data-category="marketing">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-[#FA8231] text-white flex items-center justify-center mb-space-md shadow-md group-hover:shadow-[0_0_20px_rgba(250,130,49,0.5)] transition-all">
+<span class="material-symbols-outlined text-[28px]">mark_email_unread</span>
+</div>
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Marketing Automation</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Growth</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Visual customer journey builders, SMS drip sequences, lead scoring models, and behavioral triggers.</p>
+</div>
+<div class="flex items-center justify-between pt-space-sm font-label-md text-label-md text-primary">
+<span class="group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Explore features <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+<span class="text-outline">High ROI</span>
+</div>
+</div>
+</div>
+<!-- App Store Banner -->
+<div class="w-full mt-space-lg p-space-lg rounded-2xl bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[28px]">extension</span>
+</div>
+<div>
+<h4 class="font-title text-title text-on-surface">Need specialized vertical software?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Over 40,000+ community-built extensions, themes, and integrations are available in the open Odoo App Store.</p>
+</div>
+</div>
+<a class="px-space-lg py-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-title text-body-md transition-colors flex items-center gap-1 whitespace-nowrap" href="#">
+<span>Browse App Store</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</section>
+<!-- 3. 'Why Odoo?' Value Proposition & Comparison (Bento Grid) -->
+<section class="w-full px-margin py-space-xl max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-space-xl">
+<span class="font-label-md text-label-md uppercase tracking-wider text-secondary font-semibold mb-space-xs block">Architectural Advantage</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Stop paying for a patchwork of disconnected software.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-sm">Most businesses waste thousands every month juggling 8+ disjointed SaaS tools, painful Zapier workflows, and broken data synchronization.</p>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md mb-space-xl">
+<!-- Tile 1: Fragmented Stack vs Odoo -->
+<div class="md:col-span-7 bg-surface-container rounded-3xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error bg-error-container/20 px-3 py-1 rounded-full">The Fragmented SaaS Nightmare</span>
+<span class="font-label-sm text-label-sm text-outline">Average SMB Costs</span>
+</div>
+<!-- Fragmented Cost Stack -->
+<div class="space-y-2 mb-space-lg">
+<div class="flex justify-between items-center bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-outline">sync_problem</span> Standalone CRM (Salesforce / HubSpot)</span>
+<span class="font-label-md text-label-md text-outline">$350/mo</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-outline">sync_problem</span> Accounting System (QuickBooks / NetSuite)</span>
+<span class="font-label-md text-label-md text-outline">$280/mo</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-outline">sync_problem</span> Inventory & WMS Tool</span>
+<span class="font-label-md text-label-md text-outline">$390/mo</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-body-md text-body-md text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-outline">sync_problem</span> Project & HR Management</span>
+<span class="font-label-md text-label-md text-outline">$220/mo</span>
+</div>
+<div class="flex justify-between items-center p-space-sm text-error font-title text-body-md">
+<span>Total Stack Monthly Spend:</span>
+<span class="line-through">$1,240 / month</span>
+</div>
+</div>
+</div>
+<!-- The Odoo Single Solution -->
+<div class="bg-primary-container/20 rounded-2xl p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">The Odoo Single Database</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zero custom connectors. One relational source of truth. Fraction of the cost.</p>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold">$24.90</span>
+<span class="font-label-sm text-label-sm text-outline block">per user / month (All apps)</span>
+</div>
+</div>
+</div>
+<!-- Tile 2: Open Source Agility -->
+<div class="md:col-span-5 bg-surface-container rounded-3xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/20 text-secondary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">code_blocks</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-xs">Open Source at Heart</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">No vendor lock-in. Backed by the world's largest community of 100,000+ developers continuously polishing security, features, and performance.</p>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col gap-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span> Full Python / ORM API</span>
+<span class="text-outline">Open REST</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span> Self-Host or Odoo.sh Cloud</span>
+<span class="text-outline">Total Freedom</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span> Instant PostgreSQL Backups</span>
+<span class="text-outline">1-Click Clone</span>
+</div>
+</div>
+</div>
+<!-- Tile 3: AI Copilot & Automation Ready -->
+<div class="md:col-span-5 bg-surface-container rounded-3xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-tertiary-container/30 text-tertiary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">auto_awesome</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-xs">Built-in Business AI</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Draft invoices automatically from scans, predict sales win rates, and write instant marketing emails without third-party plugins.</p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-label-sm">AI</div>
+<p class="font-body-sm text-body-sm text-on-surface italic">“Vendor bill OCR detected: Acme Corp, $3,450. Matched to Purchase Order #00412.”</p>
+</div>
+</div>
+<!-- Tile 4: Implementation Velocity -->
+<div class="md:col-span-7 bg-surface-container rounded-3xl p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Go live in days, not 18 months</h3>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">Rapid Deployment</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">Unlike legacy ERP behemoths that require millions in consultants and multi-year rollout cycles, Odoo's intuitive modularity lets teams adopt apps incrementally.</p>
+</div>
+<!-- Visual Milestone Bar -->
+<div class="grid grid-cols-3 gap-space-sm text-center">
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold block">Day 1</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">CRM & Sales</span>
+<span class="font-label-sm text-label-sm text-outline block">Imported & Active</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-headline-sm text-headline-sm text-primary font-bold block">Week 1</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Invoicing & POS</span>
+<span class="font-label-sm text-label-sm text-outline block">Bank Synchronized</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-headline-sm text-headline-sm text-tertiary-fixed font-bold block">Month 1</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Full ERP & MRP</span>
+<span class="font-label-sm text-label-sm text-outline block">Automated Ops</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Metrics Counter Bar -->
+<div class="w-full bg-surface-container-low rounded-3xl p-space-xl shadow-lg">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-lg text-center">
+<div>
+<span class="font-display text-display text-primary font-bold block">12M+</span>
+<span class="font-title text-title text-on-surface mt-1 block">Active Users</span>
+<span class="font-label-sm text-label-sm text-outline">Across all industries worldwide</span>
+</div>
+<div>
+<span class="font-display text-display text-secondary font-bold block">175+</span>
+<span class="font-title text-title text-on-surface mt-1 block">Countries</span>
+<span class="font-label-sm text-label-sm text-outline">Localized tax rules & charts</span>
+</div>
+<div>
+<span class="font-display text-display text-tertiary-fixed font-bold block">40,000+</span>
+<span class="font-title text-title text-on-surface mt-1 block">Community Apps</span>
+<span class="font-label-sm text-label-sm text-outline">World's largest business library</span>
+</div>
+<div>
+<span class="font-display text-display text-secondary-fixed font-bold block">99.9%</span>
+<span class="font-title text-title text-on-surface mt-1 block">Cloud Uptime</span>
+<span class="font-label-sm text-label-sm text-outline">Enterprise SLA reliability</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Customer Testimonials & Enterprise Logos -->
+<section class="w-full px-margin py-space-xl max-w-7xl mx-auto">
+<!-- Client Logo Marquee Header -->
+<div class="text-center mb-space-lg">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Trusted by industry leaders and agile disruptors</span>
+</div>
+<!-- Client Logo Strip -->
+<div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all mb-space-xl">
+<span class="font-headline-md text-headline-md tracking-widest text-on-surface font-extrabold">KPMG</span>
+<span class="font-headline-md text-headline-md tracking-wider text-on-surface font-bold">HYUNDAI</span>
+<span class="font-headline-md text-headline-md tracking-widest text-on-surface font-semibold">DANONE</span>
+<span class="font-headline-md text-headline-md tracking-widest text-on-surface font-black">DECATHLON</span>
+<span class="font-headline-md text-headline-md tracking-widest text-on-surface font-bold">WWF</span>
+</div>
+<!-- Testimonial Showcase Card -->
+<div class="w-full bg-surface-container rounded-3xl p-space-lg md:p-space-xl flex flex-col lg:flex-row items-center gap-space-xl shadow-xl">
+<!-- Customer Picture / Video Snippet Placeholder -->
+<div class="w-full lg:w-1/2 relative rounded-2xl overflow-hidden shadow-2xl h-80 bg-cover bg-center" data-alt="A confident enterprise logistics director standing in a high-tech modern warehouse facility with handheld barcode scanners and automated robotics in soft ambient dark teal and violet lighting, looking directly into camera with proud smile." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGaEgbzOvuXBEElgOaXYEyFYJI8kO0QteEJbnfyIsB3rHHyBWUgsB239H4-giQmIc2L51cRB3N7XvqX8-0hclpNwatKDkihUwF-MGQxzGUl8P84sjE8c-nA_-a_YDYX1ReboTxS4Xn-2-7UCpdn2QuEVIIMsf-s7kMckasIiuw9KwxT6fhtlqoMZPA1431P3-WeJgF0Wy0cV-dLjCLSDKV8ggmqssiAr0QXEYOHX1nlX2qTem2p5v8')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<div class="absolute bottom-space-md left-space-md right-space-md flex items-center justify-between text-on-surface">
+<div>
+<span class="font-headline-sm text-headline-sm font-bold block">Marc Henderson</span>
+<span class="font-body-sm text-body-sm text-outline">VP of Supply Chain • Decathlon Mobility</span>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Verified Case
+          </span>
+</div>
+</div>
+<!-- Quote Content -->
+<div class="w-full lg:w-1/2 flex flex-col justify-center">
+<!-- 5-star rating -->
+<div class="flex items-center gap-1 text-primary mb-space-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface ml-2">5.0 / 5 on Gartner Peer Insights</span>
+</div>
+<blockquote class="font-headline-md text-headline-md text-on-surface mb-space-md leading-relaxed">
+          “Switching to Odoo replaced SAP and five other uncoordinated apps. We <span class="text-secondary font-bold">reduced our order-to-delivery cycle time by 65%</span> while slashing software licensing fees by over $240,000 every single year.”
+        </blockquote>
+<!-- Impact Badges -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm pt-space-sm">
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold block">-65%</span>
+<span class="font-label-sm text-label-sm text-outline">Lead-to-Delivery</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-headline-sm text-headline-sm text-primary font-bold block">$240k/yr</span>
+<span class="font-label-sm text-label-sm text-outline">Licensing Saved</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl col-span-2 sm:col-span-1">
+<span class="font-headline-sm text-headline-sm text-tertiary-fixed font-bold block">3 Weeks</span>
+<span class="font-label-sm text-label-sm text-outline">Global Onboarding</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Sticky / Conversion Bottom CTA Banner -->
+<section class="w-full px-margin py-space-xl max-w-7xl mx-auto mb-12">
+<div class="relative w-full rounded-3xl p-space-xl md:p-16 overflow-hidden bg-gradient-to-br from-primary-container via-surface-container-high to-surface-container-low shadow-2xl text-center flex flex-col items-center">
+<!-- Decorative ambient shapes -->
+<div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-secondary-container/30 blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-primary/20 blur-2xl pointer-events-none"></div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-secondary font-bold mb-space-xs">Ready to modernize your operations?</span>
+<h2 class="font-display text-display text-on-surface max-w-3xl mb-space-sm">
+        Unleash your business growth today.
+      </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-space-xl">
+        Join 12 million entrepreneurs and enterprise teams scaling with the ultimate all-in-one platform. Free forever for 1 app, or unlimited apps for the entire team.
+      </p>
+<!-- Fast signup form -->
+<form class="w-full max-w-md flex flex-col sm:flex-row items-center gap-space-xs bg-surface-container-lowest/80 p-1.5 rounded-full shadow-lg backdrop-blur-md" onsubmit="handleSignup(event)">
+<div class="flex items-center flex-1 w-full pl-space-md">
+<span class="material-symbols-outlined text-outline text-[18px]">mail</span>
+<input class="w-full bg-transparent px-space-sm py-2 text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none" placeholder="Enter your work email..." required="" type="email"/>
+</div>
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-full bg-primary-container text-on-primary-container font-title text-body-md shadow-md hover:brightness-110 active:scale-95 transition-all whitespace-nowrap" type="submit">
+          Get Started Free
+        </button>
+</form>
+<!-- Micro checklist -->
+<div class="flex flex-wrap items-center justify-center gap-space-md mt-space-md font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">check</span> Instant Cloud Activation</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">check</span> Free Migration Support</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">check</span> Cancel Anytime</span>
+</div>
+</div>
+</section>
+<!-- Interactive Demo Modal (Triggered by 'Schedule a Demo') -->
+<div class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex items-center justify-center p-space-md" id="demo-modal">
+<div class="bg-surface-container rounded-2xl max-w-lg w-full p-space-lg shadow-2xl relative">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('demo-modal').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<div class="flex items-center gap-space-sm mb-space-md">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">videocam</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Experience Odoo Live</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tailored 20-minute product tour with an enterprise architect.</p>
+</div>
+</div>
+<form class="space-y-space-sm" onsubmit="handleDemoSubmit(event)">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Full Name</label>
+<input class="w-full bg-surface-container-high rounded-lg px-space-md py-2 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Alex Morgan" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Company Work Email</label>
+<input class="w-full bg-surface-container-high rounded-lg px-space-md py-2 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" placeholder="alex@company.com" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Primary App of Interest</label>
+<select class="w-full bg-surface-container-high rounded-lg px-space-md py-2 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary">
+<option>All-In-One Enterprise ERP Suite</option>
+<option>Accounting & Invoicing</option>
+<option>CRM & Sales Pipelines</option>
+<option>Inventory & MRP Manufacturing</option>
+<option>Point of Sale & Retail</option>
+</select>
+</div>
+<div class="pt-space-sm">
+<button class="w-full py-2.5 rounded-full bg-primary-container text-on-primary-container font-title text-body-md shadow-md hover:brightness-110 transition-all" type="submit">
+            Confirm Demo Schedule
+          </button>
+</div>
+</form>
+<div class="hidden text-center pt-space-md text-secondary font-body-md" id="demo-success">
+<span class="material-symbols-outlined text-[32px] block mb-1">task_alt</span>
+        Demo invite sent! Check your inbox for the calendar confirmation.
+      </div>
+</div>
+</div>
+</div>
+<script>
+  function filterApps(category) {
+    const cards = document.querySelectorAll('.app-card');
+    const buttons = document.querySelectorAll('.app-filter-btn');
+
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-filter') === category) {
+        btn.classList.add('bg-primary-container', 'text-on-primary-container');
+        btn.classList.remove('text-on-surface-variant');
+      } else {
+        btn.classList.remove('bg-primary-container', 'text-on-primary-container');
+        btn.classList.add('text-on-surface-variant');
+      }
+    });
+
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function handleSignup(event) {
+    event.preventDefault();
+    const btn = event.target.querySelector('button');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Setting up...';
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Workspace Created!';
+      btn.classList.replace('bg-primary-container', 'bg-secondary-container');
+      btn.classList.replace('text-on-primary-container', 'text-on-secondary-container');
+    }, 1200);
+  }
+
+  function handleDemoSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    form.classList.add('hidden');
+    document.getElementById('demo-success').classList.remove('hidden');
+    setTimeout(() => {
+      document.getElementById('demo-modal').classList.add('hidden');
+      form.classList.remove('hidden');
+      document.getElementById('demo-success').classList.add('hidden');
+    }, 2500);
+  }
+</script></main><footer class="w-full bg-surface-container-lowest text-on-surface-variant shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="w-full px-margin py-space-xl"><div class="grid grid-cols-2 md:grid-cols-5 gap-space-lg mb-space-xl"><div class="col-span-2 md:col-span-1 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Odoo Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UT2kDuKDzP-tNECnj4uh8zJltIfYtgvg8qAiGAkGcFTvkUZ15bd6vZ8zI1aDnM_fBGKDMy8zXb4ZQumYpztByNPDBCtNK1OE4AL4yUKZKSyNCpiHSA-FX2107Bhq1euKv9jhT0PvROaZIGJRHcSGJX7LJyHNjaLMIbrA1gpm5A5wmbzNhyXnajK7-Ej6C0jogWk_hfOUpLrFyVHeBwp2nsVqZQYV-UJHfj7gxwJxzX2qrhZTArM-C56Vw"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Odoo</span></div><p class="font-body-sm text-body-sm text-outline pr-space-md">Unleash your enterprise growth with 40+ integrated business apps tailored for modern agile organizations.</p></div><div class="flex flex-col gap-space-sm"><span class="font-title text-title text-on-surface">Apps Ecosystem</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="apps" href="#">CRM & Sales</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="apps" href="#">Accounting & Invoicing</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="apps" href="#">Inventory & MRP</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="apps" href="#">Project & Timesheets</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="apps" href="#">Point of Sale</a></div><div class="flex flex-col gap-space-sm"><span class="font-title text-title text-on-surface">Community</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="community" href="#">Open Source Core</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="community" href="#">GitHub Repository</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="community" href="#">Forum & Discord</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="community" href="#">Translation Portal</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="community" href="#">Odoo Experience Event</a></div><div class="flex flex-col gap-space-sm"><span class="font-title text-title text-on-surface">Resources & Docs</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="docs" href="#">Developer Documentation</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="docs" href="#">User Tutorials & Videos</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="docs" href="#">API References</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing" href="#">Compare Editions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="docs" href="#">System Architecture</a></div><div class="flex flex-col gap-space-sm"><span class="font-title text-title text-on-surface">Trust & Legal</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="security" href="#">Security & Compliance</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="gdpr" href="#">GDPR Portal</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="cookie-policy" href="#">Cookie Preferences</a></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container-low/30 rounded-xl px-space-md py-space-sm"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-outline"><span class="material-symbols-outlined text-[16px]">public</span><span>Region & Language:</span><button class="text-on-surface hover:text-primary transition-colors flex items-center gap-0.5" type="button"><span>English (US)</span><span class="material-symbols-outlined text-[14px]">expand_more</span></button></div></div><p class="font-label-sm text-label-sm text-outline">© 2024 Odoo S.A. All rights reserved. Open source enterprise business software.</p></div></div></footer></body></html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed-dim":"#ffade2","surface":"#10141a","inverse-primary":"#963c7e","on-secondary-fixed-variant":"#00504e","tertiary":"#e9b8d9","error-container":"#93000a","primary-fixed":"#ffd8ee","on-primary-fixed":"#3b002f","outline":"#9f8b96","on-error-container":"#ffdad6","secondary":"#60d9d5","on-secondary-fixed":"#00201f","tertiary-fixed":"#ffd7f1","outline-variant":"#52424b","on-primary-container":"#ffe0f0","on-tertiary-container":"#ffe0f3","secondary-fixed-dim":"#60d9d5","surface-container-highest":"#31353c","on-background":"#dfe2eb","inverse-on-surface":"#2d3137","surface-tint":"#ffade2","on-surface-variant":"#d6c1cb","error":"#ffb4ab","on-primary":"#5d054d","tertiary-fixed-dim":"#e9b8d9","on-tertiary-fixed":"#2f1029","surface-bright":"#353940","primary":"#ffade2","surface-container-high":"#262a31","surface-dim":"#10141a","surface-variant":"#31353c","on-error":"#690005","tertiary-container":"#845c79","surface-container":"#1c2026","on-surface":"#dfe2eb","on-primary-fixed-variant":"#792365","secondary-container":"#06a19e","on-secondary-container":"#00302e","on-secondary":"#003736","surface-container-lowest":"#0a0e14","on-tertiary":"#46253f","on-tertiary-fixed-variant":"#5f3b56","secondary-fixed":"#7ff5f1","surface-container-low":"#181c22","background":"#10141a","inverse-surface":"#dfe2eb","primary-container":"#a24689"},borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},spacing:{"space-lg":"1.5rem","space-xs":"0.25rem","gutter-compact":"0.5rem","space-md":"1rem","margin-mobile":"1rem","space-sm":"0.5rem","space-xl":"2.25rem","gutter":"1rem","margin":"1.5rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-md":["JetBrains Mono"],"title":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-sm":["JetBrains Mono"],"body-md":["Inter"],"display-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"display":["Plus Jakarta Sans"],"body-sm":["Inter"]},fontSize:{"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["30px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"title":["16px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"body-md":["13px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"display-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-lg":["15px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"display":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 h-14 bg-surface-container-low/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="w-full h-14 px-space-md flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><button class="p-space-xs rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Apps Menu" type="button"><span class="material-symbols-outlined text-[20px] leading-none">apps</span></button><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #a24689
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-full
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UEaHHCOjWgpacedrqAJf_zEQD9vYh60L3p_baiw2g6gzb0lO4DRd7T5Y2HcXw7FFhfsd7eNfxEL6Ab-idVWGDW3pnU7wu1xOdACB9eiqwJRccec6PXS9m6L6YZfOt3mRAwuA9rsYsAQt0-A7qr-nSYP6x_Qg5kzHkzcY32ZaaEW7PyKzQlRcwO6LBNd8QTehA1MuzWazyoErGGDYzInymfDXxrq3SMo8-Z9E5fOORVUbgIpsr2UiKWL34"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-bold">odoo</span></div><div class="h-4 w-px bg-surface-container-highest mx-space-xs hidden md:block"></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-title text-title rounded-full shadow-[0_0_12px_rgba(162,70,137,0.35)]"><a aria-current="page" class="px-space-md py-1 transition-colors bg-primary-container text-on-primary-container font-title text-title rounded-full shadow-[0_0_12px_rgba(162,70,137,0.35)]" data-path="apps-launcher" href="#">Apps Launcher</a><a class="px-space-md py-1 rounded-full font-title text-title text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="studio" href="#">Studio</a><a class="px-space-md py-1 rounded-full font-title text-title text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="discuss" href="#">Discuss</a></nav></div><div class="flex-1 max-w-xl mx-auto hidden sm:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px] pointer-events-none">search</span><input class="w-full h-9 pl-10 pr-14 bg-surface-container text-on-surface font-body-sm text-body-sm rounded-full placeholder-on-surface-variant/60 focus:outline-none focus:ring-1 focus:ring-primary-container focus:bg-surface-container-high transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)]" placeholder="Search apps, records, actions..." type="text"/><div class="absolute right-space-sm flex items-center gap-1"><kbd class="px-space-xs py-0.5 bg-surface-container-highest rounded text-on-surface-variant font-label-sm text-label-sm">⌘K</kbd></div></div></div><div class="flex items-center gap-space-sm"><button class="p-space-xs rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors relative" title="Activities & To-Do" type="button"><span class="material-symbols-outlined text-[20px] leading-none">check_circle</span></button><button class="p-space-xs rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors relative" title="Notifications" type="button"><span class="material-symbols-outlined text-[20px] leading-none">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-low"></span></button><div class="h-4 w-px bg-surface-container-highest mx-space-xs"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XO98jrXA4IuUFKiw68AlWUxrG4aohEBgyQ_braVR_4LiIscFaeDJSpzBFYuPe-FdKgrgfBXGoiNoxP2gj--90UhTbnYROaf67xuzF4bErKiiMVG--YDUntw2R7yT7u4NTnVB4KXj8r7kM94THbtcj-cMOlZ3f6G3ocwug9ewo2oCYTztNVwZq_NodxpRp9sLN9W--2pVa3lwcG-SY9WezbE3LvWFzVfI3KkVwlFf-du1Jvrk5fZk5R5F0"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-low"></span></div><div class="hidden xl:flex flex-col text-left"><span class="font-title text-body-sm text-on-surface leading-tight font-medium">Marc Demo</span><span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase leading-none">Administrator</span></div></div></div></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-surface-container-lowest z-40 flex flex-col justify-between py-space-md shadow-[0_4px_16px_rgba(0,0,0,0.5)]"><div class="flex flex-col gap-space-md px-space-sm"><div class="px-space-sm py-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Business Suite</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-title text-title rounded shadow-[0_0_12px_rgba(162,70,137,0.35)]"><a aria-current="page" class="flex items-center gap-space-md px-space-md py-2 transition-colors bg-primary-container text-on-primary-container font-title text-title rounded shadow-[0_0_12px_rgba(162,70,137,0.35)]" data-path="apps-launcher" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-title text-title">Apps Launcher</span></a><a class="flex items-center gap-space-md px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="crm-pipeline" href="#"><span class="material-symbols-outlined text-[20px]">donut_large</span><span class="font-title text-title">CRM & Pipeline</span></a><a class="flex items-center gap-space-md px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="sales-orders" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-title text-title">Sales & Orders</span></a><a class="flex items-center gap-space-md px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="inventory" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span class="font-title text-title">Inventory</span></a><a class="flex items-center gap-space-md px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="accounting" href="#"><span class="material-symbols-outlined text-[20px]">account_balance</span><span class="font-title text-title">Accounting</span></a><a class="flex items-center gap-space-md px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="discuss" href="#"><span class="material-symbols-outlined text-[20px]">forum</span><span class="font-title text-title">Discuss & Teams</span></a></nav><div class="h-px bg-surface-container-highest mx-space-sm my-space-xs"></div><div class="px-space-sm py-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Operations</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-title text-title rounded shadow-[0_0_12px_rgba(162,70,137,0.35)]"><a class="flex items-center gap-space-md px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="studio" href="#"><span class="material-symbols-outlined text-[20px]">build_circle</span><span class="font-title text-title">Studio Customizer</span></a><a class="flex items-center gap-space-md px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="activities" href="#"><span class="material-symbols-outlined text-[20px]">event_available</span><span class="font-title text-title">Activities</span></a><a class="flex items-center gap-space-md px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-title text-title">Settings</span></a></nav></div><div class="px-space-md pt-space-md flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant/60">Enterprise v17.0</span><span class="w-2 h-2 rounded-full bg-secondary"></span></div></aside><div class="pl-64"><main class="w-full min-h-screen pt-14 bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Dynamic Atmospheric Glow Orbs -->
+<div class="relative w-full max-w-7xl mx-auto overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary-container/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-48 right-12 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute bottom-16 left-1/3 w-[500px] h-64 bg-tertiary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Top Command Console & Executive Greeter -->
+<section class="flex flex-col gap-space-md mb-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md bg-surface-container-low/80 backdrop-blur-xl p-space-md rounded-2xl shadow-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+              SAN FRANCISCO HQ
+            </span>
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-primary-container/30 text-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+              ENTERPRISE v18.0
+            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm tracking-wider">MARC DEMO</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">App Switcher</h1>
+<span class="font-label-md text-label-md text-secondary">30 apps installed</span>
+</div>
+</div>
+<!-- Quick Operational Actions -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="group flex items-center gap-1.5 px-space-md py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-all shadow-sm active:scale-95 text-body-sm font-medium" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary group-hover:rotate-45 transition-transform">add_circle</span>
+<span>New Invoice</span>
+</button>
+<button class="group flex items-center gap-1.5 px-space-md py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-all shadow-sm active:scale-95 text-body-sm font-medium" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:scale-110 transition-transform">person_add</span>
+<span>New Lead</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-all shadow-sm active:scale-95 text-body-sm font-medium" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">timer</span>
+<span>Start Timer</span>
+</button>
+<a class="flex items-center gap-1.5 px-space-md py-2 rounded-full bg-primary-container text-on-primary-container hover:brightness-110 font-title text-body-sm shadow-[0_0_16px_rgba(162,70,137,0.4)] transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span>Apps Store</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold">4</span>
+</a>
+</div>
+</div>
+<!-- Live Search & Filtering Command Matrix -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-2xl p-space-md rounded-2xl shadow-xl flex flex-col gap-space-sm">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-md text-primary text-[24px]">search</span>
+<input class="w-full h-12 pl-12 pr-28 bg-surface-container/70 focus:bg-surface-container-high text-on-surface font-title text-title rounded-full placeholder-on-surface-variant/50 focus:outline-none transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]" id="appSearchInput" placeholder="Search an app, record, or command... (Press '/' or ⌘K)" type="text"/>
+<div class="absolute right-space-sm flex items-center gap-space-xs">
+<kbd class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm shadow">ESC</kbd>
+<kbd class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm shadow">⌘K</kbd>
+</div>
+</div>
+<!-- Filter category tags -->
+<div class="flex items-center justify-between gap-space-sm pt-space-xs overflow-x-auto pb-1">
+<div class="flex items-center gap-space-xs flex-wrap" id="categoryFilterContainer">
+<button class="filter-chip active-filter px-space-md py-1 rounded-full font-label-md text-label-md bg-primary-container text-on-primary-container shadow-[0_0_10px_rgba(162,70,137,0.3)] transition-all" data-filter="all" type="button">
+              All Modules (30)
+            </button>
+<button class="filter-chip px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-filter="sales" type="button">
+              Sales & CRM
+            </button>
+<button class="filter-chip px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-filter="finance" type="button">
+              Finance & Invoicing
+            </button>
+<button class="filter-chip px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-filter="operations" type="button">
+              Operations & Supply
+            </button>
+<button class="filter-chip px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-filter="productivity" type="button">
+              Productivity & HR
+            </button>
+<button class="filter-chip px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-filter="marketing" type="button">
+              Marketing & Web
+            </button>
+</div>
+<div class="hidden xl:flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-secondary">tune</span>
+<span>Density: Standard (6x5 Grid)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Workspace Mosaic: App Icon Grid + Live Operational Hub -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- 30 App Tiles Grid -->
+<section class="lg:col-span-9 flex flex-col gap-space-md">
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-space-md" id="odooAppGrid">
+<!-- Discuss -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="productivity" data-name="Discuss Chat Messenger" href="#">
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Discuss</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">3 unread</span>
+</a>
+<!-- Calendar -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="productivity" data-name="Calendar Schedule Appointments" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-700 flex flex-col items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all mb-space-sm">
+<span class="font-label-sm text-[9px] uppercase tracking-wider font-bold">OCT</span>
+<span class="font-headline-sm text-[20px] font-bold leading-none -mt-0.5">24</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Calendar</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">2 meetings today</span>
+</a>
+<!-- Contacts -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="sales productivity" data-name="Contacts Directory Clients" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-700 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">contacts</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Contacts</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">1,480 accounts</span>
+</a>
+<!-- CRM (Flagship) -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="sales" data-name="CRM Pipeline Leads Deals Opportunities" href="#">
+<span class="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[9px] font-bold">12 Active</span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-container to-inverse-primary flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_24px_rgba(162,70,137,0.5)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">filter_alt</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">CRM</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium mt-0.5">$482k pipeline</span>
+</a>
+<!-- Sales -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="sales" data-name="Sales Quotations Orders SO" href="#">
+<span class="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[9px] font-bold">3 To Sign</span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Sales</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">84 open orders</span>
+</a>
+<!-- Dashboards -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="productivity finance" data-name="Dashboards Analytics BI Reporting" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Dashboards</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Real-time KPI</span>
+</a>
+<!-- Subscriptions -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="sales finance" data-name="Subscriptions Recurring MRR Billing" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-600 to-teal-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">autorenew</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Subscriptions</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">$38.4k MRR</span>
+</a>
+<!-- Point of Sale -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="sales" data-name="Point of Sale POS Retail Register Shop" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-sky-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">point_of_sale</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Point of Sale</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">3 terminals open</span>
+</a>
+<!-- Accounting -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="finance" data-name="Accounting General Ledger Banks Reconciliation" href="#">
+<span class="absolute top-2 right-2 px-1 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[8px] font-bold">Audit OK</span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Accounting</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">Reconciled</span>
+</a>
+<!-- Invoicing -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="finance" data-name="Invoicing Customer Invoices Bills Payments" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">payments</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Invoicing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">5 awaiting</span>
+</a>
+<!-- Expenses -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="finance" data-name="Expenses Reimbursement Receipts Claims" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(244,63,94,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">credit_card</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Expenses</span>
+<span class="font-label-sm text-label-sm text-primary mt-0.5">$1,420 pending</span>
+</a>
+<!-- Sign -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="productivity sales" data-name="Sign Digital Signature Contracts PDF" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-slate-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">draw</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Sign</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">2 pending docs</span>
+</a>
+<!-- Project -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations productivity" data-name="Project Tasks Kanban Agile Sprints" href="#">
+<span class="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[9px] font-bold">28 Open</span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-fuchsia-950 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">view_kanban</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Project</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Sprint #14</span>
+</a>
+<!-- Timesheets -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="productivity" data-name="Timesheets Billable Hours Log Tracking" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-700 to-sky-950 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(29,78,216,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">schedule</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Timesheets</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">32.5h this week</span>
+</a>
+<!-- Field Service -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations" data-name="Field Service Work Orders Routes Dispatch" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-600 to-orange-950 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(217,119,6,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">local_shipping</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Field Service</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">6 interventions</span>
+</a>
+<!-- Inventory (Critical) -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations" data-name="Inventory Stock Warehouse Deliveries Transfers" href="#">
+<span class="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[9px] font-bold">4 Backorders</span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Inventory</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">WH/Main</span>
+</a>
+<!-- Manufacturing / MRP -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations" data-name="Manufacturing MRP BOM Production Work Centers" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-700 to-yellow-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(180,83,9,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">precision_manufacturing</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Manufacturing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">8 MO active</span>
+</a>
+<!-- Purchase -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations finance" data-name="Purchase Orders RFQ Vendor Bills" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">shopping_cart</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Purchase</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">2 RFQ to validate</span>
+</a>
+<!-- Maintenance -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations" data-name="Maintenance Equipment Preventive Requests" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-rose-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">build</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Maintenance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">All machines OK</span>
+</a>
+<!-- Quality -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations" data-name="Quality Control Checks Points Alert" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-950 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(5,150,105,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">verified</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Quality</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">99.8% pass</span>
+</a>
+<!-- Website -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="marketing" data-name="Website CMS Builder Pages SEO" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">public</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Website</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Published</span>
+</a>
+<!-- eCommerce -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="sales marketing" data-name="eCommerce Online Store Products Cart" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">shopping_bag</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">eCommerce</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">+18% today</span>
+</a>
+<!-- Blog -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="marketing" data-name="Blog News Posts Content Social" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">article</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Blog</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">4 drafts</span>
+</a>
+<!-- Email Marketing -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="marketing" data-name="Email Marketing Campaigns Mass Mailing Newsletter" href="#">
+<span class="absolute top-2 right-2 px-1 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[8px] font-bold">94.2%</span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">send</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Email Marketing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Campaign sent</span>
+</a>
+<!-- Employees -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="productivity" data-name="Employees HR Organization Chart Team" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-900 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(5,150,105,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">badge</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Employees</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">64 active staff</span>
+</a>
+<!-- Recruitment -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="productivity" data-name="Recruitment Jobs Candidates Applications ATS" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">person_search</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Recruitment</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">14 applicants</span>
+</a>
+<!-- Time Off -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="productivity" data-name="Time Off Leaves Holidays Vacations PTO" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-700 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(234,179,8,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">wb_sunny</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Time Off</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">3 on leave</span>
+</a>
+<!-- App Store -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations" data-name="Apps Store Addons Modules Community Updates" href="#">
+<span class="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-[9px] font-bold">4 Updates</span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(162,70,137,0.5)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px]">grid_view</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Apps</span>
+<span class="font-label-sm text-label-sm text-primary mt-0.5">Store & Addons</span>
+</a>
+<!-- Settings -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations" data-name="Settings Administration Config Users Permissions" href="#">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-600 to-zinc-800 flex items-center justify-center text-white shadow-md group-hover:shadow-[0_0_20px_rgba(100,116,139,0.4)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px] group-hover:rotate-90 transition-transform duration-500">settings</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Settings</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">General Setup</span>
+</a>
+<!-- Studio -->
+<a class="app-card group relative flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container-low hover:bg-surface-container hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-lg" data-category="operations productivity" data-name="Studio Customizer App Creator Views Fields Automations" href="#">
+<span class="absolute top-2 right-2 px-1 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[8px] font-bold">ENTERPRISE</span>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center text-on-surface-variant font-bold shadow-md group-hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-all mb-space-sm">
+<span class="material-symbols-outlined text-[30px] text-surface-container-lowest">auto_fix_high</span>
+</div>
+<span class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Studio</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed font-medium mt-0.5">Customize UI</span>
+</a>
+</div>
+</section>
+<!-- Operational Live Rail / Executive Feed & Health -->
+<aside class="lg:col-span-3 flex flex-col gap-space-md">
+<!-- Live System Status Card -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl p-space-md rounded-2xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
+<span class="font-title text-body-sm text-on-surface font-semibold">Instance Health</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/20 px-2 py-0.5 rounded-full font-bold">100% OK</span>
+</div>
+<div class="flex flex-col gap-1.5 pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center justify-between">
+<span>Environment:</span>
+<span class="font-label-sm text-label-sm text-on-surface">Cloud Run Pro (US-West)</span>
+</div>
+<div class="flex items-center justify-between">
+<span>Database Size:</span>
+<span class="font-label-sm text-label-sm text-on-surface">3.8 GB / 25 GB</span>
+</div>
+<div class="flex items-center justify-between">
+<span>Last Snapshot:</span>
+<span class="font-label-sm text-label-sm text-secondary">2 hours ago (Auto)</span>
+</div>
+</div>
+<!-- Micro Sparkline Storage Bar -->
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-gradient-to-r from-secondary to-primary-container h-full rounded-full w-[24%]"></div>
+</div>
+</div>
+<!-- Today's Action Items (Odoo Activity Engine) -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl p-space-md rounded-2xl shadow-sm flex flex-col gap-space-sm flex-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule_send</span>
+<h2 class="font-title text-body-md text-on-surface font-semibold">Pending Activities</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Today</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<!-- Activity 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 font-label-sm text-[10px] text-error">
+<span class="material-symbols-outlined text-[13px]">phone_in_talk</span>
+                  CALL SCHEDULED
+                </span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">11:30 AM</span>
+</div>
+<span class="font-title text-body-sm text-on-surface font-medium truncate">Client Review: Azure Interior Corp</span>
+<span class="font-body-sm text-on-surface-variant/80 text-[11px]">Deal value: $62,000 • In stage: Negotiation</span>
+</div>
+<!-- Activity 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 font-label-sm text-[10px] text-secondary">
+<span class="material-symbols-outlined text-[13px]">local_shipping</span>
+                  DISPATCH ORDER
+                </span>
+<span class="font-label-sm text-[10px] text-secondary">in 45 min</span>
+</div>
+<span class="font-title text-body-sm text-on-surface font-medium truncate">Outbound Delivery #WH/OUT/00482</span>
+<span class="font-body-sm text-on-surface-variant/80 text-[11px]">8 items reserved for Gemini Technologies</span>
+</div>
+<!-- Activity 3 -->
+<div class="p-space-sm rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 font-label-sm text-[10px] text-primary">
+<span class="material-symbols-outlined text-[13px]">assignment_turned_in</span>
+                  VALIDATION
+                </span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Due 4:00 PM</span>
+</div>
+<span class="font-title text-body-sm text-on-surface font-medium truncate">5 Invoices Awaiting Signature</span>
+<span class="font-body-sm text-on-surface-variant/80 text-[11px]">Total pending payout: $14,920.00</span>
+</div>
+</div>
+<div class="pt-space-xs mt-auto">
+<a class="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-title text-body-sm transition-colors text-center" href="#">
+<span>View All 18 Scheduled Activities</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Recent Records Micro-Drawer -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl p-space-md rounded-2xl shadow-sm flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Recently Viewed</span>
+<ul class="flex flex-col gap-1 text-body-sm font-body-sm pt-1">
+<li>
+<a class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container text-on-surface transition-colors" href="#">
+<span class="truncate">SO/2024/0912 - Wood Corner</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sales</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container text-on-surface transition-colors" href="#">
+<span class="truncate">INV/2024/0043 - Deco Addict</span>
+<span class="font-label-sm text-label-sm text-secondary">$3,840</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container text-on-surface transition-colors" href="#">
+<span class="truncate">MO/0029 - Office Desk Assembly</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">MRP</span>
+</a>
+</li>
+</ul>
+</div>
+</aside>
+</div>
+<!-- Quick Floating Action Dock / Hotkeys Helper -->
+<div class="fixed bottom-6 right-6 z-40 hidden md:flex items-center gap-space-sm bg-surface-container-highest/95 backdrop-blur-2xl px-space-md py-2.5 rounded-full shadow-2xl">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Odoo 18 Studio Ready</span>
+</div>
+<div class="h-3 w-px bg-outline-variant"></div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" onclick="document.getElementById('appSearchInput').focus();" type="button">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container font-mono text-[10px]">Press / to filter</kbd>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Real-time app search & category filter controller
+  const searchInput = document.getElementById('appSearchInput');
+  const appCards = document.querySelectorAll('.app-card');
+  const filterButtons = document.querySelectorAll('.filter-chip');
+
+  let activeCategory = 'all';
+
+  function applyFilters() {
+    const query = (searchInput.value || '').toLowerCase().trim();
+
+    appCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category') || '';
+      const cardName = card.getAttribute('data-name') || '';
+
+      const matchesSearch = query === '' || cardName.toLowerCase().includes(query);
+      const matchesCategory = activeCategory === 'all' || cardCategory.includes(activeCategory);
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => {
+        b.classList.remove('active-filter', 'bg-primary-container', 'text-on-primary-container');
+        b.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+
+      btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      btn.classList.add('active-filter', 'bg-primary-container', 'text-on-primary-container');
+
+      activeCategory = btn.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+
+  // Global Keyboard listener for `/` and `⌘K`
+  window.addEventListener('keydown', (e) => {
+    if ((e.key === '/' || (e.metaKey && e.key === 'k')) && document.activeElement !== searchInput) {
+      e.preventDefault();
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+      searchInput.value = '';
+      searchInput.blur();
+      applyFilters();
+    }
+  });
+</script></main></div></body></html>

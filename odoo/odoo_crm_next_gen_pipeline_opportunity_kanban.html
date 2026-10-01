@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#00504e","background":"#10141a","on-secondary":"#003736","surface-variant":"#31353c","on-secondary-container":"#00302e","on-tertiary-fixed-variant":"#5f3b56","tertiary-container":"#845c79","on-error":"#690005","secondary":"#60d9d5","error":"#ffb4ab","surface-bright":"#353940","inverse-on-surface":"#2d3137","secondary-fixed-dim":"#60d9d5","outline-variant":"#52424b","surface-dim":"#10141a","surface-container-highest":"#31353c","on-primary-container":"#ffe0f0","tertiary":"#e9b8d9","outline":"#9f8b96","surface-container":"#1c2026","on-surface":"#dfe2eb","on-surface-variant":"#d6c1cb","on-primary":"#5d054d","on-secondary-fixed":"#00201f","inverse-primary":"#963c7e","surface-container-low":"#181c22","on-primary-fixed-variant":"#792365","surface-container-lowest":"#0a0e14","on-tertiary-fixed":"#2f1029","surface":"#10141a","secondary-fixed":"#7ff5f1","inverse-surface":"#dfe2eb","surface-container-high":"#262a31","primary-fixed-dim":"#ffade2","primary-container":"#a24689","primary":"#ffade2","primary-fixed":"#ffd8ee","on-tertiary":"#46253f","tertiary-fixed":"#ffd7f1","on-error-container":"#ffdad6","secondary-container":"#06a19e","on-primary-fixed":"#3b002f","on-tertiary-container":"#ffe0f3","surface-tint":"#ffade2","on-background":"#dfe2eb","tertiary-fixed-dim":"#e9b8d9","error-container":"#93000a"},borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},spacing:{"space-lg":"1.5rem","gutter-compact":"0.5rem","margin":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-sm":"0.5rem","gutter":"1rem","space-xl":"2.25rem","margin-mobile":"1rem"},fontFamily:{"headline-md":["Plus Jakarta Sans"],"label-sm":["JetBrains Mono"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"display-mobile":["Plus Jakarta Sans"],"label-md":["JetBrains Mono"],"display":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"title":["Inter"]},fontSize:{"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"400"}],"body-lg":["15px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"body-md":["13px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"display-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}],"display":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-lg":["30px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"title":["16px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 h-14 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="w-full h-full px-space-md flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><button aria-label="App Launcher" class="w-9 h-9 flex items-center justify-center rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">apps</span></button><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Brand logo. - Primary color: #a24689
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-full
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UEaHHCOjWgpacedrqAJf_zEQD9vYh60L3p_baiw2g6gzb0lO4DRd7T5Y2HcXw7FFhfsd7eNfxEL6Ab-idVWGDW3pnU7wu1xOdACB9eiqwJRccec6PXS9m6L6YZfOt3mRAwuA9rsYsAQt0-A7qr-nSYP6x_Qg5kzHkzcY32ZaaEW7PyKzQlRcwO6LBNd8QTehA1MuzWazyoErGGDYzInymfDXxrq3SMo8-Z9E5fOORVUbgIpsr2UiKWL34"/><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight ml-space-xs hidden sm:inline">Odoo</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-semibold uppercase tracking-wider ml-1 hidden md:inline">Enterprise</span></div><div class="h-4 w-px bg-surface-variant mx-space-xs hidden lg:block"></div><div class="items-center gap-space-xs hidden lg:flex"><button class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface px-2 py-1 rounded-DEFAULT hover:bg-surface-container-high transition-colors" type="button"><span class="font-title text-title text-on-surface">Apps</span><span class="material-symbols-outlined text-[16px]">expand_more</span></button></div></div><div class="flex-1 max-w-2xl mx-auto px-space-xs"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">search</span><input class="w-full h-9 pl-9 pr-24 rounded-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] focus:outline-none focus:bg-surface-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Press Ctrl+K or / to search records, run actions, ask AI..." type="text"/><div class="absolute right-2.5 flex items-center gap-1 pointer-events-none"><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘K</span><span class="material-symbols-outlined text-[15px] text-secondary">auto_awesome</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="hidden xl:flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button"><span class="material-symbols-outlined text-[16px] text-secondary">domain</span><span class="max-w-[130px] truncate">San Francisco HQ</span><span class="material-symbols-outlined text-[14px]">expand_more</span></button><button aria-label="Odoo Studio" class="hidden sm:flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-low hover:bg-primary-container text-on-surface-variant hover:text-on-primary-container font-label-md text-label-md transition-colors" type="button"><span class="material-symbols-outlined text-[16px] text-primary">tune</span><span class="font-semibold">Studio</span></button><button aria-label="Activities and Notifications" class="relative w-9 h-9 flex items-center justify-center rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><button aria-label="Chat and Discuss" class="w-9 h-9 flex items-center justify-center rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">forum</span></button><div class="flex items-center gap-space-xs pl-space-xs"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary-container" src="https://lh3.googleusercontent.com/aida/AEtjO1XO98jrXA4IuUFKiw68AlWUxrG4aohEBgyQ_braVR_4LiIscFaeDJSpzBFYuPe-FdKgrgfBXGoiNoxP2gj--90UhTbnYROaf67xuzF4bErKiiMVG--YDUntw2R7yT7u4NTnVB4KXj8r7kM94THbtcj-cMOlZ3f6G3ocwug9ewo2oCYTztNVwZq_NodxpRp9sLN9W--2pVa3lwcG-SY9WezbE3LvWFzVfI3KkVwlFf-du1Jvrk5fZk5R5F0"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="hidden 2xl:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-tight">Marc Demo</span><span class="font-label-sm text-label-sm text-outline">System Admin</span></div></div></div></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-surface-container-lowest z-40 flex flex-col justify-between shadow-[1px_0_12px_rgba(0,0,0,0.35)]"><div class="flex flex-col flex-1 overflow-y-auto px-space-sm pt-space-md"><div class="px-space-sm pb-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Operations</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container text-primary font-semibold shadow-[inset_3px_0_0_0_#a24689]"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="sales-crm" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span>Sales &amp; CRM</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="inventory-logistics" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Inventory &amp; Logistics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="accounting-finance" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span>Accounting &amp; Finance</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="manufacturing-mrp" href="#"><span class="material-symbols-outlined text-[20px]">precision_manufacturing</span><span>Manufacturing MRP</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="projects-tasks" href="#"><span class="material-symbols-outlined text-[20px]">task_alt</span><span>Projects &amp; Tasks</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="hr-talent" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>HR &amp; Talent</span></a></nav><div class="px-space-sm pt-space-lg pb-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Administration</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container text-primary font-semibold shadow-[inset_3px_0_0_0_#a24689]"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="p-space-sm bg-surface-container-low/40"><div class="flex items-center justify-between p-space-sm rounded-DEFAULT bg-surface-container-low"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">v18.2 Enterprise</span></div><span class="font-label-sm text-label-sm text-outline">PROD</span></div></div></aside><div class="pl-64"><main class="relative pt-14 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Control Bar & Action Ribbon -->
+<header class="p-space-lg bg-surface-container-low flex flex-col gap-space-md shadow-md">
+<!-- Row 1: Actions & View Switcher -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Left side: New Opp & AI Generation -->
+<div class="flex items-center flex-wrap gap-space-sm">
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-container text-on-primary-container font-title text-title shadow-sm hover:opacity-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Opportunity</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-variant text-secondary font-title text-title hover:bg-surface-bright transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>Generate Leads (AI)</span>
+</button>
+<div class="hidden sm:flex items-center h-6 w-px bg-surface-variant mx-1"></div>
+<!-- Filter Drops -->
+<div class="relative inline-block text-left">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm shadow-sm" id="filterBtn" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">filter_alt</span>
+<span>Filters: <strong class="font-semibold text-on-surface">My Pipeline</strong></span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+</div>
+<div class="relative inline-block text-left">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">layers</span>
+<span>Group: <strong class="font-semibold text-on-surface">Stage</strong></span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Right side: View Mode Toggles -->
+<div class="flex items-center bg-surface-container p-1 rounded-full shadow-inner">
+<button class="flex items-center gap-1 px-3 py-1 rounded-full bg-surface-bright text-primary font-body-sm text-body-sm shadow-sm" type="button">
+<span class="material-symbols-outlined text-[17px]">view_kanban</span>
+<span class="hidden md:inline font-medium">Kanban</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">format_list_bulleted</span>
+<span class="hidden md:inline">List</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">pivot_table_chart</span>
+<span class="hidden md:inline">Pivot</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">calendar_month</span>
+<span class="hidden md:inline">Calendar</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">analytics</span>
+<span class="hidden md:inline">Cohort</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">map</span>
+<span class="hidden md:inline">Map</span>
+</button>
+</div>
+</div>
+<!-- Row 2: Live Metrics Strip -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-DEFAULT bg-surface-container flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Pipeline Value</span>
+<span class="material-symbols-outlined text-[16px] text-primary">payments</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">$1,482,500</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center">+8.4%</span>
+</div>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Expected Revenue</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">trending_up</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">$924,100</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Weighted</span>
+</div>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Average Deal</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">pie_chart</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">$42,800</span>
+<span class="font-label-sm text-label-sm text-secondary">+$3.2k</span>
+</div>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Win Rate (30d)</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">34.2%</span>
+<span class="font-label-sm text-label-sm text-secondary">+2.1%</span>
+</div>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container flex flex-col justify-between shadow-sm col-span-2 md:col-span-1">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Active Deals</span>
+<span class="material-symbols-outlined text-[16px] text-outline">view_stream</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">38</span>
+<span class="font-label-sm text-label-sm text-primary">6 High Alert</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Horizontal Scrollable Kanban Board Workspace -->
+<section class="p-space-lg overflow-x-auto flex-1 flex gap-space-md items-start">
+<!-- Column 1: New / Inbound -->
+<div class="w-80 shrink-0 flex flex-col gap-space-sm bg-surface-container-low/70 p-space-sm rounded-DEFAULT shadow-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-1 py-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<h2 class="font-title text-title text-on-surface tracking-tight">New / Inbound</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-semibold">7</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">$185k</span>
+</div>
+<!-- Velocity line -->
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-outline w-1/4 rounded-full"></div>
+</div>
+<!-- Cards Container -->
+<div class="flex flex-col gap-space-sm mt-1">
+<!-- Card 1 -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary font-bold font-title text-title">
+                NX
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Nexis Cloud Ltd</h3>
+<span class="font-label-sm text-label-sm text-outline">SaaS Modernization</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 mt-1 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-primary font-medium">SaaS</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-secondary font-medium">Enterprise</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-on-secondary-fixed-variant text-secondary-fixed font-semibold">82% Win Prob</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px] text-surface-variant">star</span>
+</div>
+<span class="font-title text-title font-bold text-on-surface">$54,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm">Age: 2d</span>
+</div>
+<div class="flex items-center gap-2">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="A candid profile portrait of an experienced corporate sales representative wearing a dark tailored jacket in a sleek contemporary office setting with subtle purple architectural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAVJ7WOrpkumdISMmOWkVi9MknV2owe4Ewo1ifhk3URBy_ooJ37dAZtiZVJQPmiOoozuj1gDTvvahUci5umu154WpaG5ns0ZhrvjGDFJyZbuNd_MAh1DDV5ZCjHj0o-0rQaDP4kR2lZ3y9VfIHBy_-ZnvJKqwJlITB8zAdB1Ey_lEvXvH9ew3Fivzp01F0TE46gqMQXtcgit9TrEYy1yV36HANjjUKPPAW8xEkWZfmS62f35jbKZD7"/>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary font-bold font-title text-title">
+                VT
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Veloce Fleet Logistics</h3>
+<span class="font-label-sm text-label-sm text-outline">IoT Tracking Integration</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 mt-1 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-tertiary font-medium">Supply Chain</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-semibold">64% Win Prob</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px] text-surface-variant">star</span>
+<span class="material-symbols-outlined text-[15px] text-surface-variant">star</span>
+</div>
+<span class="font-title text-title font-bold text-on-surface">$72,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1 text-error">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm">Overdue: 1d</span>
+</div>
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Professional close-up headshot of an enterprise solutions executive with thoughtful expression against an ambient dark corporate workspace backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbVld-cZPmRAC8zR8f_15kB4wJReKmpjALo5PNpYF8bFxSs5703JR9xY4EKj9t3Ghc15G9GZBEASfE7-vKtzasbggAeUTunSDwZydeclI3ERLsnZpu5IWKUZncZZxsirylItuSlczwZGY8XXfrK8gXgpcbvkV_5-4hKyPALm8MEtu9Wq6s57Ghm69mSoqmC-ZmqGGC5RNRtyzL2Z0lyoEYUqjNVZcX1B6w6M5xOEan6tIIIGVgtHpd"/>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-tertiary font-bold font-title text-title">
+                HL
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Helios Medical Labs</h3>
+<span class="font-label-sm text-label-sm text-outline">Compliance Suite</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 mt-1 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-primary font-medium">Healthcare</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-on-secondary-fixed-variant text-secondary-fixed font-semibold">78% Win Prob</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px] text-surface-variant">star</span>
+</div>
+<span class="font-title text-title font-bold text-on-surface">$59,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm">Age: 4d</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-variant text-outline flex items-center justify-center text-[10px] font-bold">MD</div>
+</div>
+</article>
+</div>
+</div>
+<!-- Column 2: Qualified / Discovery -->
+<div class="w-80 shrink-0 flex flex-col gap-space-sm bg-surface-container-low/70 p-space-sm rounded-DEFAULT shadow-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-1 py-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<h2 class="font-title text-title text-on-surface tracking-tight">Qualified / Discovery</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-semibold">9</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">$340k</span>
+</div>
+<!-- Velocity line -->
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-2/5 rounded-full"></div>
+</div>
+<!-- Cards Container -->
+<div class="flex flex-col gap-space-sm mt-1">
+<!-- Card 1 -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary font-bold font-title text-title">
+                OR
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Orbital Dynamics</h3>
+<span class="font-label-sm text-label-sm text-outline">Telemetry Pipeline</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Meeting Countdown Pill -->
+<div class="mt-1 flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-[15px]">videocam</span>
+<span class="font-label-sm text-label-sm font-semibold">Discovery Call in 2h 15m</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest/50 text-on-surface-variant font-body-sm text-body-sm">
+<span class="text-outline font-medium">Key Pain:</span> Legacy ERP fragmentation &amp; custom SAP connector bottlenecks.
+          </div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-on-secondary-fixed-variant text-secondary-fixed font-semibold">88% Win Prob</span>
+<span class="font-title text-title font-bold text-on-surface">$115,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Owner: Marc Demo</span>
+</div>
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Portrait of an intelligent senior sales director with glasses and modern business casual attire in a dark minimalist corporate environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgkxBWbaZQAMBmsILU9a4BkbBdO9cTPrZhT7e-xUHjUWrK5ph7_TJk7zgtBGu28XMF0mrzrIt7Irw42c3OJcmTiyEuN88Toh0SamCvuSWxSbvtDlHUiifU4PqiaMFtUyqJ5UO2s2xdCeGxhxRve1Ghm6e7nWmasiaFR_56OkVcnKmSDP_FuW9Bx8uRQAGHgj51M75hPPYhAb450Wl0JDdloP2XI1mWGLlKQFmW4fZe9UW8jUYtZw8e"/>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-tertiary font-bold font-title text-title">
+                SK
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Skyline Financial</h3>
+<span class="font-label-sm text-label-sm text-outline">Multi-Currency Ledger</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest/50 text-on-surface-variant font-body-sm text-body-sm">
+<span class="text-outline font-medium">Key Pain:</span> Manual tax re-conciliation taking 18 days each month-end.
+          </div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-semibold">71% Win Prob</span>
+<span class="font-title text-title font-bold text-on-surface">$98,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm">Follow-up Today</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-variant text-outline flex items-center justify-center text-[10px] font-bold">EK</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary-fixed-dim font-bold font-title text-title">
+                BL
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Biotech Lumen Group</h3>
+<span class="font-label-sm text-label-sm text-outline">Laboratory Inventory</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-semibold">65% Win Prob</span>
+<span class="font-title text-title font-bold text-on-surface">$127,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm">On-track</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-variant text-outline flex items-center justify-center text-[10px] font-bold">SG</div>
+</div>
+</article>
+</div>
+</div>
+<!-- Column 3: Proposition / Quote Sent (Highlighted Apex Robotics) -->
+<div class="w-80 shrink-0 flex flex-col gap-space-sm bg-surface-container-low/70 p-space-sm rounded-DEFAULT shadow-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-1 py-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h2 class="font-title text-title text-on-surface tracking-tight">Proposition / Quote Sent</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-semibold">6</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">$492k</span>
+</div>
+<!-- Velocity line -->
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/5 rounded-full"></div>
+</div>
+<!-- Cards Container -->
+<div class="flex flex-col gap-space-sm mt-1">
+<!-- Highlighted Card: Apex Robotics -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container-high shadow-lg flex flex-col gap-space-sm cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-DEFAULT bg-primary-container text-on-primary-container flex items-center justify-center font-bold font-title text-title shadow-sm">
+                AR
+              </div>
+<div>
+<div class="flex items-center gap-1">
+<h3 class="font-title text-title text-on-surface font-bold">Apex Robotics</h3>
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">Enterprise Suite + MRP</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between bg-surface-container p-2 rounded-DEFAULT">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-error">picture_as_pdf</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">SO-2024-8910.pdf</span>
+<span class="font-label-sm text-label-sm text-outline">v2.4 Redline Final</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-semibold">e-Sign Pending</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Proposal Total</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-secondary">$148,000</span>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-on-secondary-fixed-variant text-secondary-fixed font-bold">94% Win Prob</span>
+</div>
+<!-- Quick action icons -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1">
+<button aria-label="WhatsApp Deal Sponsor" class="w-8 h-8 rounded-full bg-surface-variant hover:bg-secondary-container hover:text-on-secondary-container flex items-center justify-center text-on-surface transition-all" title="WhatsApp Deal Sponsor" type="button">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+</button>
+<button aria-label="Email Executive Sponsor" class="w-8 h-8 rounded-full bg-surface-variant hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center text-on-surface transition-all" title="Email Executive Sponsor" type="button">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+</button>
+<button aria-label="View Document Revisions" class="w-8 h-8 rounded-full bg-surface-variant hover:bg-surface-bright flex items-center justify-center text-on-surface transition-all" title="View Document Revisions" type="button">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+</button>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span class="font-label-sm text-label-sm">Active 45m ago</span>
+</div>
+</div>
+</article>
+<!-- Card 2: Quantum Retail -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary font-bold font-title text-title">
+                QR
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Quantum Retail Inc</h3>
+<span class="font-label-sm text-label-sm text-outline">Omnichannel POS</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface font-medium">Quote #1844</span>
+<span class="font-title text-title font-bold text-on-surface">$164,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm">Viewed 3x</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-variant text-outline flex items-center justify-center text-[10px] font-bold">AL</div>
+</div>
+</article>
+</div>
+</div>
+<!-- Column 4: Negotiation / Legal Review -->
+<div class="w-80 shrink-0 flex flex-col gap-space-sm bg-surface-container-low/70 p-space-sm rounded-DEFAULT shadow-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-1 py-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<h2 class="font-title text-title text-on-surface tracking-tight">Negotiation / Legal</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-semibold">4</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">$315k</span>
+</div>
+<!-- Velocity line -->
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-4/5 rounded-full"></div>
+</div>
+<!-- Cards Container -->
+<div class="flex flex-col gap-space-sm mt-1">
+<!-- Card 1 -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary font-bold font-title text-title">
+                TC
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Triton Capital</h3>
+<span class="font-label-sm text-label-sm text-outline">MSA Security Redlines</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Pending Legal Tags -->
+<div class="space-y-1.5 my-1">
+<div class="flex items-center justify-between px-2 py-1 rounded bg-surface-container-lowest/50 text-on-surface font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>SOC2 Compliance Rider</span>
+</div>
+</div>
+<div class="flex items-center justify-between px-2 py-1 rounded bg-surface-container-lowest/50 text-on-surface font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[15px]">pending</span>
+<span>Section 14 Indemnity Cap</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-on-secondary-fixed-variant text-secondary-fixed font-semibold">91% Win Prob</span>
+<span class="font-title text-title font-bold text-on-surface">$182,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm">Legal meeting 4 PM</span>
+</div>
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Corporate headshot of an executive legal negotiator in a high contrast dark workspace with warm ambient background highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXbKYkHX7x8_JJxUD-Att6fVZxK0ksBOUwjLX3a_KR44jWTYjYn4_Dhnl53LSh2UBfa_wJ75Pd3zRdMnvBIgF90lNI-fqE1zvyzV90OCb2pXhXdboLcfI7IEXZzq3ZW-A8FJyP_3SV32IgPzIbkmQQNqsCrJ8FnGuwX503Hl_5YTtUjh8ptX80J0-8XddoNYzuuiH-oPEjISVg46mGY2ZBhBNow8Ov4eQK7geAgCV-llIYhBL5jVPH"/>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary font-bold font-title text-title">
+                AN
+              </div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Aether Network</h3>
+<span class="font-label-sm text-label-sm text-outline">SLA Tier 1 Clauses</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface font-semibold">84% Win Prob</span>
+<span class="font-title text-title font-bold text-on-surface">$133,500</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm">Clause Approved</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-variant text-outline flex items-center justify-center text-[10px] font-bold">CW</div>
+</div>
+</article>
+</div>
+</div>
+<!-- Column 5: Won / Closed -->
+<div class="w-80 shrink-0 flex flex-col gap-space-sm bg-surface-container-low/70 p-space-sm rounded-DEFAULT shadow-md">
+<!-- Stage Header -->
+<div class="flex items-center justify-between px-1 py-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<h2 class="font-title text-title text-on-surface tracking-tight">Won / Closed</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold">12</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">$520k MTD</span>
+</div>
+<!-- Velocity line -->
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-full rounded-full"></div>
+</div>
+<!-- Cards Container -->
+<div class="flex flex-col gap-space-sm mt-1">
+<!-- Card 1 (Won) -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold font-title text-title shadow-sm">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Zenith Aerospace</h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Signed &amp; Invoiced</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest/60 flex items-center justify-between mt-1">
+<span class="font-label-sm text-label-sm text-outline">Commission Pool</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+$8,400</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-on-secondary-fixed-variant text-secondary-fixed font-semibold">100% Won</span>
+<span class="font-title text-title font-bold text-secondary">$210,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<span class="font-label-sm text-label-sm text-outline">Closed Oct 18</span>
+<div class="w-5 h-5 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-[10px] font-bold">MD</div>
+</div>
+</article>
+<!-- Card 2 (Won) -->
+<article class="p-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-bright transition-all shadow-sm flex flex-col gap-space-xs cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold font-title text-title shadow-sm">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div>
+<h3 class="font-title text-title text-on-surface font-semibold group-hover:text-primary transition-colors">Nordic Energy Grid</h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Contract Executed</span>
+</div>
+</div>
+<button aria-label="Card Options" class="text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-on-secondary-fixed-variant text-secondary-fixed font-semibold">100% Won</span>
+<span class="font-title text-title font-bold text-secondary">$185,000</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-outline">
+<span class="font-label-sm text-label-sm text-outline">Closed Oct 14</span>
+<div class="w-5 h-5 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-[10px] font-bold">SG</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Floating Sticky Action / Bulk Operations Tray -->
+<aside class="sticky bottom-4 mx-auto z-30 max-w-xl w-full px-space-md">
+<div class="bg-surface-container-high/90 backdrop-blur-xl p-space-sm rounded-full shadow-2xl flex items-center justify-between">
+<div class="flex items-center gap-2 pl-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface"><strong>Odoo AI Assistant:</strong> 3 deals ready for closing sequence.</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md hover:opacity-95 transition-opacity" type="button">
+          Review Recommendations
+        </button>
+<button aria-label="Dismiss AI notice" class="text-outline hover:text-on-surface p-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+<script>
+  // Simple micro-interactions for kanban filters & actions
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtn = document.getElementById('filterBtn');
+    if (filterBtn) {
+      filterBtn.addEventListener('click', () => {
+        filterBtn.classList.toggle('bg-primary-container');
+        filterBtn.classList.toggle('text-on-primary-container');
+      });
+    }
+  });
+</script></main></div></body></html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Odoo Apps Menu</title>
+<!-- Load Tailwind CSS v3 with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- BEGIN: Custom Font Configuration -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- END: Custom Font Configuration -->
+<!-- BEGIN: Style Configurations -->
+<style data-purpose="custom-theme">
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #d3d0e2 0%, #ded9e9 35%, #cfcbe0 70%, #d8d4e7 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Odoo squircle card elevation */
+    .app-icon-card {
+      background: #ffffff;
+      box-shadow: 0 10px 24px -4px rgba(50, 43, 76, 0.08), 0 4px 8px -2px rgba(50, 43, 76, 0.04);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .app-icon-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 30px -4px rgba(50, 43, 76, 0.16), 0 8px 14px -2px rgba(50, 43, 76, 0.08);
+    }
+    .app-icon-card:active {
+      transform: translateY(-1px) scale(0.98);
+    }
+
+    /* Soft diagonal ambient background stripes resembling Odoo 16/17 enterprise launcher */
+    .launcher-backdrop {
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.45) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.3) 0%, transparent 45%),
+        linear-gradient(125deg, rgba(235, 233, 245, 0.8) 0%, rgba(214, 209, 228, 0.8) 50%, rgba(226, 222, 238, 0.8) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Search active focus ring */
+    .search-input:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(113, 75, 103, 0.35);
+    }
+  </style>
+<!-- END: Style Configurations -->
+</head>
+<body class="relative flex flex-col min-h-screen text-slate-800">
+<!-- Ambient visual background -->
+<div aria-hidden="true" class="launcher-backdrop"></div>
+<!-- BEGIN: TopHeader -->
+<header class="relative z-20 flex items-center justify-between px-6 py-2.5 h-12 select-none" data-purpose="system-navbar">
+<!-- Left: App Search / Instant Filter Bar -->
+<div class="flex items-center space-x-3 w-80 max-w-full">
+<div class="relative w-full">
+<span class="absolute inset-y-0 left-0 flex items-center pl-2.5 pointer-events-none text-slate-600">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<input autocomplete="off" class="search-input w-full pl-8 pr-7 py-1 text-xs bg-white/70 hover:bg-white/90 border border-slate-300/80 rounded-md text-slate-800 placeholder-slate-500 backdrop-blur-sm transition-colors duration-150" id="app-search-input" placeholder="Search apps... (Type or press /)" spellcheck="false" type="text"/>
+<button class="hidden absolute inset-y-0 right-0 flex items-center pr-2 text-slate-400 hover:text-slate-700" id="clear-search-btn" title="Clear search">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Right: Header Quick Actions & User Profile -->
+<div class="flex items-center space-x-4 text-slate-700 text-sm font-medium" data-purpose="header-utilities">
+<!-- Chat / Messaging indicator with notification badge -->
+<button aria-label="Messages" class="relative p-1 hover:text-slate-900 transition-colors focus:outline-none" title="Conversations">
+<svg class="w-4 h-4 fill-slate-800" viewbox="0 0 24 24">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+</svg>
+<!-- Red Badge with '1' -->
+<span class="absolute -top-1.5 -right-2 bg-[#db3d44] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[16px] text-center border border-white/60 shadow-sm leading-tight">
+          1
+        </span>
+</button>
+<!-- Activity Clock Icon -->
+<button aria-label="Pending Activities" class="p-1 hover:text-slate-900 transition-colors focus:outline-none" title="Pending Activities">
+<svg class="w-4 h-4 text-slate-800 stroke-current" fill="none" stroke-width="2.2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<polyline points="12 7 12 12 15 15"></polyline>
+</svg>
+</button>
+<!-- Developer Mode Tools (Crossed wrench & screwdriver) -->
+<button aria-label="Developer Mode" class="p-1 hover:text-slate-900 transition-colors focus:outline-none" title="Toggle Developer Tools">
+<svg class="w-4 h-4 text-slate-800" fill="currentColor" viewbox="0 0 24 24">
+<path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"></path>
+</svg>
+</button>
+<!-- Active Company Selector -->
+<div class="flex items-center space-x-1 cursor-pointer hover:text-slate-950 transition-colors group">
+<span class="text-xs font-semibold tracking-wide uppercase text-slate-800 group-hover:text-black">
+          ALQANNAS HUNTING EQUIPMENT L...
+        </span>
+</div>
+<!-- User Avatar Squircle -->
+<div class="flex items-center justify-center w-6 h-6 rounded bg-[#209454] text-white font-bold text-xs shadow-sm cursor-pointer hover:ring-2 hover:ring-emerald-400/50 transition-all" title="Logged in as Admin (C)">
+        C
+      </div>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: MainContent -->
+<main class="relative z-10 flex-1 flex flex-col justify-center items-center px-4 sm:px-8 py-8" data-purpose="apps-dashboard">
+<!-- Empty Search State Notification (Hidden by default) -->
+<div class="hidden text-center py-16 text-slate-600" id="no-results-msg">
+<svg class="w-12 h-12 mx-auto text-slate-400 mb-3" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="8" stroke-width="2"></circle>
+<line stroke-width="2" x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+<p class="text-base font-medium">No matching apps found</p>
+<p class="text-xs text-slate-500 mt-1">Press ESC to clear search filter</p>
+</div>
+<!-- BEGIN: AppsGrid -->
+<!-- 6 Columns grid as visible in reference snapshot -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-10 gap-y-8 max-w-5xl mx-auto w-full justify-items-center" data-purpose="app-launcher-grid" id="apps-grid-container">
+<!-- 1. Discuss -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Discuss" data-url="alqannas.odoo.com/odoo/discuss">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Discuss Bubble -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<path d="M12 32C12 20.954 20.954 12 32 12C43.046 12 52 20.954 52 32C52 43.046 43.046 52 32 52C28.2 52 24.6 50.9 21.6 49L12 52L15 42.4C13.1 39.4 12 35.8 12 32Z" fill="url(#grad-discuss)"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="grad-discuss" x1="12" x2="52" y1="12" y2="52">
+<stop stop-color="#FF7F24"></stop>
+<stop offset="1" stop-color="#F25B05"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Discuss</span>
+</div>
+<!-- 2. Calendar -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Calendar" data-url="alqannas.odoo.com/odoo/calendar">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-2.5 relative">
+<!-- Vector Icon: Calendar 31 -->
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<rect fill="#F8FAFC" height="46" rx="8" stroke="#E2E8F0" stroke-width="2" width="48" x="8" y="10"></rect>
+<path d="M8 18C8 13.58 11.58 10 16 10H48C52.42 10 56 13.58 56 18V22H8V18Z" fill="#E65100"></path>
+<circle cx="20" cy="16" fill="#FED7AA" r="2.5"></circle>
+<circle cx="44" cy="16" fill="#FED7AA" r="2.5"></circle>
+<text fill="#6A1B9A" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="21" font-weight="800" x="21" y="44">3</text>
+<text fill="#F57C00" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="21" font-weight="800" x="35" y="44">1</text>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Calendar</span>
+</div>
+<!-- 3. To-do -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="To-do" data-url="alqannas.odoo.com/odoo/todo">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Diagonal Pen/Marker -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<path d="M47.5 14.5L50 17C51.5 18.5 51.5 21 50 22.5L25 47.5L14 50.5L17 39.5L42 14.5C43.5 13 46 13 47.5 14.5Z" fill="#00796B"></path>
+<path d="M39 17.5L47 25.5" stroke="#80CBC4" stroke-linecap="round" stroke-width="3"></path>
+<path d="M14 50.5L21 48.5L16 43.5L14 50.5Z" fill="#004D40"></path>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">To-do</span>
+</div>
+<!-- 4. Contacts -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Contacts" data-url="alqannas.odoo.com/odoo/contacts">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Identification Card -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="#00897B" height="46" rx="9" width="40" x="12" y="10"></rect>
+<rect fill="#80CBC4" height="6" rx="3" width="28" x="18" y="14"></rect>
+<circle cx="32" cy="29" fill="#FFFFFF" r="6"></circle>
+<path d="M22 46C22 41.5 25.5 38 32 38C38.5 38 42 41.5 42 46H22Z" fill="#FFFFFF"></path>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Contacts</span>
+</div>
+<!-- 5. WooCommerce -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="WooCommerce" data-url="alqannas.odoo.com/odoo/woocommerce">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: WooCommerce badge -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="#7C5295" height="36" rx="10" width="48" x="8" y="14"></rect>
+<path d="M12 40L18 46L24 40H12Z" fill="#7C5295"></path>
+<!-- Stylized 'Woo' -->
+<path d="M16 26C17.5 31 18.5 35 20 37C21 35 22 31 23 27C24 31 25 35 26 37C27.5 35 28.5 31 30 26H27C26 30 25.5 32 25 33.5C24.5 32 23.8 29.5 23 26H21C20.2 29.5 19.5 32 19 33.5C18.5 32 18 30 17 26H16Z" fill="#FFFFFF"></path>
+<ellipse cx="36" cy="31" fill="none" rx="4.5" ry="5.5" stroke="#FFFFFF" stroke-width="2.5"></ellipse>
+<ellipse cx="46" cy="31" fill="none" rx="4.5" ry="5.5" stroke="#FFFFFF" stroke-width="2.5"></ellipse>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">WooCommerce</span>
+</div>
+<!-- 6. Sales -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Sales" data-url="alqannas.odoo.com/odoo/sales">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Ascending Multi-Color Bar Chart -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="#7C2D64" height="20" rx="3" width="10" x="14" y="32"></rect>
+<rect fill="#D83A56" height="30" rx="3" width="10" x="27" y="22"></rect>
+<rect fill="#F89D13" height="38" rx="3" width="10" x="40" y="14"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Sales</span>
+</div>
+<!-- 7. Dashboards -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Dashboards" data-url="alqannas.odoo.com/odoo/dashboards">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: 4 Colored App Tiles -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="#6A1B9A" height="16" rx="4" width="16" x="14" y="14"></rect>
+<rect fill="#E53935" height="16" rx="4" width="16" x="34" y="14"></rect>
+<rect fill="#00897B" height="16" rx="4" width="16" x="14" y="34"></rect>
+<rect fill="#00ACC1" height="16" rx="4" width="16" x="34" y="34"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Dashboards</span>
+</div>
+<!-- 8. Point of Sale -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Point of Sale" data-url="alqannas.odoo.com/odoo/pos">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Storefront Awning -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<path d="M12 28L15 16H49L52 28H12Z" fill="#F59E0B"></path>
+<path d="M12 28C12 31 14.5 33 17 33C19.5 33 22 31 22 28H12Z" fill="#D97706"></path>
+<path d="M22 28C22 31 24.5 33 27 33C29.5 33 32 31 32 28H22Z" fill="#7C2D64"></path>
+<path d="M32 28C32 31 34.5 33 37 33C39.5 33 42 31 42 28H32Z" fill="#D97706"></path>
+<path d="M42 28C42 31 44.5 33 47 33C49.5 33 52 31 52 28H42Z" fill="#7C2D64"></path>
+<rect fill="#FDE68A" height="18" width="32" x="16" y="33"></rect>
+<rect fill="#7C2D64" height="13" rx="1" width="14" x="25" y="38"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Point of Sale</span>
+</div>
+<!-- 9. Kitchen Display -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Kitchen Display" data-url="alqannas.odoo.com/odoo/kitchen">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Wok / Sauté Pan Sizzle -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<!-- Steam -->
+<circle cx="28" cy="18" fill="#F59E0B" r="3"></circle>
+<circle cx="36" cy="15" fill="#E11D48" r="2"></circle>
+<!-- Pan Pan & Handle -->
+<ellipse cx="38" cy="37" fill="#581C87" rx="16" ry="9" transform="rotate(-28 38 37)"></ellipse>
+<line stroke="#D97706" stroke-linecap="round" stroke-width="5" x1="22" x2="12" y1="44" y2="48"></line>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Kitchen Display</span>
+</div>
+<!-- 10. Accounting -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Accounting" data-url="alqannas.odoo.com/odoo/accounting">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Percent sign style -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<line stroke="#9333EA" stroke-linecap="round" stroke-width="6" x1="46" x2="18" y1="18" y2="46"></line>
+<circle cx="23" cy="23" fill="#E11D48" r="5"></circle>
+<circle cx="41" cy="41" fill="#06B6D4" r="5"></circle>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Accounting</span>
+</div>
+<!-- 11. Documents -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Documents" data-url="alqannas.odoo.com/odoo/documents">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Overlapping documents -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="#0EA5E9" height="32" rx="4" transform="rotate(-10 14 16)" width="24" x="14" y="16"></rect>
+<rect fill="#F97316" height="34" opacity="0.9" rx="4" width="24" x="22" y="14"></rect>
+<rect fill="#FBBF24" height="28" opacity="0.8" rx="4" width="22" x="26" y="20"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Documents</span>
+</div>
+<!-- 12. Project -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Project" data-url="alqannas.odoo.com/odoo/project">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Dynamic Checkmark Shield -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<path d="M18 32L28 42L48 20" stroke="#0D9488" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></path>
+<path d="M30 42L48 20" opacity="0.4" stroke="#581C87" stroke-linecap="round" stroke-width="8"></path>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Project</span>
+</div>
+<!-- 13. Purchase -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Purchase" data-url="alqannas.odoo.com/odoo/purchase">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Triple layer payment block -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="#0D9488" height="7" rx="3.5" width="40" x="12" y="18"></rect>
+<rect fill="#7C3AED" height="7" rx="3.5" width="40" x="12" y="28"></rect>
+<rect fill="#1E293B" height="7" rx="3.5" width="40" x="12" y="38"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Purchase</span>
+</div>
+<!-- 14. Inventory -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Inventory" data-url="alqannas.odoo.com/odoo/inventory">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Isometric 3D Storage Box -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<path d="M32 12L50 22L32 32L14 22L32 12Z" fill="#F59E0B"></path>
+<path d="M14 22L32 32V52L14 42V22Z" fill="#EA580C"></path>
+<path d="M50 22L32 32V52L50 42V22Z" fill="#6D28D9"></path>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Inventory</span>
+</div>
+<!-- 15. Barcode -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Barcode" data-url="alqannas.odoo.com/odoo/barcode">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Barcode Scanner Lines -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="#7C2D64" height="32" rx="2" width="4" x="14" y="16"></rect>
+<rect fill="#7C2D64" height="32" rx="2" width="6" x="22" y="16"></rect>
+<rect fill="#7C2D64" height="32" rx="1.5" width="3" x="32" y="16"></rect>
+<rect fill="#7C2D64" height="32" rx="2" width="7" x="39" y="16"></rect>
+<rect fill="#7C2D64" height="32" rx="1" width="2" x="48" y="16"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Barcode</span>
+</div>
+<!-- 16. Repairs -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Repairs" data-url="alqannas.odoo.com/odoo/repairs">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Crossed infinity knot in teal & red -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<path d="M22 22C28 16 36 16 42 22C48 28 48 36 42 42L22 22Z" fill="#0D9488"></path>
+<path d="M42 22C36 16 28 16 22 22C16 28 16 36 22 42L42 22Z" fill="#F43F5E" opacity="0.8"></path>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Repairs</span>
+</div>
+<!-- 17. Employees -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Employees" data-url="alqannas.odoo.com/odoo/employees">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Team Avatars -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<!-- Center Leader -->
+<circle cx="32" cy="22" fill="#6B21A8" r="6"></circle>
+<path d="M22 40C22 35 26.5 32 32 32C37.5 32 42 35 42 40H22Z" fill="#6B21A8"></path>
+<!-- Left Peer -->
+<circle cx="19" cy="27" fill="#0D9488" r="4.5"></circle>
+<path d="M12 42C12 38.5 15 36 19 36C21 36 23 37 24 38.5C23.5 39.5 23 41 23 42H12Z" fill="#0D9488"></path>
+<!-- Right Peer -->
+<circle cx="45" cy="27" fill="#F59E0B" r="4.5"></circle>
+<path d="M41 42C41 41 40.5 39.5 40 38.5C41 37 43 36 45 36C49 36 52 38.5 52 42H41Z" fill="#F59E0B"></path>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Employees</span>
+</div>
+<!-- 18. Payroll -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Payroll" data-url="alqannas.odoo.com/odoo/payroll">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Credit Card / Payslip -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="#BE123C" height="28" rx="6" width="44" x="10" y="18"></rect>
+<rect fill="#881337" height="6" width="44" x="10" y="24"></rect>
+<circle cx="44" cy="38" fill="#FECDD3" r="3.5"></circle>
+<rect fill="#FFFFFF" height="4" rx="1.5" width="10" x="18" y="36"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Payroll</span>
+</div>
+<!-- 19. Attendances -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Attendances" data-url="alqannas.odoo.com/odoo/attendances">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Time Clock / Check-in Kiosk -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<circle cx="28" cy="24" fill="#D97706" r="5"></circle>
+<path d="M18 42C18 36.5 22.5 33 28 33C33.5 33 38 36.5 38 42H18Z" fill="#D97706"></path>
+<circle cx="42" cy="30" fill="#7C2D64" r="4.5"></circle>
+<rect fill="#78350F" height="4" rx="2" width="32" x="16" y="44"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Attendances</span>
+</div>
+<!-- 20. Time Off -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Time Off" data-url="alqannas.odoo.com/odoo/time-off">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Beach Umbrella -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<!-- Umbrella canopy sectors -->
+<path d="M32 14C23 14 16 21 16 30H32V14Z" fill="#F59E0B"></path>
+<path d="M32 14V30H48C48 21 41 14 32 14Z" fill="#06B6D4"></path>
+<path d="M32 14C27 14 24 21 24 30H40C40 21 37 14 32 14Z" fill="#9333EA"></path>
+<!-- Pole -->
+<path d="M32 30V48C32 50 34 52 36 52" stroke="#64748B" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Time Off</span>
+</div>
+<!-- 21. Link Tracker -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Link Tracker" data-url="alqannas.odoo.com/odoo/link-tracker">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Interlocking Chain Links -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<rect fill="none" height="16" rx="8" stroke="#F59E0B" stroke-width="5" transform="rotate(-35 14 24)" width="20" x="14" y="24"></rect>
+<rect fill="none" height="16" rx="8" stroke="#7C2D64" stroke-width="5" transform="rotate(-35 28 32)" width="20" x="28" y="32"></rect>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Link Tracker</span>
+</div>
+<!-- 22. Apps -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Apps" data-url="alqannas.odoo.com/odoo/apps">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: 4 Quadrants Multi-Color Circle Wheel -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<path d="M30 14C20.06 14 12 22.06 12 32H30V14Z" fill="#06B6D4"></path>
+<path d="M34 14V32H52C52 22.06 43.94 14 34 14Z" fill="#7C2D64"></path>
+<path d="M12 36C12 45.94 20.06 54 30 54V36H12Z" fill="#EF4444"></path>
+<path d="M34 36V54C43.94 54 52 45.94 52 36H34Z" fill="#0EA5E9"></path>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Apps</span>
+</div>
+<!-- 23. Settings -->
+<div class="app-item flex flex-col items-center cursor-pointer group w-24" data-app-name="Settings" data-url="alqannas.odoo.com/odoo/settings">
+<div class="app-icon-card w-[76px] h-[76px] rounded-[22px] flex items-center justify-center p-3 relative">
+<!-- Vector Icon: Hexagonal Mechanical Gear -->
+<svg class="w-11 h-11" fill="none" viewbox="0 0 64 64">
+<path d="M32 12L48 22V42L32 52L16 42V22L32 12Z" fill="#7C2D64"></path>
+<circle cx="32" cy="32" fill="#F59E0B" r="10"></circle>
+<circle cx="32" cy="32" fill="#FFFFFF" r="5"></circle>
+</svg>
+</div>
+<span class="mt-2.5 text-[13px] font-medium text-slate-700 group-hover:text-slate-950 text-center tracking-tight">Settings</span>
+</div>
+</div>
+<!-- END: AppsGrid -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomStatusBar -->
+<!-- Authentic browser status hover bar preview shown in the original snapshot -->
+<footer class="relative z-30 flex items-center justify-between px-3 py-1.5 text-xs select-none pointer-events-none" data-purpose="browser-status-bar">
+<!-- Hovered Link Target Pill (Reproduces the bottom left browser tooltip) -->
+<div class="bg-[#1f242e] text-slate-200 px-3 py-1 rounded text-[11px] font-mono shadow-md tracking-tight transition-opacity duration-150" id="url-preview-pill">
+      alqannas.odoo.com/odoo/barcode
+    </div>
+<!-- Muted system tag -->
+<div class="text-[11px] text-slate-500/70 font-medium ml-auto pr-2">
+      Odoo 17 Enterprise
+    </div>
+</footer>
+<!-- END: BottomStatusBar -->
+<!-- BEGIN: ToastNotification -->
+<aside aria-live="polite" class="fixed bottom-10 right-8 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900/90 text-white backdrop-blur px-4 py-2.5 rounded-lg shadow-xl flex items-center space-x-2 text-xs font-medium" id="toast-notification" role="status">
+<svg class="w-4 h-4 text-emerald-400 animate-spin" fill="none" viewbox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"></path>
+</svg>
+<span id="toast-message">Opening application...</span>
+</aside>
+<!-- END: ToastNotification -->
+<!-- BEGIN: ClientInteractivityScript -->
+<script data-purpose="app-search-and-events">
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('app-search-input');
+      const clearBtn = document.getElementById('clear-search-btn');
+      const appItems = document.querySelectorAll('.app-item');
+      const noResults = document.getElementById('no-results-msg');
+      const previewPill = document.getElementById('url-preview-pill');
+      const toast = document.getElementById('toast-notification');
+      const toastMessage = document.getElementById('toast-message');
+      let toastTimeout = null;
+
+      // Filter functionality
+      function filterApps(query) {
+        const cleanQuery = query.trim().toLowerCase();
+        let visibleCount = 0;
+
+        appItems.forEach(item => {
+          const appName = (item.getAttribute('data-app-name') || '').toLowerCase();
+          if (appName.includes(cleanQuery)) {
+            item.style.display = 'flex';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        if (cleanQuery.length > 0) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+
+      // Search input typing handler
+      searchInput.addEventListener('input', (e) => {
+        filterApps(e.target.value);
+      });
+
+      // Clear search button
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        filterApps('');
+        searchInput.focus();
+      });
+
+      // Global keyboard shortcuts: '/' focuses search, 'Escape' clears
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== searchInput) {
+          e.preventDefault();
+          searchInput.focus();
+          searchInput.select();
+        } else if (e.key === 'Escape') {
+          searchInput.value = '';
+          filterApps('');
+          searchInput.blur();
+        }
+      });
+
+      // Update bottom URL bar on hover over app items
+      appItems.forEach(item => {
+        const url = item.getAttribute('data-url');
+        const name = item.getAttribute('data-app-name');
+
+        item.addEventListener('mouseenter', () => {
+          if (url) {
+            previewPill.textContent = url;
+            previewPill.style.opacity = '1';
+          }
+        });
+
+        item.addEventListener('mouseleave', () => {
+          // Keep barcode as default default match or persist latest
+          previewPill.textContent = 'alqannas.odoo.com/odoo/barcode';
+        });
+
+        // App launch action simulation
+        item.addEventListener('click', () => {
+          if (toastTimeout) clearTimeout(toastTimeout);
+          toastMessage.textContent = `Loading ${name}...`;
+          toast.classList.remove('translate-y-24', 'opacity-0');
+          toast.classList.add('translate-y-0', 'opacity-100');
+
+          toastTimeout = setTimeout(() => {
+            toast.classList.add('translate-y-24', 'opacity-0');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+          }, 1800);
+        });
+      });
+    });
+  </script>
+<!-- END: ClientInteractivityScript -->
+</body></html>

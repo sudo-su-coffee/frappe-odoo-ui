@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#00504e","background":"#10141a","on-secondary":"#003736","surface-variant":"#31353c","on-secondary-container":"#00302e","on-tertiary-fixed-variant":"#5f3b56","tertiary-container":"#845c79","on-error":"#690005","secondary":"#60d9d5","error":"#ffb4ab","surface-bright":"#353940","inverse-on-surface":"#2d3137","secondary-fixed-dim":"#60d9d5","outline-variant":"#52424b","surface-dim":"#10141a","surface-container-highest":"#31353c","on-primary-container":"#ffe0f0","tertiary":"#e9b8d9","outline":"#9f8b96","surface-container":"#1c2026","on-surface":"#dfe2eb","on-surface-variant":"#d6c1cb","on-primary":"#5d054d","on-secondary-fixed":"#00201f","inverse-primary":"#963c7e","surface-container-low":"#181c22","on-primary-fixed-variant":"#792365","surface-container-lowest":"#0a0e14","on-tertiary-fixed":"#2f1029","surface":"#10141a","secondary-fixed":"#7ff5f1","inverse-surface":"#dfe2eb","surface-container-high":"#262a31","primary-fixed-dim":"#ffade2","primary-container":"#a24689","primary":"#ffade2","primary-fixed":"#ffd8ee","on-tertiary":"#46253f","tertiary-fixed":"#ffd7f1","on-error-container":"#ffdad6","secondary-container":"#06a19e","on-primary-fixed":"#3b002f","on-tertiary-container":"#ffe0f3","surface-tint":"#ffade2","on-background":"#dfe2eb","tertiary-fixed-dim":"#e9b8d9","error-container":"#93000a"},borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},spacing:{"space-lg":"1.5rem","gutter-compact":"0.5rem","margin":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-sm":"0.5rem","gutter":"1rem","space-xl":"2.25rem","margin-mobile":"1rem"},fontFamily:{"headline-md":["Plus Jakarta Sans"],"label-sm":["JetBrains Mono"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"display-mobile":["Plus Jakarta Sans"],"label-md":["JetBrains Mono"],"display":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"title":["Inter"]},fontSize:{"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"400"}],"body-lg":["15px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"body-md":["13px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"display-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}],"display":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-lg":["30px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"title":["16px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 h-14 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="w-full h-full px-space-md flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><button aria-label="App Launcher" class="w-9 h-9 flex items-center justify-center rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">apps</span></button><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Brand logo. - Primary color: #a24689
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-full
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UEaHHCOjWgpacedrqAJf_zEQD9vYh60L3p_baiw2g6gzb0lO4DRd7T5Y2HcXw7FFhfsd7eNfxEL6Ab-idVWGDW3pnU7wu1xOdACB9eiqwJRccec6PXS9m6L6YZfOt3mRAwuA9rsYsAQt0-A7qr-nSYP6x_Qg5kzHkzcY32ZaaEW7PyKzQlRcwO6LBNd8QTehA1MuzWazyoErGGDYzInymfDXxrq3SMo8-Z9E5fOORVUbgIpsr2UiKWL34"/><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight ml-space-xs hidden sm:inline">Odoo</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-semibold uppercase tracking-wider ml-1 hidden md:inline">Enterprise</span></div><div class="h-4 w-px bg-surface-variant mx-space-xs hidden lg:block"></div><div class="items-center gap-space-xs hidden lg:flex"><button class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface px-2 py-1 rounded-DEFAULT hover:bg-surface-container-high transition-colors" type="button"><span class="font-title text-title text-on-surface">Apps</span><span class="material-symbols-outlined text-[16px]">expand_more</span></button></div></div><div class="flex-1 max-w-2xl mx-auto px-space-xs"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">search</span><input class="w-full h-9 pl-9 pr-24 rounded-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] focus:outline-none focus:bg-surface-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Press Ctrl+K or / to search records, run actions, ask AI..." type="text"/><div class="absolute right-2.5 flex items-center gap-1 pointer-events-none"><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline">⌘K</span><span class="material-symbols-outlined text-[15px] text-secondary">auto_awesome</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="hidden xl:flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button"><span class="material-symbols-outlined text-[16px] text-secondary">domain</span><span class="max-w-[130px] truncate">San Francisco HQ</span><span class="material-symbols-outlined text-[14px]">expand_more</span></button><button aria-label="Odoo Studio" class="hidden sm:flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-low hover:bg-primary-container text-on-surface-variant hover:text-on-primary-container font-label-md text-label-md transition-colors" type="button"><span class="material-symbols-outlined text-[16px] text-primary">tune</span><span class="font-semibold">Studio</span></button><button aria-label="Activities and Notifications" class="relative w-9 h-9 flex items-center justify-center rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><button aria-label="Chat and Discuss" class="w-9 h-9 flex items-center justify-center rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">forum</span></button><div class="flex items-center gap-space-xs pl-space-xs"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary-container" src="https://lh3.googleusercontent.com/aida/AEtjO1XO98jrXA4IuUFKiw68AlWUxrG4aohEBgyQ_braVR_4LiIscFaeDJSpzBFYuPe-FdKgrgfBXGoiNoxP2gj--90UhTbnYROaf67xuzF4bErKiiMVG--YDUntw2R7yT7u4NTnVB4KXj8r7kM94THbtcj-cMOlZ3f6G3ocwug9ewo2oCYTztNVwZq_NodxpRp9sLN9W--2pVa3lwcG-SY9WezbE3LvWFzVfI3KkVwlFf-du1Jvrk5fZk5R5F0"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="hidden 2xl:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-tight">Marc Demo</span><span class="font-label-sm text-label-sm text-outline">System Admin</span></div></div></div></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-surface-container-lowest z-40 flex flex-col justify-between shadow-[1px_0_12px_rgba(0,0,0,0.35)]"><div class="flex flex-col flex-1 overflow-y-auto px-space-sm pt-space-md"><div class="px-space-sm pb-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Operations</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container text-primary font-semibold shadow-[inset_3px_0_0_0_#a24689]"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="sales-crm" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span>Sales &amp; CRM</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="inventory-logistics" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span>Inventory &amp; Logistics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="accounting-finance" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span>Accounting &amp; Finance</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="manufacturing-mrp" href="#"><span class="material-symbols-outlined text-[20px]">precision_manufacturing</span><span>Manufacturing MRP</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="projects-tasks" href="#"><span class="material-symbols-outlined text-[20px]">task_alt</span><span>Projects &amp; Tasks</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="hr-talent" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>HR &amp; Talent</span></a></nav><div class="px-space-sm pt-space-lg pb-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Administration</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container text-primary font-semibold shadow-[inset_3px_0_0_0_#a24689]"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="p-space-sm bg-surface-container-low/40"><div class="flex items-center justify-between p-space-sm rounded-DEFAULT bg-surface-container-low"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">v18.2 Enterprise</span></div><span class="font-label-sm text-label-sm text-outline">PROD</span></div></div></aside><div class="pl-64"><main class="relative pt-14 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle ambient top gradient lighting -->
+<div class="relative overflow-hidden w-full bg-surface-container-lowest">
+<div class="absolute -top-32 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-24 right-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Header Section with Breadcrumb & Quick Controls -->
+<div class="px-space-lg pt-space-md pb-space-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-8 h-8 rounded-DEFAULT bg-primary-container/30 flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">view_kanban</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-outline min-w-0">
+<a class="hover:text-on-surface transition-colors truncate" href="#">Projects</a>
+<span class="text-surface-variant">/</span>
+<a class="hover:text-on-surface transition-colors truncate" href="#">Mobile App 4.0 Redesign</a>
+<span class="text-surface-variant">/</span>
+<span class="text-primary font-headline-sm text-headline-sm tracking-tight truncate flex items-center gap-2">
+              Sprint 14
+              <span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant tracking-normal font-normal hidden sm:inline">
+                Oct 16 – Oct 30
+              </span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 flex-wrap">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary text-on-primary font-title text-body-sm shadow-md hover:bg-primary-fixed-dim transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>New Task</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface font-title text-body-sm transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">timer</span>
+<span>Log Timesheet</span>
+</button>
+<button class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-title text-body-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+<span>Sprint Retrospective</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-secondary hover:text-secondary-fixed font-title text-body-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span class="hidden sm:inline">Portal</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" id="toggle-filter-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Live Sprint KPI Metrics Bar -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-sm pt-space-xs">
+<div class="flex items-center gap-3 p-space-sm rounded-DEFAULT bg-surface-container-low shadow-sm hover:bg-surface-container transition-all">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">checklist</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">42</span>
+<span class="font-label-sm text-label-sm text-outline">Tasks Total</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">6 Unassigned • 2 High</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-space-sm rounded-DEFAULT bg-surface-container-low shadow-sm hover:bg-surface-container transition-all">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">28</span>
+<span class="font-label-sm text-label-sm text-outline">Delivered (66%)</span>
+</div>
+<div class="w-24 bg-surface-variant h-1 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full" style="width: 66.6%;"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-space-sm rounded-DEFAULT bg-surface-container-low shadow-sm hover:bg-surface-container transition-all">
+<div class="w-10 h-10 rounded-full bg-error-container/40 flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[20px]">error_outline</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-error font-bold">3</span>
+<span class="font-label-sm text-label-sm text-outline">Blocked</span>
+</div>
+<p class="font-body-sm text-body-sm text-error truncate">External API Key dependency</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-space-sm rounded-DEFAULT bg-surface-container-low shadow-sm hover:bg-surface-container transition-all">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/30 flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[20px]">hourglass_top</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">89h</span>
+<span class="font-label-sm text-label-sm text-outline">/ 110h Target</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate">80.9% Cap logged</p>
+</div>
+</div>
+<div class="col-span-2 sm:col-span-1 lg:col-span-1 flex items-center justify-between p-space-sm rounded-DEFAULT bg-surface-container-low shadow-sm hover:bg-surface-container transition-all">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">48</span>
+<span class="font-label-sm text-label-sm text-outline">Velocity (pts)</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">+4 pts vs Sprint 13</p>
+</div>
+</div>
+<!-- Sparkline representation -->
+<svg class="w-12 h-6 text-primary shrink-0" fill="none" viewbox="0 0 50 20">
+<path d="M2 18 L12 12 L22 15 L32 8 L42 10 L48 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+</div>
+<!-- View Switcher & Filter Ribbon -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs pb-1">
+<div class="flex items-center p-1 rounded-full bg-surface-container-low shadow-sm">
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-primary font-title text-body-sm font-semibold shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">view_kanban</span>
+<span>Kanban</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-title text-body-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">format_list_bulleted</span>
+<span>List</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-title text-body-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">timeline</span>
+<span>Gantt</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-title text-body-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span>Burndown</span>
+</button>
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-title text-body-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">event_repeat</span>
+<span>Activities</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-outline bg-surface-container-low px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] text-secondary">filter_list</span>
+<span>Stage: ALL</span>
+<span class="text-surface-variant">•</span>
+<span>Assignee: MY SPRINT</span>
+</div>
+<div class="flex items-center -space-x-1.5">
+<img class="w-6 h-6 rounded-full object-cover shadow-sm ring-1 ring-surface-container-lowest" data-alt="Dark aesthetic corporate close-up headshot of a female software engineer smiling, soft violet rim light on obsidian studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMmDRpwzBnjoja-GnzzOPQjKsPbK9CT22Vb0gvZTY9wl0M3sCi-P9-823PrNGp9UXEBvHQuRE9LCvySL9V_YtFDnj925w1Dc8E5piZk4bD_MA7KZELH7ftyVEDqZEYKCzPCg6JmwkDPrdmU6MzRVqT-fEYsrzSI9TRLaDVgQFigbxvCuA4dUMC2QwKXqtZh21vq6GqtP9fJW_os8LYzQhHDKIkI-jaY07e4TAyfEkmqNocQoNDCzT3"/>
+<img class="w-6 h-6 rounded-full object-cover shadow-sm ring-1 ring-surface-container-lowest" data-alt="Portrait of an African male UX designer in glasses with focused expression, slate gray studio light on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8jbREZc41EM96v9KqsOH0FFrJlyeDx53WNsmBFiwKL19cWlrUEy5u-9QzPqSDBbFFmzgKRNkQmVRhX4LGm0FP6LchrqIpaedu43QJE5VFYL0gYgWMnrVtvxqekCzLphGvRemfH3tfQchyZOzZH08wtwZOjUupjwJJ7JyBmtGqZR9VQWsrkAE3sEcxbtAjY56vvbCCSpdkMAHsQ3buypXKbcFRWvLY7SjmbnN9EFE1VepMOd4Edqyo"/>
+<img class="w-6 h-6 rounded-full object-cover shadow-sm ring-1 ring-surface-container-lowest" data-alt="Portrait of a young male DevOps engineer with dark hair, cinematic teal neon backlight on matte black backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdMU3rsEuN3OiS_BIf1KEysTr8YnMetm1z6d_WLkGBWlRwClLGo-c_aXp0mUfpbXkM7Jl3hVqlXcYROQkLfoItABAJyD7AVREkrLB9xmNRldto6_GhhPGdddubpCEfMyBgRO-QJ-tDZ-UvIGdVMWa7f0bHxgyts7Httna8bd4JsYso-oRugoQ8Wg9iXeH1tndRqwBh3FBBNAvptYfxHED4tiyzt_CfBVirGEx1HVcIPz8BjocqmW6A"/>
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-outline text-[10px] font-label-sm flex items-center justify-center shadow-sm">
+              +7
+            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Kanban Workspace with Integrated Split-Pane Detail Drawer -->
+<div class="flex-1 flex overflow-hidden relative" style="min-height: calc(100vh - 220px);">
+<!-- 5 Kanban Columns Horizontal Scroll Area -->
+<div class="flex-1 overflow-x-auto p-space-md flex gap-space-md transition-all duration-300" id="kanban-area">
+<!-- Column 1: Backlog / Prioritized (4 Tasks) -->
+<div class="w-80 shrink-0 flex flex-col bg-surface-container-low rounded-DEFAULT shadow-sm max-h-full">
+<!-- Col Header -->
+<div class="p-space-sm flex items-center justify-between bg-surface-container-low rounded-t-DEFAULT">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span class="font-title text-title text-on-surface">Backlog</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-outline">4</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<button class="w-6 h-6 flex items-center justify-center hover:text-on-surface rounded hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+<button class="w-6 h-6 flex items-center justify-center hover:text-on-surface rounded hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Cards Container -->
+<div class="p-space-sm flex flex-col gap-space-sm overflow-y-auto flex-1">
+<!-- Card 1 -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group hover:-translate-y-0.5" onclick="selectTask('TASK-104')">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">MOB-104</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-primary-fixed-dim">5 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Offline Data Synchronization Engine
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+              Architect IndexedDB local cache fallback when network transitions to offline status.
+            </p>
+<div class="flex items-center justify-between mt-3 pt-2">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-error">flag</span>
+<span class="font-label-sm text-label-sm text-error">Critical</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">attachment</span> 3
+                </span>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Close-up portrait of a developer with glasses in a sleek dark programming workspace illuminated with subtle purple ambient monitor glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4XoARO0eYmA1GimbVIVCEBetSqMXI_ApgXoutPh2gK9URPqlT6bAgaXMXBaxhpsnFS9rrbDii1eJUWmLwcsTkM0IYxBOfVjqZSaH11WJ4qD2Xb75-fo-Zxc3b41bkg8-g8cwfuDh432kzthsFZZiauTQDYMJxS9228S4BF0zQNr0PXDhf31IDj_r0Vpc1Sv6p4ArijrRcyevzixcziE4juTzJTK3bp7i1CKII8FP9qSxEIJZ-nWDI"/>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group hover:-translate-y-0.5" onclick="selectTask('TASK-108')">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">MOB-108</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-secondary-fixed">3 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Payment Gateway Apple Pay Flow
+            </h4>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">Checkout</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary">Stripe SDK</span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-label-sm text-label-sm text-outline">Est: 8h</span>
+<div class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant text-[10px] font-label-sm flex items-center justify-center">
+                DK
+              </div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group hover:-translate-y-0.5" onclick="selectTask('TASK-112')">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">MOB-112</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-outline">1 pt</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Haptic Feedback on Pull-to-Refresh
+            </h4>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-label-sm text-label-sm text-outline">Est: 2h</span>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of an African male UX designer in glasses with focused expression, slate gray studio light on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFqY1k36m0Piy4RDlA1i5A4OqLktTB8x9t1FiaT3kdbacOMjHwK0PcPVCCfzpfEJo8wTz51hNE4UYwQX98n2ZscQF_V1pmPYl0VYw9-LBi_XlN9EKQs3hG3XGy91_VU1nmZJJbgYpV2dPYUvSk0Qt_mQCmUvx4zoxB8QHw_0hsBbgKBQ31QKx0FH7zKiLyO70NLgoDtMoBGwc97dHiqTCbJB8iU0Zcv1dtLj61G1nXDfFWTsugZLtB"/>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group hover:-translate-y-0.5" onclick="selectTask('TASK-115')">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">MOB-115</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-secondary-fixed">3 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Lottie Animation for Order Complete
+            </h4>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-label-sm text-label-sm text-outline">Est: 4h</span>
+<div class="w-6 h-6 rounded-full bg-tertiary-container/40 text-tertiary text-[10px] font-label-sm flex items-center justify-center font-bold">
+                SA
+              </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: In Progress (5 Tasks) -->
+<div class="w-80 shrink-0 flex flex-col bg-surface-container-low rounded-DEFAULT shadow-sm max-h-full">
+<!-- Col Header -->
+<div class="p-space-sm flex items-center justify-between bg-surface-container-low rounded-t-DEFAULT">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-title text-title text-on-surface">In Progress</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-semibold">5</span>
+</div>
+<button class="w-6 h-6 flex items-center justify-center text-outline hover:text-on-surface rounded hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<!-- Cards Container -->
+<div class="p-space-sm flex flex-col gap-space-sm overflow-y-auto flex-1">
+<!-- Card 1: Interactive 3D Asset Configurator (Hero Card with Active Timer) -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container-high hover:bg-surface-variant transition-all shadow-md cursor-pointer group hover:-translate-y-0.5 relative overflow-hidden" onclick="selectTask('TASK-92')">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-primary font-bold">MOB-92</span>
+<!-- Running timer pill -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-container/40 text-primary font-label-sm text-label-sm animate-pulse">
+<span class="material-symbols-outlined text-[12px]">play_arrow</span>
+<span class="font-bold" id="live-timer">2h 15m active</span>
+</div>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Interactive 3D Asset Configurator
+            </h4>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant">ThreeJS</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant">WebGL</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-container/30 text-on-primary-container font-semibold">8 pts</span>
+</div>
+<!-- Subtasks progress bar -->
+<div class="mt-3">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1 text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+                  Subtasks
+                </span>
+<span>4 / 6 (66%)</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-secondary to-primary h-full rounded-full" style="width: 66.6%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Due in 2 days</span>
+</div>
+<div class="flex items-center -space-x-1">
+<img class="w-6 h-6 rounded-full object-cover ring-1 ring-surface-container" data-alt="Portrait of a young male DevOps engineer with dark hair, cinematic teal neon backlight on matte black backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvqVocJxw1uh55uSGes5SOEOeYn0CpLSoO4DpzJitzUXDP6HNN4KEltJI9kp5t_qGfZhCZ8xcrB0CjN6mI9-KXExBDbr5j8JMtC8LbVmf1N3UMutgWZoj2smdIZe2IZy6e2cwcgc3oMhuHMn2w_T5grJV1_kQlJonpmNBygkn3-MFTzrASld9NYcfAZKUn-O9wMWjeFO_bny-LMsXGrsHyJbQ9D2kTDjAIKKix-lrnDrL6SDoCDoFM"/>
+<img class="w-6 h-6 rounded-full object-cover ring-1 ring-surface-container" data-alt="Dark aesthetic corporate close-up headshot of a female software engineer smiling, soft violet rim light on obsidian studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDstfxQ9FAl6H7m4j5hVwMlhNt5x7MywpHiutMGI3SvsaTCrmtEt-ixXXs0W_TWQhHlxA3pCU9UjFFu7M13qxJ6YA3QPSzJga3uTqqyMkawpmVKg8A_xridCJWngBRj6eibzYQBLLm0qB57uI769v6pvZ_LAVLIx7Ol8UL479ZfbrAl2rkFb6ZMZbUvjjSziSowzp0xN1gb19O39Dwx7wm7wzfJnOmLE2uT1OwsXoH_bnC4ojs1cc66"/>
+</div>
+</div>
+</div>
+<!-- Card 2: Biometric Authentication (Selected by default) -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container-high transition-all shadow-md cursor-pointer group relative overflow-hidden" onclick="selectTask('TASK-98')">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-secondary font-bold">MOB-98</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary">Selected</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface">5 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-secondary transition-colors">
+              Biometric Authentication &amp; Session Refresh
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+              Secure Keychain storage for FaceID/TouchID with automatic refresh token rotation.
+            </p>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span> Hardware Keystore
+              </span>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of an African male UX designer in glasses with focused expression, slate gray studio light on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzTx-WeiLyLzMnhpjSpw36DhPm_h1E6W8xmVDiWlQUhR2A_croPJFhXDsUmdA42W3oADPB1o_HocgbhZ-W390UeJGNIZLhBfAuIO827wdZcAJHOKgtc3XWEZGQSTUAuNkIRD0H9pTp2B60DU8NPc4nlDdX6rjUoQgNnjgznafHUArDN6O2ClHyr_9pOl22dApIV-s7WgL-di9dCFHOBUrgxa6AARSI3kH1dwaG4RqWICRZcn9Sqjfp"/>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group" onclick="selectTask('TASK-101')">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">MOB-101</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-outline">3 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Order Tracking Map Polylines Real-time
+            </h4>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-label-sm text-label-sm text-outline">Logged: 5.5h</span>
+<div class="w-6 h-6 rounded-full bg-surface-variant text-on-surface text-[10px] font-label-sm flex items-center justify-center font-bold">
+                JM
+              </div>
+</div>
+</div>
+<!-- Card 4 & 5 (compact) -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group" onclick="selectTask('TASK-102')">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-outline">MOB-102</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-outline">2 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Dark Mode Odoo Theme Contrast Audit
+            </h4>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group" onclick="selectTask('TASK-103')">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-outline">MOB-103</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-outline">1 pt</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Deep Linking for Invoice Notification
+            </h4>
+</div>
+</div>
+</div>
+<!-- Column 3: Code Review & QA (3 Tasks) -->
+<div class="w-80 shrink-0 flex flex-col bg-surface-container-low rounded-DEFAULT shadow-sm max-h-full">
+<!-- Col Header -->
+<div class="p-space-sm flex items-center justify-between bg-surface-container-low rounded-t-DEFAULT">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="font-title text-title text-on-surface">Code Review &amp; QA</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-outline">3</span>
+</div>
+<button class="w-6 h-6 flex items-center justify-center text-outline hover:text-on-surface rounded hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+<!-- Cards Container -->
+<div class="p-space-sm flex flex-col gap-space-sm overflow-y-auto flex-1">
+<!-- Card with Automated CI/CD pass badge -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group" onclick="selectTask('TASK-88')">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">MOB-88</span>
+<!-- CI/CD Badge -->
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                Tests Passing 100%
+              </span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Enterprise Multi-Currency Exchange Widget
+            </h4>
+<div class="flex items-center justify-between mt-3 pt-2">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary">rate_review</span>
+<span>Reviewer: Marc D.</span>
+</div>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Dark aesthetic corporate close-up headshot of a female software engineer smiling, soft violet rim light on obsidian studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSnb708eSNzvGxoCLAmYWCz8-lGC_V__q9kOKSYYdlci4UQLtVBi6mCUAPYGgZtXaNubqkARAeSRqTKLTjYCo19FxywQ6xgA0ZDIoA_BIfqkuCZdp1L16gthQtiVZ3oOyaeoN9UIyqvnz5_TwPC0PDfSbytoIPV1MekKwvxRNlphU-RAnIwSr3reLj3DD8aGXFnMDUgCpD6zJD5qpQXvjrKow-qXnVgTKFRIcnjTeLivza_n3sHVaK"/>
+</div>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group" onclick="selectTask('TASK-90')">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">MOB-90</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-tertiary">3 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Automated PDF Invoice Generation Pipeline
+            </h4>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-label-sm text-label-sm text-outline">Pending QA Signoff</span>
+<div class="w-6 h-6 rounded-full bg-surface-variant text-on-surface text-[10px] font-label-sm flex items-center justify-center font-bold">
+                CL
+              </div>
+</div>
+</div>
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group" onclick="selectTask('TASK-91')">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">MOB-91</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-outline">2 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+              Audit Log Tamper-Proof Cryptographic Hash
+            </h4>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-label-sm text-label-sm text-secondary">SecOps Approved</span>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of an African male UX designer in glasses with focused expression, slate gray studio light on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXQXJRCoWa1ArFl-AKYlqAdymevw-NDsieNaREYMTfhaJTPjG9qj5BdbR6QSYGhSnBv7UbmdlgVa5ViQHiHU1a2kkyGdoASHpkGm5_RrF6PaSl1jPJMIHxIBnbEo2ZeAKoxJAf_QIA00uH0YAzKTagrAccTftkxidCUDJ_fv_Ugr19DJapX1R3NSQeRQ_jxiSlaCX6NT_TBej3VJO-vQUW5icEhqdWJ8Dg13VTamLO7zVjWQcaPbee"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 4: Blocked (1 Task) -->
+<div class="w-80 shrink-0 flex flex-col bg-surface-container-low rounded-DEFAULT shadow-sm max-h-full">
+<!-- Col Header -->
+<div class="p-space-sm flex items-center justify-between bg-surface-container-low rounded-t-DEFAULT">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<span class="font-title text-title text-error">Blocked</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-bold">1</span>
+</div>
+<button class="w-6 h-6 flex items-center justify-center text-outline hover:text-on-surface rounded hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+<!-- Cards Container -->
+<div class="p-space-sm flex flex-col gap-space-sm overflow-y-auto flex-1">
+<!-- Blocked Card with High Visibility Warning Banner -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container-high shadow-md cursor-pointer group relative overflow-hidden" onclick="selectTask('TASK-85')">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<!-- High-visibility warning amber badge -->
+<div class="flex items-center gap-1.5 p-2 rounded bg-error-container/40 text-on-error-container mb-2.5">
+<span class="material-symbols-outlined text-[16px] text-error">warning</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wide">Awaiting API Keys from Client</span>
+</div>
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-error font-bold">MOB-85</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface">8 pts</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold group-hover:text-error transition-colors">
+              FedEx &amp; DHL Fleet Real-time Dispatch Sync
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+              Production credentials needed to test live rate estimation and webhook dispatch notification.
+            </p>
+<div class="flex items-center justify-between mt-3 pt-2">
+<div class="flex items-center gap-1 text-error font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">lock_clock</span>
+<span>Stalled 48h</span>
+</div>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of a young male DevOps engineer with dark hair, cinematic teal neon backlight on matte black backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQIvHPBNvTFkWOB2x5ImJMHtrQIutkj9DrGFiQDYhkgZ2k08O70YisLSXY--3iYDuXayuhey_ni60OT5A3MrVn2-ghfOs3t7Zj5REg-6nkUcgZmECHAYmq9ezqVh9WCky3nFIOeV8U5lvl9mvkGKyWH4GeEEMm2nZ9m0vqd6HOMfzqPS8cQlJ7yAx0sPRW_hThDOmUr5YtIq9dZkhrs1wuML9tH9Pnt6ixTbV2OraxKvgYS5vd1nfP"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 5: Done / Delivered (8 Tasks) -->
+<div class="w-80 shrink-0 flex flex-col bg-surface-container-low rounded-DEFAULT shadow-sm max-h-full">
+<!-- Col Header -->
+<div class="p-space-sm flex items-center justify-between bg-surface-container-low rounded-t-DEFAULT">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-title text-title text-on-surface">Done / Delivered</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-bold">8</span>
+</div>
+<button class="w-6 h-6 flex items-center justify-center text-outline hover:text-on-surface rounded hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+<!-- Cards Container -->
+<div class="p-space-sm flex flex-col gap-space-sm overflow-y-auto flex-1">
+<!-- Card 1: Completed with green check, timestamp, and 5-star customer feedback -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group opacity-90 hover:opacity-100" onclick="selectTask('TASK-79')">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-label-sm text-label-sm text-outline">MOB-79</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Oct 19, 14:32</span>
+</div>
+<h4 class="font-title text-body-md text-on-surface font-semibold line-through decoration-outline-variant text-outline">
+              Executive KPI Dashboard &amp; Real-Time Charts
+            </h4>
+<!-- Customer rating pill -->
+<div class="flex items-center justify-between mt-2.5 p-1.5 rounded bg-surface-container-high">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">thumb_up</span> Customer Feedback
+              </span>
+<div class="flex items-center text-primary text-[12px]">
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-2 pt-1 text-label-sm font-label-sm text-outline">
+<span>Logged: 14h (Est: 16h)</span>
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Dark aesthetic corporate close-up headshot of a female software engineer smiling, soft violet rim light on obsidian studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeqAMU2No8lFrwEVrdduPpM5PnZcu6QppTitAJ1Q15_rhHhZoL9og57Rdh7qcXUZTVrwGqnfUhcLUrPW1CfOlOygKpAmZT17jM13Bbyw8pWbNvXTJeNj5udNQiqq0hys-B73LRcbSwOPyxLUGLEI2TrEbmHoS1a8mJgFXr_Irb5w1ZBskj0T8ZLV1mwLDK751yuhtXVjgDRhiTJcbwlCT-utjnfkcOSqv6oc-OT2aAICiYyNFJTW_w"/>
+</div>
+</div>
+<!-- Card 2: Completed -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group opacity-85 hover:opacity-100" onclick="selectTask('TASK-80')">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-label-sm text-label-sm text-outline">MOB-80</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Oct 18</span>
+</div>
+<h4 class="font-title text-body-md text-outline font-semibold line-through">
+              Refactor Push Notifications Payload
+            </h4>
+<div class="flex items-center justify-between mt-2 pt-1 text-label-sm font-label-sm text-outline">
+<span>Logged: 6h</span>
+<span class="text-secondary">Delivered</span>
+</div>
+</div>
+<!-- Card 3: Completed -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high transition-all shadow-sm cursor-pointer group opacity-85 hover:opacity-100" onclick="selectTask('TASK-81')">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-label-sm text-label-sm text-outline">MOB-81</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Oct 17</span>
+</div>
+<h4 class="font-title text-body-md text-outline font-semibold line-through">
+              Barcode / QR Scanner Camera Viewport
+            </h4>
+</div>
+</div>
+</div>
+</div>
+<!-- Split-Pane Quick Task Detail Drawer (Right side overlay) -->
+<div class="w-full max-w-xl bg-surface-container-low shrink-0 flex flex-col shadow-xl z-30 transition-all duration-300" id="task-drawer">
+<!-- Drawer Top Bar -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-md text-label-md text-secondary font-bold">MOB-98</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary">In Progress</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-outline">Sprint 14</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" title="Mark as Done" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">check</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" title="Share link" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" id="close-drawer-btn" title="Close Panel" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Drawer Scrollable Body -->
+<div class="flex-1 overflow-y-auto p-space-md flex flex-col gap-space-md">
+<!-- Title & Primary Metadata -->
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">
+            Implement Biometric Authentication &amp; Session Token Refresh
+          </h2>
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 mt-space-sm pt-space-xs text-body-sm font-body-sm text-outline">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">person</span>
+<span class="text-on-surface">Assignee:</span>
+<span class="text-on-surface font-semibold">Tanya Vance</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+<span>Deadline:</span>
+<span class="text-on-surface font-semibold">Oct 26, 2024</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">military_tech</span>
+<span>Points:</span>
+<span class="text-on-surface font-semibold">5 pts</span>
+</div>
+</div>
+</div>
+<!-- Description Box -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-1">Description</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Integrate native iOS LocalAuthentication Framework and Android BiometricPrompt APIs. The token refresh pipeline must automatically rotate JWT refresh tokens against the Odoo v18 REST backend without degrading UX or prompting redundant modal logins.
+          </p>
+<div class="flex flex-wrap gap-1.5 mt-space-sm">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-secondary">#MobileSecurity</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-primary">#FaceID</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary">#OAuth2</span>
+</div>
+</div>
+<!-- Timesheets Logged Table Section -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">timelapse</span>
+<span class="font-title text-title text-on-surface">Timesheets Logged</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-outline">9.5 Hours</span>
+</div>
+<button class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">add_circle</span> Log Time
+            </button>
+</div>
+<div class="overflow-x-auto rounded-DEFAULT bg-surface-container shadow-sm">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead class="bg-surface-container-high text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<tr>
+<th class="p-2.5">Member</th>
+<th class="p-2.5">Date</th>
+<th class="p-2.5">Description</th>
+<th class="p-2.5 text-right">Duration</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 text-on-surface">
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="p-2.5 flex items-center gap-2 font-medium">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Dark aesthetic corporate close-up headshot of a female software engineer smiling, soft violet rim light on obsidian studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEwpq7Yg3b_fMZ02zCuxcwzjCr-1luhqM6OLtWwVFI5Cpde4UxTHl0Bze9tMWkOJ8AVV88LoCqFzbkZlMBcNIYl8Rc4TtDuXx0SnV_2ovC-95lY6DNjuTzNkXMeCKq1qOjD01J2iMFXe7M_-PCByNFJGYZ_l_9wCJbZ9Bp6vC1b0-FY3MmfnqynRsDKob1k7LFS7gY7yxQgaXfFlnQYu0-l0Zu-q8op7Qq4Tyb9uKipNGKIMe1fcZk"/>
+<span>Tanya V.</span>
+</td>
+<td class="p-2.5 font-label-sm text-label-sm text-outline">Oct 23</td>
+<td class="p-2.5 text-on-surface-variant truncate max-w-[150px]">Keychain wrapper config</td>
+<td class="p-2.5 text-right font-label-md text-label-md text-secondary font-bold">4.0h</td>
+</tr>
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="p-2.5 flex items-center gap-2 font-medium">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Portrait of an African male UX designer in glasses with focused expression, slate gray studio light on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_HHSLzeSgvWzt6KIF2cXqgGDb7f_7BpS32iVfd0cnPy_Mvs3tKu242f6AtQ7Wu7gzG0zo2NggF93qZryqSiaN2jrX5XYJphG9ea7p-9UD8SMGrPY7X_zc_VL76Hpg_vfZ8kAduy88SmxEzqU7GsqYgE03oTWauI2OnvPT1Ns9hGjx20mkiTS_kL9gvujn-JWLT__xoUPsA5Kjp5PHmmUFtGYv2AYn9KlmLdiN5sPk7aLUjGQakiZH"/>
+<span>Devon K.</span>
+</td>
+<td class="p-2.5 font-label-sm text-label-sm text-outline">Oct 22</td>
+<td class="p-2.5 text-on-surface-variant truncate max-w-[150px]">JWT interceptor intercept flow</td>
+<td class="p-2.5 text-right font-label-md text-label-md text-secondary font-bold">3.5h</td>
+</tr>
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="p-2.5 flex items-center gap-2 font-medium">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Dark aesthetic corporate close-up headshot of a female software engineer smiling, soft violet rim light on obsidian studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiQMcfCr7NLkbsk9hRiw0vkNr1XYoPN9Hpf0WxiJhoT0ACBv9HxCucAiuN-wzFhU9wa8esw3EDNNmKxpA_hiQGRSzuIT_XonX2PANgQzqziCp1Vi9xwf8LYx7jaa3Pv9E5awIFnuCjQTJX8_sWh05-yAGqoqCyPbgh7uaht9vA3-o6F-Kx72saFHLqiIkk_hYNqwLR56ydJ4Sg_3ILxvwQMHAcFtDDF7owLs-tdcCIHDPGU9hjk4Kf"/>
+<span>Tanya V.</span>
+</td>
+<td class="p-2.5 font-label-sm text-label-sm text-outline">Oct 21</td>
+<td class="p-2.5 text-on-surface-variant truncate max-w-[150px]">Biometric fallback PIN screens</td>
+<td class="p-2.5 text-right font-label-md text-label-md text-secondary font-bold">2.0h</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Attachments Preview Ribbon -->
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-title text-body-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">attach_file</span>
+              Attachments (2 files)
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Drop files to add</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-xs rounded-DEFAULT bg-surface-container flex items-center gap-2 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-label-md text-label-md text-on-surface truncate font-semibold">auth_sequence.puml</p>
+<p class="font-label-sm text-label-sm text-outline">24 KB • UML Diagram</p>
+</div>
+</div>
+<div class="p-space-xs rounded-DEFAULT bg-surface-container flex items-center gap-2 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded bg-secondary-container/20 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-label-md text-label-md text-on-surface truncate font-semibold">ios_faceid_dialog.png</p>
+<p class="font-label-sm text-label-sm text-outline">1.2 MB • High-Res</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Chatter & Timeline Feed -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-title text-title text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">chat</span>
+              Chatter &amp; Audit Trail
+            </span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-bold" type="button">All</button>
+<button class="px-2 py-0.5 rounded-full text-outline hover:text-on-surface" type="button">Notes</button>
+<button class="px-2 py-0.5 rounded-full text-outline hover:text-on-surface" type="button">Customer</button>
+</div>
+</div>
+<!-- Chatter Post Composer -->
+<div class="p-space-sm rounded-DEFAULT bg-surface-container shadow-sm flex flex-col gap-2">
+<textarea class="w-full bg-surface-container-lowest text-on-surface rounded p-2 text-body-sm font-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary" id="chatter-input" placeholder="Send a message to followers or log an internal note..." rows="2"></textarea>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-outline">
+<button class="w-7 h-7 rounded hover:bg-surface-container-high flex items-center justify-center hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[16px]">attach_file</span></button>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high flex items-center justify-center hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[16px]">alternate_email</span></button>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high flex items-center justify-center hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[16px]">sentiment_satisfied</span></button>
+</div>
+<button class="px-3 py-1 rounded-full bg-primary hover:bg-primary-fixed-dim text-on-primary font-title text-body-sm font-semibold transition-colors flex items-center gap-1" onclick="postMessage()" type="button">
+<span>Send</span>
+<span class="material-symbols-outlined text-[14px]">send</span>
+</button>
+</div>
+</div>
+<!-- Interactive Feed Entries -->
+<div class="flex flex-col gap-space-sm" id="feed-container">
+<!-- Timeline Item 1 -->
+<div class="flex gap-3">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Portrait of an African male UX designer in glasses with focused expression, slate gray studio light on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqSR7qjVH9DQMTujQZOEgPwPVD9WIKcYQh_qRyYKkEXSwp9F335fSJu-sTRkoXGYtRbwa9AlLYhENzA7R1ep8qDZZIhcRJlZ1b0jc5sNRObyzGiIB8rB-kYpjm1dHh1mgWSSebRD5_p4Z_AFKDVuCDvjPK_KmFQ5yclj-WhPcz7vwpunz8uOFx8fhbQPqnQiwDQMbXiH80Fi8tlp-QrIqNuXVv_T2eSrB4nRJAXwUZWkBjkmGCMiT_"/>
+<div class="flex-1 bg-surface-container p-space-sm rounded-DEFAULT">
+<div class="flex items-center justify-between mb-1">
+<span class="font-title text-body-sm text-on-surface font-semibold">Devon Kim</span>
+<span class="font-label-sm text-label-sm text-outline">2 hours ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Unit tests for the JWT interceptor are passing across both iOS Simulator and Android API 34 emulators. Kept memory leak footprint under 0.2MB.
+                </p>
+</div>
+</div>
+<!-- Timeline Status Change Marker -->
+<div class="flex items-center gap-3 px-2">
+<div class="w-8 flex justify-center text-outline">
+<span class="material-symbols-outlined text-[16px] text-secondary">sync_alt</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline">
+                Stage changed from <span class="text-on-surface">Backlog</span> to <span class="text-secondary font-semibold">In Progress</span> by Tanya Vance • 4h ago
+              </p>
+</div>
+<!-- Timeline Item 2: Customer Portal Note -->
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary font-bold font-title text-[12px] shrink-0">
+                AC
+              </div>
+<div class="flex-1 bg-surface-container p-space-sm rounded-DEFAULT">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="font-title text-body-sm text-secondary font-semibold">Amara Chen (Client Portal)</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-surface-container-highest text-secondary">Client</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Yesterday at 17:40</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Please verify compliance with European Banking Authority PSD2 biometric requirements for payments over €50.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Action Bar -->
+<div class="p-space-sm bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline">Stage:</span>
+<select class="bg-surface-container-high text-on-surface font-label-md text-label-md px-2.5 py-1 rounded-full border-none focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option>Backlog</option>
+<option selected="">In Progress</option>
+<option>Code Review &amp; QA</option>
+<option>Blocked</option>
+<option>Done / Delivered</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface-variant hover:text-on-surface font-title text-body-sm transition-all" type="button">
+            Discard
+          </button>
+<button class="px-4 py-1 rounded-full bg-primary hover:bg-primary-fixed-dim text-on-primary font-title text-body-sm font-semibold transition-all shadow-md" type="button">
+            Save
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Drawer Toggle and Responsive Behavior
+  const drawer = document.getElementById('task-drawer');
+  const closeBtn = document.getElementById('close-drawer-btn');
+  
+  if (closeBtn && drawer) {
+    closeBtn.addEventListener('click', () => {
+      drawer.classList.toggle('hidden');
+    });
+  }
+
+  function selectTask(taskId) {
+    if (drawer && drawer.classList.contains('hidden')) {
+      drawer.classList.remove('hidden');
+    }
+  }
+
+  // Interactive Chatter Message Poster
+  function postMessage() {
+    const input = document.getElementById('chatter-input');
+    const container = document.getElementById('feed-container');
+    if (!input || !container || !input.value.trim()) return;
+
+    const text = input.value.trim();
+    const newMsg = document.createElement('div');
+    newMsg.className = 'flex gap-3 animate-fade-in';
+    newMsg.innerHTML = `
+      <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold font-title text-[12px] shrink-0">
+        MD
+      </div>
+      <div class="flex-1 bg-surface-container p-space-sm rounded-DEFAULT">
+        <div class="flex items-center justify-between mb-1">
+          <div class="flex items-center gap-1.5">
+            <span class="font-title text-body-sm text-primary font-semibold">Marc Demo (You)</span>
+            <span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-primary-container/30 text-primary">Admin</span>
+          </div>
+          <span class="font-label-sm text-label-sm text-outline">Just now</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">${text}</p>
+      </div>
+    `;
+
+    container.insertBefore(newMsg, container.firstChild);
+    input.value = '';
+  }
+
+  // Live Timer increment simulation
+  let seconds = 15 * 60; // 15 mins offset
+  const timerElem = document.getElementById('live-timer');
+  if (timerElem) {
+    setInterval(() => {
+      seconds++;
+      const hrs = Math.floor(seconds / 3600) + 2;
+      const mins = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+      timerElem.textContent = `${hrs}h ${mins}m active`;
+    }, 1000);
+  }
+</script></main></div></body></html>

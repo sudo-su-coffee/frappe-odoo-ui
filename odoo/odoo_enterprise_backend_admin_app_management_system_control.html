@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Odoo Enterprise Apps Management &amp; Admin Control Center</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Font: Plus Jakarta Sans / Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            odoo: {
+              purple: '#714B67',
+              darkPurple: '#5A3A52',
+              lightPurple: '#875A7B',
+              slate: '#1E242B',
+              surface: '#F8F9FA',
+              border: '#E2E8F0',
+              teal: '#00A09D',
+              amber: '#F0AD4E',
+              coral: '#DC3545',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Authentic Odoo Backend Finishes -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #f1f3f6;
+      font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Scrollbar refinement */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+<style data-purpose="custom-shadows">
+    .odoo-card-shadow {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+    .odoo-card-shadow:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    }
+    .odoo-icon-shadow {
+      filter: drop-shadow(0 4px 6px rgba(113, 75, 103, 0.12));
+    }
+  </style>
+</head>
+<body class="text-slate-800 flex flex-col h-screen overflow-hidden selection:bg-purple-100 selection:text-odoo-purple">
+<!-- BEGIN: TopGlobalNavbar -->
+<!-- Authentic Odoo Top Navigation Bar with Deep Purple & Enterprise Utilities -->
+<header class="h-11 bg-odoo-purple text-white flex items-center justify-between px-3 select-none shrink-0 shadow-sm z-30" data-purpose="odoo-top-navbar">
+<!-- Left Section: 9-Dots App Matrix, Breadcrumb, and Global Search -->
+<div class="flex items-center space-x-3.5">
+<!-- Odoo 9-Dots App Switcher Grid Icon -->
+<button class="p-1 rounded hover:bg-white/10 transition-colors flex items-center justify-center text-white/90 hover:text-white" title="App Drawer (Home)">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 20 20">
+<circle cx="3" cy="3" r="2.2"></circle>
+<circle cx="10" cy="3" r="2.2"></circle>
+<circle cx="17" cy="3" r="2.2"></circle>
+<circle cx="3" cy="10" r="2.2"></circle>
+<circle cx="10" cy="10" r="2.2"></circle>
+<circle cx="17" cy="10" r="2.2"></circle>
+<circle cx="3" cy="17" r="2.2"></circle>
+<circle cx="10" cy="17" r="2.2"></circle>
+<circle cx="17" cy="17" r="2.2"></circle>
+</svg>
+</button>
+<!-- Breadcrumb Hierarchy -->
+<div class="flex items-center space-x-2 text-[13px] font-semibold tracking-wide">
+<span class="hover:text-white/80 cursor-pointer">Apps</span>
+<span class="text-white/40 text-xs">/</span>
+<span class="text-white/90 font-medium">Administration &amp; Modules</span>
+</div>
+<!-- Quick Command Bar Trigger -->
+<div class="hidden md:flex items-center ml-4">
+<div class="relative flex items-center text-white/70 hover:text-white group">
+<input class="bg-white/10 border-0 rounded text-xs px-2.5 py-1 pl-7 w-48 lg:w-64 placeholder-white/50 text-white focus:ring-1 focus:ring-white/40 focus:bg-white/15 focus:outline-none transition-all" placeholder="Search menus or apps..." type="text"/>
+<svg class="w-3.5 h-3.5 absolute left-2 text-white/50 pointer-events-none group-focus-within:text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="absolute right-2 text-[10px] bg-white/20 px-1 rounded text-white/70 font-mono pointer-events-none">/</span>
+</div>
+</div>
+</div>
+<!-- Right Section: Alerts, Tools, Multi-Company Selector, and User Chip -->
+<div class="flex items-center space-x-1 sm:space-x-2 text-xs">
+<!-- Notifications Bubble with Unread Counter Badge -->
+<button class="relative p-1.5 rounded hover:bg-white/10 text-white/90 hover:text-white transition" title="1 Unread Message">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-0.5 right-0.5 w-3.5 h-3.5 bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center rounded-full border border-odoo-purple">
+          1
+        </span>
+</button>
+<!-- Activity Clock with Tasks Badge -->
+<button class="relative p-1.5 rounded hover:bg-white/10 text-white/90 hover:text-white transition" title="Scheduled Activities">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute -top-0.5 right-0.5 w-2 h-2 bg-amber-400 rounded-full border border-odoo-purple"></span>
+</button>
+<!-- Odoo Studio Toggle Wrench Icon -->
+<button class="p-1.5 rounded hover:bg-white/10 text-white/90 hover:text-white transition flex items-center gap-1" title="Toggle Odoo Studio Customizer">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Multi-Company Switcher Component -->
+<div class="hidden sm:flex items-center pl-1 border-l border-white/20">
+<button class="flex items-center space-x-1.5 py-1 px-2 rounded hover:bg-white/10 text-white font-medium text-xs max-w-[240px] truncate" title="Active Branch / Multi-Company">
+<!-- Checkmark Icon -->
+<svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="truncate">ALQANNAS HUNTING EQUIPMENT L...</span>
+<svg class="w-3 h-3 text-white/70 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Admin User Avatar Chip -->
+<div class="flex items-center pl-1">
+<button class="flex items-center space-x-2 py-0.5 px-1.5 rounded hover:bg-white/10 group transition">
+<div class="w-6 h-6 rounded bg-emerald-600 font-bold text-white flex items-center justify-center text-[11px] shadow-sm uppercase">
+            C
+          </div>
+<span class="hidden md:inline font-semibold text-white/95 text-xs">Mitchell Admin</span>
+<svg class="w-3 h-3 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- END: TopGlobalNavbar -->
+<!-- BEGIN: ControlPanelRibbon -->
+<!-- Definitive Odoo Backend Action Ribbon / Control Panel -->
+<section class="bg-white border-b border-odoo-border px-4 py-2 flex flex-col md:flex-row md:items-center justify-between gap-3 shrink-0 shadow-[0_1px_2px_rgba(0,0,0,0.03)] z-20" data-purpose="odoo-control-panel">
+<!-- Action Controls: Primary Buttons -->
+<div class="flex items-center flex-wrap gap-2">
+<button class="inline-flex items-center px-3 py-1.5 rounded text-xs font-semibold bg-odoo-purple text-white hover:bg-odoo-darkPurple shadow-sm transition-all focus:ring-2 focus:ring-odoo-purple/30">
+<svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+        Update App List
+      </button>
+<button class="inline-flex items-center px-3 py-1.5 rounded text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300 transition">
+<svg class="w-3.5 h-3.5 mr-1.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+        Import Module
+      </button>
+<button class="hidden lg:inline-flex items-center px-2.5 py-1.5 rounded text-xs font-medium text-slate-600 hover:bg-slate-100 transition">
+        Scheduled Actions
+      </button>
+<button class="hidden xl:inline-flex items-center px-2.5 py-1.5 rounded text-xs font-medium text-slate-600 hover:bg-slate-100 transition">
+        Database Backup
+      </button>
+</div>
+<!-- Omni-Search Filter & View Switchers -->
+<div class="flex items-center space-x-2 grow max-w-2xl justify-end">
+<!-- Odoo Faceted Search Bar -->
+<div class="relative flex-1 flex items-center bg-slate-50 border border-slate-300 rounded px-2 py-1 text-xs focus-within:border-odoo-purple focus-within:ring-1 focus-within:ring-odoo-purple">
+<svg class="w-3.5 h-3.5 text-slate-400 mr-1.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<!-- Active Filter Facet Badges -->
+<div class="flex items-center gap-1 flex-wrap">
+<span class="inline-flex items-center bg-purple-100 text-odoo-purple text-[11px] font-medium px-1.5 py-0.5 rounded">
+            Installed
+            <button class="ml-1 text-odoo-purple/70 hover:text-odoo-purple">×</button>
+</span>
+<span class="inline-flex items-center bg-slate-200 text-slate-700 text-[11px] font-medium px-1.5 py-0.5 rounded">
+            Apps
+            <button class="ml-1 text-slate-500 hover:text-slate-800">×</button>
+</span>
+<input class="bg-transparent border-none p-0 text-xs focus:ring-0 text-slate-700 w-28 md:w-44 placeholder-slate-400" placeholder="Search apps, technical names..." type="text"/>
+</div>
+<!-- Filter Dropdown Trigger Icon -->
+<button class="ml-auto text-slate-400 hover:text-slate-600 pl-1" title="Filters, Group By, Favorites">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+</button>
+</div>
+<!-- View Switcher (Kanban, List, Activity) -->
+<div class="flex items-center bg-slate-100 p-0.5 rounded border border-slate-200 shrink-0">
+<button class="p-1 rounded bg-white shadow-xs text-odoo-purple" title="Kanban View">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 16 16">
+<path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v11A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-11zM9 2.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v6a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 8.5v-6z"></path>
+</svg>
+</button>
+<button class="p-1 rounded text-slate-500 hover:text-slate-800" title="List View">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="p-1 rounded text-slate-500 hover:text-slate-800" title="Activity View">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</section>
+<!-- END: ControlPanelRibbon -->
+<!-- BEGIN: MainContentWorkspace -->
+<!-- Split Layout: Left Category Navigation & Right Apps Grid -->
+<div class="flex-1 flex overflow-hidden" data-purpose="admin-workspace">
+<!-- Left Category Navigation Sidebar -->
+<aside class="w-60 bg-white border-r border-odoo-border flex flex-col shrink-0 overflow-y-auto" data-purpose="apps-category-sidebar">
+<div class="p-3">
+<h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-1.5">Categories</h3>
+<nav class="space-y-0.5 text-xs font-medium">
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-md bg-purple-50 text-odoo-purple font-semibold" href="#">
+<span class="flex items-center">
+<svg class="w-3.5 h-3.5 mr-2 text-odoo-purple" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              All Modules
+            </span>
+<span class="text-[11px] bg-purple-200/60 text-odoo-purple px-1.5 py-0.2 rounded-full font-bold">24</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition" href="#">
+<span class="flex items-center">
+<svg class="w-3.5 h-3.5 mr-2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              Sales &amp; CRM
+            </span>
+<span class="text-[11px] text-slate-400">4</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition" href="#">
+<span class="flex items-center">
+<svg class="w-3.5 h-3.5 mr-2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              Finance &amp; Invoicing
+            </span>
+<span class="text-[11px] text-slate-400">3</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition" href="#">
+<span class="flex items-center">
+<svg class="w-3.5 h-3.5 mr-2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              Supply &amp; Inventory
+            </span>
+<span class="text-[11px] text-slate-400">5</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition" href="#">
+<span class="flex items-center">
+<svg class="w-3.5 h-3.5 mr-2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              Human Resources
+            </span>
+<span class="text-[11px] text-slate-400">4</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition" href="#">
+<span class="flex items-center">
+<svg class="w-3.5 h-3.5 mr-2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              Productivity &amp; Docs
+            </span>
+<span class="text-[11px] text-slate-400">4</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition" href="#">
+<span class="flex items-center">
+<svg class="w-3.5 h-3.5 mr-2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              Connectors &amp; IoT
+            </span>
+<span class="text-[11px] text-slate-400">4</span>
+</a>
+</nav>
+</div>
+<!-- Technical Administration Sub-Menu -->
+<div class="p-3 border-t border-odoo-border mt-auto bg-slate-50/70">
+<h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-1.5">System Controls</h3>
+<nav class="space-y-0.5 text-xs text-slate-600 font-medium">
+<a class="flex items-center px-2 py-1 rounded hover:bg-slate-200/60 hover:text-slate-900" href="#">
+<span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
+            Automated Actions
+          </a>
+<a class="flex items-center px-2 py-1 rounded hover:bg-slate-200/60 hover:text-slate-900" href="#">
+<span class="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
+            Security &amp; Groups
+          </a>
+<a class="flex items-center px-2 py-1 rounded hover:bg-slate-200/60 hover:text-slate-900" href="#">
+<span class="w-2 h-2 rounded-full bg-purple-500 mr-2"></span>
+            Translations &amp; Langs
+          </a>
+<a class="flex items-center px-2 py-1 rounded hover:bg-slate-200/60 hover:text-slate-900" href="#">
+<span class="w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
+            API Keys &amp; Webhooks
+          </a>
+</nav>
+</div>
+</aside>
+<!-- Main Admin App Matrix / Module Cards Grid -->
+<main class="flex-1 overflow-y-auto p-4 md:p-6 bg-[#f1f3f6]" data-purpose="apps-grid-container">
+<!-- Top Grid Summary Banner -->
+<div class="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-500">
+<div>
+          Showing <span class="font-semibold text-slate-800">24 Enterprise Apps</span> installed in <span class="font-semibold text-slate-700">ALQANNAS HUNTING EQUIPMENT L.L.C</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-2 py-1 rounded shadow-xs text-slate-600">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Odoo v18.0e (Enterprise)
+          </span>
+<span class="inline-flex items-center gap-1.5 bg-white border border-slate-200 px-2 py-1 rounded shadow-xs text-slate-600">
+            PostgreSQL 16.3
+          </span>
+</div>
+</div>
+<!-- Cards Grid (Replicating exact squircle Odoo icon aesthetics from https://lh3.googleusercontent.com/aida-public/AB6AXuD2WPigmmdUp0MNLF6L8fvMkflyrFoOVK8MIvUqbCWdBNged9-3yx7O7ig5AKjiMr2ElvazR99VRrfYoNOfgqYLrpQMyFyk8_fnmjQidecHeXxvLBBB3kbBDGYuqbMFdKCMiDqHyz05enoQyj_veRJB1q_vMm005BcGXAG4-KyIhS6lUcnPhnnkRn5JufcHRyu9LCruhY0AYOhuFw54V-bGRHOrlKjbh3TtGkua7kVcdn0s2WoDDg1zXwJpIFGivDP9ww) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-3.5" data-purpose="odoo-modules-grid">
+<!-- Module 1: Discuss -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Discuss Icon -->
+<div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-full h-full" viewbox="0 0 48 48">
+<path d="M10 24C10 16.268 16.268 10 24 10C31.732 10 38 16.268 38 24C38 31.732 31.732 38 24 38C20.686 38 17.625 36.848 15.2 34.92L10 37L12.3 32.1C10.86 29.74 10 26.97 10 24Z" fill="#F06038"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Discuss</h4>
+<p class="text-[11px] text-slate-500 truncate">mail / chat channels</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.2</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 2: Calendar -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Calendar Icon -->
+<div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center p-1.5 odoo-icon-shadow shrink-0 font-bold">
+<div class="text-center">
+<span class="text-base text-rose-500 tracking-tight font-extrabold block leading-none">31</span>
+<span class="text-[9px] text-purple-600 tracking-wider uppercase font-semibold">CAL</span>
+</div>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Calendar</h4>
+<p class="text-[11px] text-slate-500 truncate">Meetings &amp; agenda</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 3: To-do -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- To-do Icon -->
+<div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-7 h-7" viewbox="0 0 40 40">
+<path d="M8 28L28 8L32 12L12 32L6 34L8 28Z" fill="#008784"></path>
+<path d="M26 10L30 14" stroke="#FFF" stroke-width="1.5"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">To-do</h4>
+<p class="text-[11px] text-slate-500 truncate">Personal task list</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.1</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 4: Contacts -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Contacts Icon -->
+<div class="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Contacts</h4>
+<p class="text-[11px] text-slate-500 truncate">Customers &amp; partners</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.2.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 5: WooCommerce Integration -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- WooCommerce Icon -->
+<div class="w-12 h-12 rounded-xl bg-[#7F54B3] text-white flex items-center justify-center font-bold text-xs tracking-tight odoo-icon-shadow shrink-0">
+              Woo
+            </div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">WooCommerce</h4>
+<p class="text-[11px] text-slate-500 truncate">Store two-way sync</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Certified Partner</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Active</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-purple-50 text-purple-700 border border-purple-200 px-1.5 py-0.5 rounded font-mono">v4.4.2</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 6: Sales (CRM / Quotations) -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Sales Icon (Bar Graph) -->
+<div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-500 text-white flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20">
+<path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Sales</h4>
+<p class="text-[11px] text-slate-500 truncate">Quotes, orders &amp; pipeline</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo Enterprise</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.3.1</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 7: Dashboards (Spreadsheets) -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Dashboards Icon -->
+<div class="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center p-2.5 odoo-icon-shadow shrink-0">
+<div class="grid grid-cols-2 gap-1 w-full h-full">
+<div class="bg-indigo-500 rounded-sm"></div>
+<div class="bg-rose-400 rounded-sm"></div>
+<div class="bg-emerald-400 rounded-sm"></div>
+<div class="bg-amber-400 rounded-sm"></div>
+</div>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Dashboards</h4>
+<p class="text-[11px] text-slate-500 truncate">BI &amp; Real-time KPI charts</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 8: Point of Sale -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- POS Awning Icon -->
+<div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-7 h-7" viewbox="0 0 40 40">
+<path d="M6 12L20 6L34 12L32 18H8L6 12Z" fill="#F59E0B"></path>
+<path d="M10 18V28H30V18" fill="none" stroke="#D97706" stroke-width="2"></path>
+<rect fill="#D97706" height="6" width="8" x="16" y="22"></rect>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Point of Sale</h4>
+<p class="text-[11px] text-slate-500 truncate">Shops, offline cashier</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo POS</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Active</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.2.4</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 9: Kitchen Display -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Kitchen Display Icon -->
+<div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<path d="M6 18C6 24 10 26 16 26C22 26 26 24 26 18H6Z" fill="#714B67"></path>
+<circle cx="16" cy="12" fill="#F59E0B" r="3"></circle>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Kitchen Display</h4>
+<p class="text-[11px] text-slate-500 truncate">POS order processing</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 10: Accounting & Invoicing -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Accounting Percentage Icon -->
+<div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0 font-black text-emerald-600 text-xl">
+              %
+            </div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Accounting</h4>
+<p class="text-[11px] text-slate-500 truncate">GL, bank feeds &amp; VAT</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo Enterprise</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.3.8</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 11: Documents -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Documents Icon -->
+<div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<rect fill="#3B82F6" height="18" rx="2" width="14" x="6" y="8"></rect>
+<rect fill="#F59E0B" height="18" opacity="0.8" rx="2" width="14" x="12" y="4"></rect>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Documents</h4>
+<p class="text-[11px] text-slate-500 truncate">OCR &amp; document storage</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Enterprise DMS</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.2.1</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 12: Project -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Project Checkmark Icon -->
+<div class="w-12 h-12 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<path d="M8 16L14 22L24 10" fill="none" stroke="#00A09D" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Project</h4>
+<p class="text-[11px] text-slate-500 truncate">Agile &amp; Gantt management</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.2.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 13: Purchase -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Purchase Layer Icon -->
+<div class="w-12 h-12 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<div class="flex flex-col space-y-1 w-6">
+<div class="h-1.5 bg-teal-600 rounded"></div>
+<div class="h-1.5 bg-purple-700 rounded"></div>
+<div class="h-1.5 bg-cyan-500 rounded"></div>
+</div>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Purchase</h4>
+<p class="text-[11px] text-slate-500 truncate">PO &amp; vendor bills</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.7</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 14: Inventory -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Inventory Isometric Cube Icon -->
+<div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-7 h-7" viewbox="0 0 32 32">
+<path d="M16 4L27 10.5V21.5L16 28L5 21.5V10.5L16 4Z" fill="#F59E0B" opacity="0.9"></path>
+<path d="M16 4L27 10.5L16 17L5 10.5L16 4Z" fill="#FBBF24"></path>
+<path d="M16 17V28L5 21.5V10.5L16 17Z" fill="#D97706"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Inventory</h4>
+<p class="text-[11px] text-slate-500 truncate">Warehouses, serials, lots</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo Core</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.3.5</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 15: Barcode -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Barcode Scanner Icon -->
+<div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center p-2.5 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6 text-purple-700" fill="currentColor" viewbox="0 0 32 32">
+<path d="M4 6h3v20H4zm5 0h2v20H9zm4 0h4v20h-4zm6 0h2v20h-2zm4 0h3v20h-3z"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Barcode</h4>
+<p class="text-[11px] text-slate-500 truncate">Mobile scanner app</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo Mobile</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 16: Repairs -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Repairs Crossed Icon -->
+<div class="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<circle cx="11" cy="11" fill="#00A09D" r="5"></circle>
+<circle cx="21" cy="21" fill="#EF4444" r="5"></circle>
+<circle cx="21" cy="11" fill="#F59E0B" r="5"></circle>
+<circle cx="11" cy="21" fill="#714B67" r="5"></circle>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Repairs</h4>
+<p class="text-[11px] text-slate-500 truncate">Warranty &amp; after-sales</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.3</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 17: Employees -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Employees Team Icon -->
+<div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<circle cx="16" cy="11" fill="#714B67" r="4"></circle>
+<circle cx="9" cy="14" fill="#F59E0B" r="3"></circle>
+<circle cx="23" cy="14" fill="#00A09D" r="3"></circle>
+<path d="M6 24C6 21 9 20 16 20C23 20 26 21 26 24" stroke="#714B67" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Employees</h4>
+<p class="text-[11px] text-slate-500 truncate">Directory, badges &amp; visas</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>HR Master</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.2.1</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 18: Payroll -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Payroll Card Icon -->
+<div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<div class="w-8 h-6 bg-purple-800 rounded flex flex-col justify-between p-1">
+<div class="w-full h-1 bg-purple-400 rounded-xs"></div>
+<div class="w-3 h-1 bg-amber-400 rounded-xs"></div>
+</div>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Payroll</h4>
+<p class="text-[11px] text-slate-500 truncate">WPS, salary rules &amp; slips</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Enterprise Only</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.3.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 19: Attendances -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Attendances Icon -->
+<div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<circle cx="16" cy="12" fill="#D97706" r="4"></circle>
+<path d="M8 24C8 20 12 18 16 18C20 18 24 20 24 24" stroke="#D97706" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="23" cy="23" fill="#EF4444" r="2.5"></circle>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Attendances</h4>
+<p class="text-[11px] text-slate-500 truncate">Kiosk check in / out</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo HR</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.2</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 20: Time Off -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Time Off Umbrella Icon -->
+<div class="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<path d="M16 6C9 6 6 14 6 18H26C26 14 23 6 16 6Z" fill="#F97316"></path>
+<path d="M16 18V25C16 26.5 14.5 26.5 14.5 25" fill="none" stroke="#714B67" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Time Off</h4>
+<p class="text-[11px] text-slate-500 truncate">Annual leave &amp; holidays</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Odoo S.A.</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.5</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 21: Link Tracker -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Link Tracker Chain Icon -->
+<div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<path d="M12 18L10 20C8 22 5 22 3 20C1 18 1 15 3 13L7 9C9 7 12 7 14 9" fill="none" stroke="#D97706" stroke-linecap="round" stroke-width="3"></path>
+<path d="M20 14L22 12C24 10 27 10 29 12C31 14 31 17 29 19L25 23C23 25 20 25 18 23" fill="none" stroke="#714B67" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Link Tracker</h4>
+<p class="text-[11px] text-slate-500 truncate">UTM &amp; campaign analytics</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Marketing</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Installed</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 22: Apps (Installer) -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Apps Quadrant Icon -->
+<div class="w-12 h-12 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<circle cx="16" cy="16" fill="none" r="10" stroke="#00A09D" stroke-width="3"></circle>
+<path d="M16 6V26M6 16H26" stroke="#714B67" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Apps Store</h4>
+<p class="text-[11px] text-slate-500 truncate">Add new features</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>Core System</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Official</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 23: Settings -->
+<div class="bg-white rounded-lg border border-odoo-border p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- Settings Gear / Hexagon Icon -->
+<div class="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" viewbox="0 0 32 32">
+<path d="M16 4L26 10V22L16 28L6 22V10L16 4Z" fill="none" stroke="#EA580C" stroke-width="3"></path>
+<circle cx="16" cy="16" fill="#EA580C" r="4"></circle>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">Settings</h4>
+<p class="text-[11px] text-slate-500 truncate">Users, companies &amp; debug</p>
+<div class="flex items-center gap-1 mt-1 text-[10px] text-slate-400">
+<span>System Root</span>
+<span>•</span>
+<span class="text-emerald-600 font-medium">Configured</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">v18.0.1.0</span>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+<!-- Module 24: WhatsApp Integration (Upgrade Available Example) -->
+<div class="bg-white rounded-lg border border-amber-200 p-3 odoo-card-shadow flex flex-col justify-between transition-all group">
+<div class="flex items-start space-x-3">
+<!-- WhatsApp Chat Icon -->
+<div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center p-2 odoo-icon-shadow shrink-0">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12.031 2a9.97 9.97 0 00-8.625 15.006L2 22l5.12-1.343A9.972 9.972 0 1012.031 2zm0 18.257a8.27 8.27 0 01-4.223-1.155l-.303-.18-3.14.823.838-3.06-.197-.314a8.28 8.28 0 116.925 3.886z"></path>
+</svg>
+</div>
+<div class="overflow-hidden">
+<h4 class="font-bold text-xs text-slate-800 group-hover:text-odoo-purple transition truncate">WhatsApp CRM</h4>
+<p class="text-[11px] text-slate-500 truncate">Automated templates &amp; chat</p>
+<div class="flex items-center gap-1 mt-1 text-[10px]">
+<span class="text-amber-600 font-bold bg-amber-50 px-1 rounded">Update Available</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+<button class="text-[10px] bg-amber-500 hover:bg-amber-600 text-white font-semibold px-2 py-0.5 rounded shadow-xs transition">
+              Upgrade to v18.2
+            </button>
+<button class="text-slate-400 hover:text-slate-700 text-xs px-1">•••</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- END: MainContentWorkspace -->
+<!-- BEGIN: BottomSystemTelemetryStrip -->
+<!-- Authentic Odoo Admin System Health, Database & License Status Bar -->
+<footer class="h-8 bg-slate-900 text-slate-300 border-t border-slate-800 flex items-center justify-between px-3 text-[11px] select-none shrink-0" data-purpose="system-telemetry-bar">
+<!-- Left telemetry info -->
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="text-slate-200 font-medium">Enterprise License: Valid (50 Seats)</span>
+</div>
+<span class="text-slate-600 hidden md:inline">|</span>
+<div class="hidden md:flex items-center space-x-1 text-slate-400">
+<span>Contract Code:</span>
+<span class="font-mono text-slate-200">ODOO-ENT-9942-DXB</span>
+</div>
+<span class="text-slate-600 hidden lg:inline">|</span>
+<div class="hidden lg:flex items-center space-x-1 text-slate-400">
+<span>Worker Threads:</span>
+<span class="text-emerald-400 font-mono font-medium">8 / 8 Active</span>
+</div>
+</div>
+<!-- Right telemetry stats -->
+<div class="flex items-center space-x-4">
+<div class="hidden sm:flex items-center space-x-1 text-slate-400">
+<svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7c0-2-1.5-3-3.5-3h-9C5.5 4 4 5 4 7z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M9 12h6m-6 4h4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Database Size:</span>
+<span class="font-mono text-slate-200">4.2 GB / 25 GB</span>
+</div>
+<div class="flex items-center space-x-1 text-slate-400">
+<span>Redis Cache Hit:</span>
+<span class="text-emerald-400 font-mono">98.4%</span>
+</div>
+<div class="hidden md:flex items-center space-x-1 text-slate-400 border-l border-slate-700 pl-3">
+<span>Last Backup:</span>
+<span class="text-slate-300">Today 03:00 UTC</span>
+</div>
+</div>
+</footer>
+<!-- END: BottomSystemTelemetryStrip -->
+</body></html>

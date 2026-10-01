@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed":"#dbe1ff","background":"#f8f9ff","on-error-container":"#93000a","surface-tint":"#0053d9","on-secondary":"#ffffff","inverse-on-surface":"#eaf1ff","surface-container":"#e5eeff","on-primary":"#ffffff","inverse-primary":"#b4c5ff","outline":"#737687","secondary-fixed":"#dae2fd","inverse-surface":"#213145","surface-container-lowest":"#ffffff","on-tertiary-container":"#f9fbff","on-error":"#ffffff","surface-bright":"#f8f9ff","tertiary-container":"#007bb0","surface-dim":"#cbdbf5","on-surface-variant":"#424655","on-secondary-container":"#5c647a","surface-container-low":"#eff4ff","tertiary-fixed-dim":"#89ceff","on-tertiary":"#ffffff","on-secondary-fixed":"#131b2e","outline-variant":"#c2c6d8","primary-container":"#1b68ff","on-secondary-fixed-variant":"#3f465c","on-tertiary-fixed-variant":"#004c6e","on-primary-container":"#fdfaff","primary-fixed-dim":"#b4c5ff","on-tertiary-fixed":"#001e2f","secondary":"#565e74","secondary-container":"#dae2fd","error-container":"#ffdad6","surface-container-highest":"#d3e4fe","surface-container-high":"#dce9ff","on-primary-fixed-variant":"#003ea7","secondary-fixed-dim":"#bec6e0","on-surface":"#0b1c30","tertiary-fixed":"#c9e6ff","tertiary":"#00618c","error":"#ba1a1a","on-background":"#0b1c30","surface":"#f8f9ff","on-primary-fixed":"#00174a","surface-variant":"#d3e4fe","primary":"#0050d3"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xs":"0.25rem","space-sm":"0.5rem","space-xl":"1.75rem","space-md":"0.75rem","margin-mobile":"1rem",margin:"1.5rem","gutter-mobile":"0.75rem",gutter:"1rem","space-lg":"1.25rem"},fontFamily:{"label-md":["Inter"],"label-lg":["Inter"],"headline-xl":["Inter"],"label-sm":["Inter"],"headline-md":["Inter"],"headline-xl-mobile":["Inter"],"body-lg":["Inter"],"headline-lg":["Inter"],"body-md":["Inter"],"body-sm":["Inter"],"headline-sm":["Inter"],"code-sm":["JetBrains Mono"]},fontSize:{"label-md":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-lg":["13px",{lineHeight:"18px",fontWeight:"500"}],"headline-xl":["30px",{lineHeight:"38px",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"14px",fontWeight:"600"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"headline-xl-mobile":["24px",{lineHeight:"32px",fontWeight:"700"}],"body-lg":["15px",{lineHeight:"22px",fontWeight:"400"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}],"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",fontWeight:"600"}],"code-sm":["12px",{lineHeight:"16px",fontWeight:"400"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/40 z-50 flex items-center justify-between px-space-md"><div class="flex items-center gap-space-md min-w-[240px]"><div class="flex items-center gap-space-sm"><img alt="Frappe ERPNext iconic logo mark, clean blue rounded square with elegant geometric white 'F' and modern tech brand badge. Design context: - Primary color: #1b68ff
+- Font: inter
+- Mode: light
+- Roundness: rounded-md
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U6_RvqW5fbM8pOSEJhIkdwOQ6XK8AWgi0xpie-HDrHC2fQ9OnkpPWAMsGkrh-H6L4ApMh4SoVzWioNh1LXE9UCHMUUacvQ-0GFHf-b869QNsc7AzV-HnwQ9I4dJ22l-Qwo5Q5HVvuTZuPnxP6fgmcwNH1jXeJ5wao9PocIGDkuApXkRmSkwAGZ71cSCbapMQwQzG-N0bluAWypJIlCFJ1J-pfqCCzmR19U03A-85PY23C8KvNxCks3HRc"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Frappe</span></div><div class="h-4 w-[1px] bg-outline-variant/60 hidden sm:block"></div><nav class="hidden sm:flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md"><span class="hover:text-on-surface cursor-pointer">Desk</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="text-on-surface font-semibold">Workspace</span></nav></div><div class="flex-1 max-w-xl px-space-md"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-2.5 text-[18px] text-outline pointer-events-none">search</span><input class="w-full h-8 pl-8 pr-16 bg-surface-container-low rounded-lg text-on-surface placeholder:text-on-surface-variant/70 font-body-sm text-body-sm border border-transparent focus:border-primary-container focus:bg-surface-container-lowest focus:outline-none transition-all" placeholder="Search or type a command (Ctrl + G)" type="text"/><kbd class="absolute right-2 px-1.5 py-0.5 text-[10px] font-code-sm text-code-sm bg-surface-container border border-outline-variant/60 rounded text-on-surface-variant pointer-events-none">Ctrl + G</kbd></div></div><div class="flex items-center gap-space-sm"><button class="h-8 px-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 hover:bg-surface-tint active:scale-[0.98] transition-all shadow-sm"><span class="material-symbols-outlined text-[16px]">add</span><span class="hidden md:inline">Create</span><span class="material-symbols-outlined text-[14px] opacity-70">arrow_drop_down</span></button><div class="h-4 w-[1px] bg-outline-variant/60 mx-0.5"></div><button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[18px]">help_outline</span></button><div class="relative"><button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error border-2 border-surface-container-lowest"></span></button></div><div class="relative flex items-center pl-1"><div class="relative cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary-container border-2 border-surface-container-lowest" title="Active"></span></div></div></div></header><aside class="fixed left-0 top-14 bottom-0 w-60 bg-surface-container-lowest border-r border-outline-variant/40 flex flex-col z-40 overflow-y-auto"><div class="p-space-sm"><div class="px-space-sm py-1.5 text-outline font-label-sm text-label-sm uppercase tracking-wider">Workspaces</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-on-surface font-semibold"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">home</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="accounting" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span>Accounting</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg transition-colors bg-surface-container-high text-on-surface font-semibold" data-path="buying" href="#"><span class="material-symbols-outlined text-[18px]">shopping_cart</span><span>Buying</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="selling" href="#"><span class="material-symbols-outlined text-[18px]">sell</span><span>Selling</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="stock" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span>Stock</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="manufacturing" href="#"><span class="material-symbols-outlined text-[18px]">precision_manufacturing</span><span>Manufacturing</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="human-resources" href="#"><span class="material-symbols-outlined text-[18px]">group</span><span>HR</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="projects" href="#"><span class="material-symbols-outlined text-[18px]">folder_shared</span><span>Projects</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="support" href="#"><span class="material-symbols-outlined text-[18px]">contact_support</span><span>Support</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="crm" href="#"><span class="material-symbols-outlined text-[18px]">diversity_3</span><span>CRM</span></a></nav></div><div class="p-space-sm border-t border-outline-variant/40 mt-auto"><div class="px-space-sm py-1.5 text-outline font-label-sm text-label-sm uppercase tracking-wider">Build &amp; Framework</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-on-surface font-semibold"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="doctype-builder" href="#"><span class="material-symbols-outlined text-[18px]">schema</span><span>DocType Builder</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="workspace-editor" href="#"><span class="material-symbols-outlined text-[18px]">dashboard_customize</span><span>Workspace Editor</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="marketplace" href="#"><span class="material-symbols-outlined text-[18px]">storefront</span><span>Marketplace</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">tune</span><span>Settings</span></a></nav></div></aside><div class="pl-60"><main class="w-full min-h-screen pt-14 bg-background px-margin py-margin"><div class="flex flex-col w-full gap-space-md">
+<!-- Top Control Header Bar -->
+<section class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-primary cursor-pointer transition-colors">Buying</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-on-surface font-headline-sm text-headline-sm">Purchase Order</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2 py-0.5 rounded-full">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Total 218 records</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center gap-1.5 font-label-md text-label-md transition-colors" id="btn-refresh" title="Reload list">
+<span class="material-symbols-outlined text-[16px] text-outline">refresh</span>
+<span>Refresh</span>
+</button>
+<div class="relative inline-block text-left">
+<button class="h-8 w-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" id="btn-menu">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<button class="h-8 px-3 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add Purchase Order</span>
+</button>
+</div>
+</div>
+<!-- View Switcher + Quick Segment Stats -->
+<div class="flex flex-wrap items-center justify-between border-t border-transparent pt-1 gap-space-sm">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[16px]">format_list_bulleted</span>
+<span>List</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">table_chart</span>
+<span>Report</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">view_kanban</span>
+<span>Kanban</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">reorder</span>
+<span>Gantt</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">dashboard</span>
+<span>Dashboard</span>
+</button>
+</div>
+<!-- Quick Summary Pills -->
+<div class="hidden xl:flex items-center gap-2">
+<span class="bg-surface-container px-2.5 py-1 rounded-md text-on-surface-variant font-label-sm text-label-sm">
+          Pending Receipt: <strong class="text-on-surface">54</strong>
+</span>
+<span class="bg-surface-container px-2.5 py-1 rounded-md text-on-surface-variant font-label-sm text-label-sm">
+          Unbilled: <strong class="text-on-surface">$1,420,890.00</strong>
+</span>
+<span class="bg-surface-container px-2.5 py-1 rounded-md text-on-surface-variant font-label-sm text-label-sm">
+          Overdue Delivery: <strong class="text-error font-semibold">6</strong>
+</span>
+</div>
+</div>
+</section>
+<!-- Filter Omni-Bar -->
+<section class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[18px] text-outline pointer-events-none">filter_alt</span>
+<input class="w-full h-8 pl-8 pr-8 bg-surface-container-low rounded-lg text-on-surface placeholder:text-on-surface-variant/70 font-body-sm text-body-sm focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20 transition-all outline-none" placeholder="Filter by PO #, Supplier name, Project, or Tag..." type="text" value=""/>
+<button class="absolute right-2 top-1.5 text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center gap-1 font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[15px]">add</span>
+<span>Add Filter</span>
+</button>
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center gap-1 font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[15px]">bookmark</span>
+<span>Save View</span>
+</button>
+<button class="h-8 px-2 rounded-lg text-on-surface-variant hover:text-error flex items-center gap-1 font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[15px]">clear_all</span>
+<span>Clear All</span>
+</button>
+</div>
+</div>
+<!-- Active Filter Badges -->
+<div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">
+<span>Status</span>
+<span class="opacity-60">=</span>
+<strong class="font-medium">To Receive and Bill</strong>
+<span class="material-symbols-outlined text-[13px] cursor-pointer hover:opacity-75">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">
+<span>Company</span>
+<span class="opacity-60">=</span>
+<strong class="font-medium">Frappe Technologies Inc.</strong>
+<span class="material-symbols-outlined text-[13px] cursor-pointer hover:opacity-75">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">
+<span>Fiscal Year</span>
+<span class="opacity-60">=</span>
+<strong class="font-medium">2024-2025</strong>
+<span class="material-symbols-outlined text-[13px] cursor-pointer hover:opacity-75">close</span>
+</span>
+<button class="inline-flex items-center gap-0.5 px-2 py-0.5 text-primary hover:underline font-label-sm text-label-sm ml-1">
+<span>+ 2 more conditions</span>
+</button>
+</div>
+</section>
+<!-- Frappe Bulk Operations Floating Banner (4 of 218 selected) -->
+<section class="bg-primary text-on-primary rounded-lg p-space-sm px-space-md shadow-md flex flex-wrap items-center justify-between gap-space-sm transition-all duration-150">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 rounded text-primary-container bg-surface-container-lowest focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+<span class="font-label-md text-label-md font-semibold tracking-wide">4 of 218 selected</span>
+</div>
+<button class="font-label-sm text-label-sm underline underline-offset-2 opacity-90 hover:opacity-100 transition-opacity">
+        Select all 218 records in list
+      </button>
+</div>
+<!-- Bulk Actions Suite -->
+<div class="flex items-center flex-wrap gap-1.5">
+<div class="relative">
+<button class="h-7 px-2.5 bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary rounded font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span>Actions</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+<button class="h-7 px-2.5 bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary rounded font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+<span>Create Purchase Receipt</span>
+</button>
+<button class="h-7 px-2.5 bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary rounded font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span>
+<span>Create Purchase Invoice</span>
+</button>
+<button class="h-7 px-2.5 bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary rounded font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+<span>Email Suppliers</span>
+</button>
+<button class="h-7 px-2.5 bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary rounded font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">print</span>
+<span>Bulk Print</span>
+</button>
+<div class="h-4 w-px bg-on-primary/30 mx-0.5"></div>
+<button class="h-7 w-7 rounded flex items-center justify-center hover:bg-surface-container-lowest/20 text-on-primary transition-colors" title="Deselect All">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</section>
+<!-- High-Density Data Table Card -->
+<section class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<!-- Table Header -->
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm tracking-wider uppercase select-none">
+<th class="w-10 px-3 py-2 text-center">
+<input checked="" class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</th>
+<th class="px-3 py-2 font-semibold">PO Number</th>
+<th class="px-3 py-2 font-semibold">Supplier / Party</th>
+<th class="px-3 py-2 font-semibold">Status</th>
+<th class="px-3 py-2 font-semibold">Dates</th>
+<th class="px-3 py-2 font-semibold">Items Summary</th>
+<th class="px-3 py-2 font-semibold text-right">Grand Total</th>
+<th class="px-3 py-2 font-semibold">Warehouse</th>
+<th class="px-3 py-2 font-semibold text-center">Assigned</th>
+<th class="w-8 px-2 py-2 text-center"></th>
+</tr>
+</thead>
+<!-- Table Rows -->
+<tbody class="font-body-md text-body-md divide-y-0 text-on-surface">
+<!-- Row 1 (Selected) -->
+<tr class="bg-surface-container-high/40 hover:bg-surface-container-high/70 transition-colors group cursor-pointer">
+<td class="px-3 py-2 text-center">
+<input checked="" class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">star</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary">PUR-ORD-2025-00341</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  AG
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Apex Global Supplies</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUP-00234 • NET 30</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>To Receive and Bill</span>
+</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex flex-col font-label-sm text-label-sm">
+<span class="text-on-surface">Req: 28 Mar 2025</span>
+<span class="text-on-surface-variant text-[11px]">Tx: 14 Mar 2025</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface">14 SKUs</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm truncate max-w-[160px]">(Bearings, Linear Guides, Seals)</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">$48,250.00</span>
+<span class="block text-[10px] text-on-surface-variant font-code-sm">USD</span>
+</td>
+<td class="px-3 py-2">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container px-1.5 py-0.5 rounded">Central WH - Bay 4</span>
+</td>
+<td class="px-3 py-2 text-center">
+<div class="inline-flex w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant items-center justify-center font-label-sm text-label-sm font-semibold" title="Assigned to John Doe">
+                JD
+              </div>
+</td>
+<td class="px-2 py-2 text-center text-outline group-hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">navigate_next</span>
+</td>
+</tr>
+<!-- Row 2 (Selected) -->
+<tr class="bg-surface-container-high/40 hover:bg-surface-container-high/70 transition-colors group cursor-pointer">
+<td class="px-3 py-2 text-center">
+<input checked="" class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline/40">star</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary">PUR-ORD-2025-00340</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  SH
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Shenzhen Hardware Co</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUP-00109 • LC at sight</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>To Receive and Bill</span>
+</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex flex-col font-label-sm text-label-sm">
+<span class="text-on-surface">Req: 02 Apr 2025</span>
+<span class="text-on-surface-variant text-[11px]">Tx: 14 Mar 2025</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface">3 SKUs</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm truncate max-w-[160px]">(Server Racks, PDU units)</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">$12,410.50</span>
+<span class="block text-[10px] text-on-surface-variant font-code-sm">USD</span>
+</td>
+<td class="px-3 py-2">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container px-1.5 py-0.5 rounded">Datacenter - Rack B</span>
+</td>
+<td class="px-3 py-2 text-center">
+<div class="inline-flex w-6 h-6 rounded-full bg-tertiary-fixed text-on-tertiary-fixed items-center justify-center font-label-sm text-label-sm font-semibold" title="Assigned to Sarah Connor">
+                SC
+              </div>
+</td>
+<td class="px-2 py-2 text-center text-outline group-hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">navigate_next</span>
+</td>
+</tr>
+<!-- Row 3 (Selected) -->
+<tr class="bg-surface-container-high/40 hover:bg-surface-container-high/70 transition-colors group cursor-pointer">
+<td class="px-3 py-2 text-center">
+<input checked="" class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline/40">star</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary">PUR-ORD-2025-00339</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container text-on-surface flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  KI
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Krupp Industrial GmbH</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUP-00881 • NET 60</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>To Receive and Bill</span>
+</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex flex-col font-label-sm text-label-sm">
+<span class="text-on-surface">Req: 10 Apr 2025</span>
+<span class="text-on-surface-variant text-[11px]">Tx: 13 Mar 2025</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface">28 SKUs</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm truncate max-w-[160px]">(Pneumatic Cylinders, Valves)</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">€89,200.00</span>
+<span class="block text-[10px] text-on-surface-variant font-code-sm">EUR</span>
+</td>
+<td class="px-3 py-2">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container px-1.5 py-0.5 rounded">Plant Munich - G1</span>
+</td>
+<td class="px-3 py-2 text-center">
+<div class="inline-flex w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed items-center justify-center font-label-sm text-label-sm font-semibold" title="Assigned to Alex Wright">
+                AW
+              </div>
+</td>
+<td class="px-2 py-2 text-center text-outline group-hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">navigate_next</span>
+</td>
+</tr>
+<!-- Row 4 (Selected) -->
+<tr class="bg-surface-container-high/40 hover:bg-surface-container-high/70 transition-colors group cursor-pointer">
+<td class="px-3 py-2 text-center">
+<input checked="" class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">star</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary">PUR-ORD-2025-00338</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  VA
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Vanguard Aerospace</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUP-00042 • Milestone Net</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>To Receive and Bill</span>
+</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex flex-col font-label-sm text-label-sm">
+<span class="text-on-surface">Req: 15 Apr 2025</span>
+<span class="text-on-surface-variant text-[11px]">Tx: 12 Mar 2025</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface">6 SKUs</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm truncate max-w-[160px]">(Titanium Fasteners, Brackets)</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">$164,800.00</span>
+<span class="block text-[10px] text-on-surface-variant font-code-sm">USD</span>
+</td>
+<td class="px-3 py-2">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container px-1.5 py-0.5 rounded">Aero Cleanroom 02</span>
+</td>
+<td class="px-3 py-2 text-center">
+<div class="inline-flex w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed items-center justify-center font-label-sm text-label-sm font-semibold" title="Assigned to Michelle K">
+                MK
+              </div>
+</td>
+<td class="px-2 py-2 text-center text-outline group-hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">navigate_next</span>
+</td>
+</tr>
+<!-- Row 5 (Unselected - Completed Status) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-3 py-2 text-center">
+<input class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline/30">star</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary">PUR-ORD-2025-00337</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  NT
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Nordic Timber &amp; Pulp</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUP-00712 • Advance</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+<span>Completed</span>
+</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex flex-col font-label-sm text-label-sm">
+<span class="text-on-surface">Req: 10 Mar 2025</span>
+<span class="text-on-surface-variant text-[11px]">Tx: 01 Mar 2025</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface">42 SKUs</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm truncate max-w-[160px]">(Hardwood pallets, Crates)</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">$8,940.00</span>
+<span class="block text-[10px] text-on-surface-variant font-code-sm">USD</span>
+</td>
+<td class="px-3 py-2">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container px-1.5 py-0.5 rounded">Logistics Yard A</span>
+</td>
+<td class="px-3 py-2 text-center">
+<div class="inline-flex w-6 h-6 rounded-full bg-surface-container text-on-surface-variant items-center justify-center font-label-sm text-label-sm font-semibold">
+                JD
+              </div>
+</td>
+<td class="px-2 py-2 text-center text-outline group-hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">navigate_next</span>
+</td>
+</tr>
+<!-- Row 6 (Unselected - To Bill Status) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-3 py-2 text-center">
+<input class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline/30">star</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary">PUR-ORD-2025-00336</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  OM
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Optima Microelectronics</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUP-00315 • NET 15</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>To Bill</span>
+</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex flex-col font-label-sm text-label-sm">
+<span class="text-on-surface">Req: 20 Mar 2025</span>
+<span class="text-on-surface-variant text-[11px]">Tx: 28 Feb 2025</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface">8 SKUs</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm truncate max-w-[160px]">(Microcontrollers, Resistors)</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">$31,120.00</span>
+<span class="block text-[10px] text-on-surface-variant font-code-sm">USD</span>
+</td>
+<td class="px-3 py-2">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container px-1.5 py-0.5 rounded">SMT Assembly Line</span>
+</td>
+<td class="px-3 py-2 text-center">
+<div class="inline-flex w-6 h-6 rounded-full bg-tertiary-fixed text-on-tertiary-fixed items-center justify-center font-label-sm text-label-sm font-semibold">
+                SC
+              </div>
+</td>
+<td class="px-2 py-2 text-center text-outline group-hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">navigate_next</span>
+</td>
+</tr>
+<!-- Row 7 (Unselected - Draft Status) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="px-3 py-2 text-center">
+<input class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline/30">star</span>
+<span class="font-code-sm text-code-sm font-semibold text-primary">PUR-ORD-2025-00335</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  DP
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Delta Polymer Corp</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUP-00502 • Net 30</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Draft</span>
+</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex flex-col font-label-sm text-label-sm">
+<span class="text-on-surface">Req: 30 Apr 2025</span>
+<span class="text-on-surface-variant text-[11px]">Tx: 14 Mar 2025</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface">2 SKUs</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm truncate max-w-[160px]">(Injection Pellets High Density)</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">$5,400.00</span>
+<span class="block text-[10px] text-on-surface-variant font-code-sm">USD</span>
+</td>
+<td class="px-3 py-2">
+<span class="font-label-sm text-label-sm text-on-surface bg-surface-container px-1.5 py-0.5 rounded">Molding Shop</span>
+</td>
+<td class="px-3 py-2 text-center">
+<div class="inline-flex w-6 h-6 rounded-full bg-surface-container text-on-surface-variant items-center justify-center font-label-sm text-label-sm font-semibold">
+                AW
+              </div>
+</td>
+<td class="px-2 py-2 text-center text-outline group-hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">navigate_next</span>
+</td>
+</tr>
+<!-- Row 8 (Unselected - Cancelled Status) -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group cursor-pointer opacity-75">
+<td class="px-3 py-2 text-center">
+<input class="w-3.5 h-3.5 rounded text-primary-container focus:ring-0 cursor-pointer accent-primary-container" type="checkbox"/>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline/30">star</span>
+<span class="font-code-sm text-code-sm font-semibold text-outline line-through">PUR-ORD-2025-00334</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-error-container text-on-error-container flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  TS
+                </div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Tokyo Precision Steels</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SUP-00441 • Cancelled</span>
+</div>
+</div>
+</td>
+<td class="px-3 py-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>Cancelled</span>
+</span>
+</td>
+<td class="px-3 py-2">
+<div class="flex flex-col font-label-sm text-label-sm">
+<span class="text-on-surface">Req: 15 Mar 2025</span>
+<span class="text-on-surface-variant text-[11px]">Tx: 10 Feb 2025</span>
+</div>
+</td>
+<td class="px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface">5 SKUs</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm truncate max-w-[160px]">(Cold Rolled Sheets 2mm)</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right">
+<span class="font-code-sm text-code-sm font-semibold text-outline line-through">¥4,350,000</span>
+<span class="block text-[10px] text-on-surface-variant font-code-sm">JPY</span>
+</td>
+<td class="px-3 py-2">
+<span class="font-label-sm text-label-sm text-outline bg-surface-container px-1.5 py-0.5 rounded">Quarantine</span>
+</td>
+<td class="px-3 py-2 text-center">
+<div class="inline-flex w-6 h-6 rounded-full bg-surface-container text-on-surface-variant items-center justify-center font-label-sm text-label-sm font-semibold">
+                JD
+              </div>
+</td>
+<td class="px-2 py-2 text-center text-outline group-hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">navigate_next</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Data Table Micro Footer & Quick Summaries -->
+<div class="flex flex-wrap items-center justify-between px-space-md py-space-sm bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-md">
+<span>Selected 4 Orders Total: <strong class="text-on-surface font-semibold font-code-sm">$314,660.50</strong></span>
+<span class="hidden md:inline text-outline">•</span>
+<span class="hidden md:inline">Suppliers in Batch: <strong>4</strong></span>
+<span class="hidden md:inline text-outline">•</span>
+<span class="hidden md:inline">Total Items: <strong>51 SKUs</strong></span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 text-primary cursor-pointer hover:underline">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Configure Columns</span>
+</span>
+</div>
+</div>
+</section>
+<!-- Footer Pagination, Utilities & Keyboard Shortlink Telemetry -->
+<footer class="flex flex-col lg:flex-row items-center justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<!-- Pagination Controls -->
+<div class="flex items-center gap-space-md flex-wrap justify-center lg:justify-start">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span>Showing <strong>1 - 8</strong> of <strong>218</strong> orders</span>
+</div>
+<div class="flex items-center gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="page-size-select">Page size:</label>
+<select class="h-7 px-2 bg-surface-container-low text-on-surface font-label-sm text-label-sm rounded outline-none focus:ring-1 focus:ring-primary" id="page-size-select">
+<option selected="" value="20">20</option>
+<option value="50">50</option>
+<option value="100">100</option>
+<option value="500">500</option>
+</select>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-outline transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-7 h-7 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center shadow-xs">
+          1
+        </button>
+<button class="w-7 h-7 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center transition-colors">
+          2
+        </button>
+<button class="w-7 h-7 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center transition-colors">
+          3
+        </button>
+<span class="px-1 text-outline font-label-sm text-label-sm">...</span>
+<button class="w-7 h-7 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center transition-colors">
+          11
+        </button>
+<button class="w-7 h-7 rounded bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Keyboard Navigation Pill -->
+<div class="hidden xl:flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">keyboard</span>
+<span>Desk Shortcuts:</span>
+<kbd class="px-1 bg-surface-container-lowest rounded text-[10px] font-code-sm text-code-sm text-on-surface font-semibold shadow-xs">j</kbd> / <kbd class="px-1 bg-surface-container-lowest rounded text-[10px] font-code-sm text-code-sm text-on-surface font-semibold shadow-xs">k</kbd>
+<span class="text-outline">row nav</span>
+<kbd class="px-1 bg-surface-container-lowest rounded text-[10px] font-code-sm text-code-sm text-on-surface font-semibold shadow-xs">x</kbd>
+<span class="text-outline">select</span>
+<kbd class="px-1 bg-surface-container-lowest rounded text-[10px] font-code-sm text-code-sm text-on-surface font-semibold shadow-xs">c</kbd>
+<span class="text-outline">new</span>
+</div>
+<!-- Export & Format Actions -->
+<div class="flex items-center gap-space-xs flex-wrap justify-center">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center gap-1 font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[15px]">download</span>
+<span>Export CSV</span>
+</button>
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center gap-1 font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[15px]">print_connect</span>
+<span>Print Formats</span>
+</button>
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center gap-1 font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[15px]">hub</span>
+<span>Auto-Allocation</span>
+</button>
+</div>
+</footer>
+<script>
+    // Micro-interactions for live desk behavior
+    document.getElementById('btn-refresh')?.addEventListener('click', function() {
+      const icon = this.querySelector('.material-symbols-outlined');
+      if (icon) {
+        icon.classList.add('animate-spin');
+        setTimeout(() => icon.classList.remove('animate-spin'), 650);
+      }
+    });
+  </script>
+</div></main></div></body></html>

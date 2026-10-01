@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Odoo Apps Menu</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            odoo: {
+              bg: '#dfdbe5',
+              dark: '#1e252b',
+              purple: '#714B67',
+              teal: '#008784',
+              orange: '#E06D53'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', '"Helvetica Neue"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="background-gradient">
+    /* Subtle diagonal gradient mimicking Odoo 16/17 enterprise ambient background */
+    body {
+      background: linear-gradient(135deg, #d3d1e2 0%, #dedce8 25%, #eae8f2 50%, #dad8e7 75%, #ccc9dc 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      user-select: none;
+    }
+  </style>
+<style data-purpose="card-effects">
+    .app-card {
+      transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .app-card:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+    .app-card:hover .app-icon-box {
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.18), 0 4px 8px -2px rgba(0, 0, 0, 0.08);
+    }
+    .app-card:active {
+      transform: translateY(-1px) scale(0.99);
+    }
+    .app-icon-box {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="text-slate-800 antialiased font-sans flex flex-col justify-between min-h-screen">
+<!-- BEGIN: TopNavigationBar -->
+<header class="w-full flex items-center justify-between px-4 py-2 text-slate-800 z-50">
+<!-- Left: Search toggle or spacer -->
+<div class="flex items-center space-x-3">
+<div class="relative transition-all duration-200 opacity-90 focus-within:opacity-100" id="search-container">
+<input autocomplete="off" class="bg-white/60 backdrop-blur-md text-xs sm:text-sm text-slate-800 rounded-md pl-8 pr-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-purple-600/40 focus:bg-white border-0 shadow-sm placeholder-slate-500 w-44 sm:w-64 transition-all duration-200" id="app-search" placeholder="Search apps... (Type to filter)" type="text"/>
+<svg class="w-4 h-4 text-slate-500 absolute left-2.5 top-2 pointer-events-none" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Right: Status / User Navigation Controls -->
+<nav aria-label="Quick Actions" class="flex items-center space-x-4 text-slate-700 font-medium text-xs sm:text-sm">
+<!-- Chat / Discuss with Unread Badge -->
+<button class="relative p-1 hover:text-slate-900 transition-colors focus:outline-none" title="Messages">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+</svg>
+<span class="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full ring-2 ring-white/60">
+          1
+        </span>
+</button>
+<!-- Activities / Clock icon -->
+<button class="p-1 hover:text-slate-900 transition-colors focus:outline-none" title="Activities">
+<svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<polyline points="12 7 12 12 15 15"></polyline>
+</svg>
+</button>
+<!-- Settings / Tools icon -->
+<button class="p-1 hover:text-slate-900 transition-colors focus:outline-none" title="Settings">
+<svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewbox="0 0 24 24">
+<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Company Selector Dropdown -->
+<div class="hidden sm:flex items-center space-x-1 cursor-pointer hover:text-slate-900 px-1 py-1 rounded transition-colors" title="Current Company">
+<span class="font-normal text-xs uppercase tracking-tight text-slate-800 font-semibold truncate max-w-[200px] md:max-w-none">
+          ALQANNAS HUNTING EQUIPMENT L...
+        </span>
+</div>
+<!-- User Avatar / Profile Badge -->
+<div class="flex items-center">
+<button class="w-7 h-7 rounded-sm bg-[#38A169] text-white flex items-center justify-center font-bold text-sm shadow-sm hover:opacity-95 focus:ring-2 focus:ring-offset-1 focus:ring-green-600 focus:outline-none" title="User Profile">
+          C
+        </button>
+</div>
+</nav>
+</header>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: MainContentGrid -->
+<main class="flex-grow flex items-center justify-center p-4 sm:p-8">
+<div class="max-w-6xl w-full mx-auto">
+<!-- Grid Container for Apps -->
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-y-7 gap-x-4 sm:gap-x-8 justify-items-center" id="apps-container">
+<!-- 1. Discuss -->
+<a class="app-card group flex flex-col items-center focus:outline-none text-decoration-none" data-name="discuss" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Speech bubble in vibrant orange/red Odoo discuss theme -->
+<path d="M12 20C12 14.4772 16.4772 10 22 10H42C47.5228 10 52 14.4772 52 20V34C52 39.5228 47.5228 44 42 44H26L14 54V43.6C12.77 42.1 12 40.15 12 38V20Z" fill="#F06037"></path>
+<path d="M22 10H42C47.5228 10 52 14.4772 52 20V34C52 35.8 51.4 37.5 50.4 38.9C47.8 28.5 38.3 20.8 27 20.8C21.7 20.8 16.8 22.4 12.8 25.1C13.5 16.6 20.6 10 22 10Z" fill="#F78248"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Discuss</span>
+</a>
+<!-- 2. Calendar -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="calendar" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" viewbox="0 0 64 64">
+<!-- 31 Calendar Icon -->
+<text fill="#7C4B7E" font-family="system-ui, sans-serif" font-size="39" font-weight="800" x="5" y="47">3</text>
+<text fill="#EB4D4B" font-family="system-ui, sans-serif" font-size="39" font-weight="800" x="29" y="47">1</text>
+<rect fill="#F9A825" height="6" rx="2" width="4" x="52" y="16"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Calendar</span>
+</a>
+<!-- 3. To-do -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="to-do todo" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<path d="M48 16L40 12L16 42V48H22L48 16Z" fill="#00838F"></path>
+<path d="M16 48L22 48L46 19L42 15L16 45V48Z" fill="#00ACC1"></path>
+<path d="M40 12L46 18L50 14L44 8L40 12Z" fill="#006064"></path>
+<line stroke="#00ACC1" stroke-linecap="round" stroke-width="4" x1="20" x2="48" y1="52" y2="52"></line>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">To-do</span>
+</a>
+<!-- 4. Contacts -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="contacts" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Teal Card with person -->
+<rect fill="#009688" height="44" rx="8" width="40" x="12" y="10"></rect>
+<rect fill="#FFFFFF" height="32" rx="4" width="28" x="18" y="16"></rect>
+<circle cx="32" cy="28" fill="#009688" r="6"></circle>
+<path d="M24 42C24 37 27.5 35 32 35C36.5 35 40 37 40 42H24Z" fill="#009688"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Contacts</span>
+</a>
+<!-- 5. WooCommerce -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="woocommerce" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-[#7F54B3] rounded-2xl flex items-center justify-center relative p-2 shadow-sm">
+<div class="text-white font-extrabold text-xl tracking-tighter flex items-center justify-center">
+<span class="italic font-serif font-black text-2xl lowercase">Woo</span>
+</div>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">WooCommerce</span>
+</a>
+<!-- 6. Sales -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="sales crm" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<rect fill="#E65100" height="20" rx="3" width="8" x="12" y="34"></rect>
+<rect fill="#9C27B0" height="30" rx="3" width="8" x="24" y="24"></rect>
+<rect fill="#FB8C00" height="38" rx="3" width="8" x="36" y="16"></rect>
+<rect fill="#FFB300" height="44" rx="3" width="8" x="48" y="10"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Sales</span>
+</a>
+<!-- 7. Dashboards -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="dashboards" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<rect fill="#9C27B0" height="16" rx="4" width="16" x="13" y="13"></rect>
+<rect fill="#E91E63" height="10" rx="4" width="16" x="35" y="13"></rect>
+<rect fill="#00BCD4" height="16" rx="4" width="16" x="13" y="35"></rect>
+<rect fill="#4CAF50" height="22" rx="4" width="16" x="35" y="29"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Dashboards</span>
+</a>
+<!-- 8. Point of Sale -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="point of sale pos" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Shop awning -->
+<path d="M12 28L16 16H48L52 28H12Z" fill="#FBC02D"></path>
+<path d="M18 16L14 28H22L24 16H18Z" fill="#6A1B9A"></path>
+<path d="M30 16L29 28H35L36 16H30Z" fill="#6A1B9A"></path>
+<path d="M42 16L41 28H49L46 16H42Z" fill="#6A1B9A"></path>
+<circle cx="17" cy="30" fill="#6A1B9A" r="3"></circle>
+<circle cx="27" cy="30" fill="#FBC02D" r="3"></circle>
+<circle cx="37" cy="30" fill="#6A1B9A" r="3"></circle>
+<circle cx="47" cy="30" fill="#FBC02D" r="3"></circle>
+<rect fill="#EEEEEE" height="14" rx="2" width="32" x="16" y="34"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950 text-center">Point of Sale</span>
+</a>
+<!-- 9. Kitchen Display -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="kitchen display kds restaurant" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Skillet pan with food items -->
+<path d="M42 22C47.5 27.5 47.5 36.5 42 42C36.5 47.5 27.5 47.5 22 42C16.5 36.5 16.5 27.5 22 22" stroke="#5C1D4E" stroke-linecap="round" stroke-width="5"></path>
+<line stroke="#5C1D4E" stroke-linecap="round" stroke-width="6" x1="38" x2="52" y1="38" y2="52"></line>
+<circle cx="26" cy="26" fill="#FFB300" r="4"></circle>
+<path d="M34 22C34 25.3 31.3 28 28 28" stroke="#E53935" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950 text-center">Kitchen Display</span>
+</a>
+<!-- 10. Accounting -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="accounting invoicing finance" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Accounting Percent % symbol -->
+<line stroke="#4DB6AC" stroke-linecap="round" stroke-width="7" x1="16" x2="48" y1="48" y2="16"></line>
+<circle cx="22" cy="22" fill="#F4511E" r="6"></circle>
+<circle cx="42" cy="42" fill="#7E57C2" r="6"></circle>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Accounting</span>
+</a>
+<!-- 11. Documents -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="documents files dms" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Overlapping colored doc sheets -->
+<rect fill="#00BCD4" height="30" rx="4" transform="rotate(-10 14 20)" width="24" x="14" y="20"></rect>
+<rect fill="#FF9800" height="30" rx="4" width="24" x="22" y="16"></rect>
+<rect fill="#E91E63" height="30" rx="4" transform="rotate(8 28 18)" width="24" x="28" y="18"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Documents</span>
+</a>
+<!-- 12. Project -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="project tasks" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Odoo project checkmark ribbon -->
+<path d="M18 34L28 44L48 20" stroke="#009688" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></path>
+<path d="M38 18L48 20L44 26" fill="#7928CA"></path>
+<circle cx="48" cy="20" fill="#7928CA" r="4"></circle>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Project</span>
+</a>
+<!-- 13. Purchase -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="purchase vendor" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Credit card / receipt split horizontal -->
+<rect fill="#7B1FA2" height="24" rx="4" width="40" x="12" y="20"></rect>
+<rect fill="#00897B" height="6" width="40" x="12" y="28"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Purchase</span>
+</a>
+<!-- 14. Inventory -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="inventory stock warehouse" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Isometric Box / Package -->
+<path d="M32 10L50 20V42L32 52L14 42V20L32 10Z" fill="#FFA000"></path>
+<path d="M32 10L50 20L32 30L14 20L32 10Z" fill="#FFCA28"></path>
+<path d="M32 30V52L50 42V20L32 30Z" fill="#F57C00"></path>
+<path d="M32 30V52L14 42V20L32 30Z" fill="#8E24AA"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Inventory</span>
+</a>
+<!-- 15. Barcode -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="barcode scanner" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Purple Barcode Lines -->
+<rect fill="#9C27B0" height="32" rx="2" width="5" x="14" y="16"></rect>
+<rect fill="#9C27B0" height="32" rx="1.5" width="3" x="23" y="16"></rect>
+<rect fill="#9C27B0" height="32" rx="2" width="7" x="30" y="16"></rect>
+<rect fill="#9C27B0" height="32" rx="1.5" width="3" x="41" y="16"></rect>
+<rect fill="#9C27B0" height="32" rx="2" width="4" x="47" y="16"></rect>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Barcode</span>
+</a>
+<!-- 16. Repairs -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="repairs maintenance" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Crossed loops / infinity knot in teal & red -->
+<path d="M18 42C26 34 38 22 46 18C49 22 46 30 38 38C30 46 22 49 18 42Z" fill="#009688"></path>
+<path d="M18 18C22 14 30 18 38 26C46 34 49 42 42 46C34 50 26 46 18 38" stroke="#E91E63" stroke-linecap="round" stroke-width="6"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Repairs</span>
+</a>
+<!-- 17. Employees -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="employees hr team users" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Group of avatars -->
+<circle cx="32" cy="22" fill="#6A1B9A" r="6"></circle>
+<path d="M22 36C22 32 26 31 32 31C38 31 42 32 42 36V38H22V36Z" fill="#6A1B9A"></path>
+<circle cx="19" cy="26" fill="#0097A7" r="4.5"></circle>
+<path d="M12 40C12 36.5 15 35 19 35C20.5 35 22 35.3 23 36V40H12Z" fill="#0097A7"></path>
+<circle cx="45" cy="26" fill="#FFB300" r="4.5"></circle>
+<path d="M52 40C52 36.5 49 35 45 35C43.5 35 42 35.3 41 36V40H52Z" fill="#FFB300"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Employees</span>
+</a>
+<!-- 18. Payroll -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="payroll payslip salary" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Card / Payslip with user chip -->
+<rect fill="#C2185B" height="26" rx="4" width="40" x="12" y="20"></rect>
+<rect fill="#880E4F" height="5" width="40" x="12" y="24"></rect>
+<circle cx="44" cy="36" fill="#FFFFFF" r="2.5"></circle>
+<path d="M41 42C41 40 42.5 39 44 39C45.5 39 47 40 47 42H41Z" fill="#FFFFFF"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Payroll</span>
+</a>
+<!-- 19. Attendances -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="attendances check-in clock" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Attendance swipe / biometric icon -->
+<rect fill="#E65100" height="12" rx="4" width="32" x="16" y="38"></rect>
+<circle cx="25" cy="22" fill="#E65100" r="5"></circle>
+<circle cx="40" cy="30" fill="#FB8C00" r="3"></circle>
+<path d="M19 33C19 28 22 27 25 27C27 27 28.5 27.5 29.5 29" stroke="#E65100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Attendances</span>
+</a>
+<!-- 20. Time Off -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="time off vacation holiday leaves" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Umbrella icon for leaves/vacation -->
+<path d="M32 14C20 14 14 26 14 26H50C50 26 44 14 32 14Z" fill="#FFA000"></path>
+<path d="M26 15C22 17 18 26 18 26H32V14C30 14 28 14.3 26 15Z" fill="#03A9F4"></path>
+<line stroke="#795548" stroke-linecap="round" stroke-width="3" x1="32" x2="32" y1="26" y2="48"></line>
+<path d="M32 48C32 50.2 30.2 52 28 52C25.8 52 24 50.2 24 48" fill="none" stroke="#795548" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Time Off</span>
+</a>
+<!-- 21. Link Tracker -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="link tracker marketing utm" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Chain links icon in purple and gold -->
+<path d="M24 38L18 44C14 48 20 54 24 50L30 44" stroke="#8E24AA" stroke-linecap="round" stroke-width="6"></path>
+<path d="M40 26L46 20C50 16 44 10 40 14L34 20" stroke="#FFB300" stroke-linecap="round" stroke-width="6"></path>
+<line stroke="#5C1D4E" stroke-linecap="round" stroke-width="5" x1="26" x2="38" y1="38" y2="26"></line>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Link Tracker</span>
+</a>
+<!-- 22. Apps -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="apps modules store plugins" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Segmented circle apps icon -->
+<path d="M30 14A16 16 0 0 0 14 30H30V14Z" fill="#00ACC1"></path>
+<path d="M34 14V30H50A16 16 0 0 0 34 14Z" fill="#8E24AA"></path>
+<path d="M14 34A16 16 0 0 0 30 50V34H14Z" fill="#E53935"></path>
+<path d="M50 34H34V50A16 16 0 0 0 50 34Z" fill="#039BE5"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Apps</span>
+</a>
+<!-- 23. Settings -->
+<a class="app-card group flex flex-col items-center focus:outline-none" data-name="settings configuration preferences" href="#">
+<div class="app-icon-box w-[76px] h-[76px] sm:w-[84px] sm:h-[84px] bg-white rounded-2xl flex items-center justify-center relative p-3">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 64 64">
+<!-- Hexagonal Gear / Nut icon -->
+<polygon fill="#8E24AA" points="32,12 48,21 48,43 32,52 16,43 16,21"></polygon>
+<polygon fill="#FB8C00" points="32,16 44,23 44,41 32,48 20,41 20,23"></polygon>
+<circle cx="32" cy="32" fill="#FFFFFF" r="7"></circle>
+</svg>
+</div>
+<span class="mt-2 text-xs sm:text-sm font-medium text-slate-700 tracking-tight group-hover:text-slate-950">Settings</span>
+</a>
+</div>
+<!-- END: Grid Container -->
+<!-- Empty Search State -->
+<div class="hidden text-center py-12 text-slate-600" id="no-results">
+<p class="text-lg font-semibold">No apps found</p>
+<p class="text-sm text-slate-500 mt-1">Press ESC or clear search to reset</p>
+</div>
+</div>
+</main>
+<!-- END: MainContentGrid -->
+<!-- BEGIN: BottomStatusBar -->
+<footer class="w-full flex items-center justify-between text-xs text-slate-500 font-mono select-none pointer-events-none p-1.5 opacity-80">
+<div class="bg-black/80 text-white/90 px-2 py-0.5 rounded text-[11px] font-sans">
+      alqannas.odoo.com/odoo/barcode
+    </div>
+<div class="pr-2 text-[11px] hidden sm:block text-slate-600 font-sans">
+      Odoo Community / Enterprise
+    </div>
+</footer>
+<!-- END: BottomStatusBar -->
+<!-- BEGIN: InteractiveSearchScript -->
+<script data-purpose="app-search-filter">
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('app-search');
+      const appCards = document.querySelectorAll('.app-card');
+      const noResults = document.getElementById('no-results');
+
+      // Instant search filter matching standard Odoo launcher behavior
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        appCards.forEach((card) => {
+          const name = card.getAttribute('data-name').toLowerCase();
+          const label = card.querySelector('span').innerText.toLowerCase();
+          
+          if (name.includes(query) || label.includes(query)) {
+            card.classList.remove('hidden');
+            card.classList.add('flex');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+            card.classList.remove('flex');
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      });
+
+      // Quick keyboard listener: typing anywhere focuses search; ESC clears
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          searchInput.value = '';
+          searchInput.dispatchEvent(new Event('input'));
+          searchInput.blur();
+        } else if (document.activeElement !== searchInput && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+          searchInput.focus();
+        }
+      });
+    });
+  </script>
+<!-- END: InteractiveSearchScript -->
+</body></html>
